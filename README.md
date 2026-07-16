@@ -21,16 +21,17 @@ npm test
 
 The production site is a static export deployed as a Cloudflare Worker. The
 public GitHub repository runs lint and tests on every pull request and push.
-Cloudflare Workers Builds deploys pushes to `main` through its GitHub
-integration, so no Cloudflare credential is stored in the repository.
+GitHub Actions deploys successful pushes to `main` using Cloudflare credentials
+stored only as encrypted repository secrets.
 
-Create or connect a Worker named `euclid-elements-reader` to
-`avyfain/euclid`, then use these build settings:
+The workflow expects these GitHub Actions secrets:
 
-- Production branch: `main`
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-- Non-production deploy command: `npx wrangler versions upload`
+- `CLOUDFLARE_API_TOKEN`: an account-scoped token with only Workers Scripts Edit
+- `CLOUDFLARE_ACCOUNT_ID`: the target Cloudflare account ID
+
+The Worker is named `euclid-elements-reader`; `wrangler.jsonc` contains the
+public deployment configuration. Run `npm run deploy` for an authorized manual
+deployment.
 
 ## Import another book
 

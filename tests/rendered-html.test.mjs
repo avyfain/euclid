@@ -70,6 +70,16 @@ test("emits a public static export without local metadata", async () => {
   assert.doesNotMatch(html, /https?:\/\/localhost|\/Users\/|appgprj_/);
 });
 
+test("keeps Cloudflare Workers Builds as the sole deployment owner", async () => {
+  const [wrangler, workflow] = await Promise.all([
+    readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../.github/workflows/ci.yml", import.meta.url), "utf8"),
+  ]);
+
+  assert.equal(wrangler.name, "euclid");
+  assert.doesNotMatch(workflow, /wrangler deploy|CLOUDFLARE_API_TOKEN/);
+});
+
 test("ships complete Book I data and an extensible book catalog", async () => {
   const [book, catalog, editorialNotes, extractor, reader, figure, styles] = await Promise.all([
     readFile(new URL("../app/data/book-1.json", import.meta.url), "utf8").then(JSON.parse),

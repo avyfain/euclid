@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "euclid-elements-reader",
+  "name": "euclid",
   "compatibility_date": "2026-07-16",
   "main": "./worker/index.ts",
   "assets": {

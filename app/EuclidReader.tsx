@@ -483,9 +483,8 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 <a href="https://www.faingezicht.com/" target="_blank" rel="noreferrer">
                   Avy Faingezicht
                 </a>
-                , a software engineer in San Francisco. Building projects like this is
-                how I teach myself about difficult subjects and understand the world
-                more deeply.
+                , a human in San Francisco. Building projects like this is how I teach
+                myself about difficult subjects and understand the world more deeply.
               </p>
               <p>
                 Built with Codex on Sol 5.6. It&apos;s open source; suggestions are

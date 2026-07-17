@@ -186,7 +186,14 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(reader, /className="proposition-title"[\s\S]*?data-line="1"/);
   assert.match(reader, /document\.title = `\$\{active\.item\.label\} \| Euclid's Elements`/);
   assert.match(reader, /articleHeadingRef\.current\?\.focus\(\{ preventScroll: true \}\)/);
-  assert.equal((reader.match(/tabIndex=\{-1\}/g) ?? []).length, 2);
+  assert.equal((reader.match(/tabIndex=\{-1\}/g) ?? []).length, 3);
+  assert.match(reader, /window\.matchMedia\("\(max-width: 900px\)"\)/);
+  assert.match(reader, /element\.inert = true/);
+  assert.match(reader, /element\.getClientRects\(\)\.length > 0/);
+  assert.match(reader, /element\.closest\("details:not\(\[open\]\)"\)/);
+  assert.match(reader, /event\.key === "Escape" && navOpen && isCompact/);
+  assert.match(reader, /role=\{isCompact \? "dialog" : undefined\}/);
+  assert.match(reader, /aria-modal=\{isCompact && navOpen \? true : undefined\}/);
   assert.match(reader, /<PropositionFigure propositionId=\{activeItem\.id\} \/>/);
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));

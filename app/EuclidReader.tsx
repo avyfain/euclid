@@ -157,10 +157,14 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const [anchorTarget, setAnchorTarget] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [navOpen, setNavOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const articleRef = useRef<HTMLElement>(null);
   const articleHeadingRef = useRef<HTMLHeadingElement>(null);
   const focusArticleOnChangeRef = useRef(false);
+  const contentsPanelRef = useRef<HTMLElement>(null);
+  const contentsHeadingRef = useRef<HTMLHeadingElement>(null);
+  const navInvokerRef = useRef<HTMLElement | null>(null);
 
   const activeIndex = Math.max(
     0,
@@ -209,6 +213,54 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   }, [activeItemId, anchorTarget]);
 
   useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const syncCompactLayout = () => setIsCompact(media.matches);
+    syncCompactLayout();
+    media.addEventListener("change", syncCompactLayout);
+    return () => media.removeEventListener("change", syncCompactLayout);
+  }, []);
+
+  useEffect(() => {
+    if (!isCompact || !navOpen) return;
+    const background = document.querySelectorAll<HTMLElement>(
+      ".topbar, .reading-pane, .notes-panel",
+    );
+    background.forEach((element) => {
+      element.inert = true;
+    });
+
+    const containFocus = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(
+        contentsPanelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not(:disabled), input:not(:disabled), summary, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      ).filter(
+        (element) =>
+          element.getClientRects().length > 0 &&
+          (!element.closest("details:not([open])") || element.tagName === "SUMMARY"),
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", containFocus);
+    return () => {
+      document.removeEventListener("keydown", containFocus);
+      background.forEach((element) => {
+        element.inert = false;
+      });
+    };
+  }, [isCompact, navOpen]);
+
+  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       const isTyping =
@@ -217,8 +269,16 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
         target?.isContentEditable;
       if ((event.key === "/" && !isTyping) || (event.key === "k" && (event.metaKey || event.ctrlKey))) {
         event.preventDefault();
+        navInvokerRef.current = document.activeElement as HTMLElement | null;
         setNavOpen(true);
         window.setTimeout(() => searchRef.current?.focus(), 0);
+      }
+      if (event.key === "Escape" && navOpen && isCompact) {
+        event.preventDefault();
+        setQuery("");
+        setNavOpen(false);
+        window.setTimeout(() => navInvokerRef.current?.focus(), 0);
+        return;
       }
       if (event.key === "Escape" && query) {
         setQuery("");
@@ -228,7 +288,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [query]);
+  }, [isCompact, navOpen, query]);
 
   const normalizedQuery = query.trim().toLowerCase();
   const searchResults = useMemo(
@@ -281,9 +341,23 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
     }
   };
 
-  const openSearch = () => {
+  const closeNavigation = (restoreFocus = true) => {
+    setNavOpen(false);
+    if (restoreFocus) {
+      window.setTimeout(() => navInvokerRef.current?.focus(), 0);
+    }
+  };
+
+  const openNavigation = (invoker: HTMLElement, focusSearch = false) => {
+    navInvokerRef.current = invoker;
     setNavOpen(true);
-    window.setTimeout(() => searchRef.current?.focus(), 0);
+    window.setTimeout(() => {
+      if (focusSearch) {
+        searchRef.current?.focus();
+      } else {
+        contentsHeadingRef.current?.focus();
+      }
+    }, 0);
   };
 
   return (
@@ -292,9 +366,16 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
         <button
           className="nav-toggle"
           type="button"
-          aria-label="Open table of contents"
+          aria-label={navOpen ? "Close table of contents" : "Open table of contents"}
+          aria-controls="book-contents"
           aria-expanded={navOpen}
-          onClick={() => setNavOpen((value) => !value)}
+          onClick={(event) => {
+            if (navOpen) {
+              closeNavigation(false);
+            } else {
+              openNavigation(event.currentTarget);
+            }
+          }}
         >
           <span aria-hidden="true">☰</span>
         </button>
@@ -337,7 +418,13 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
           </div>
         </nav>
 
-        <button className="search-trigger" type="button" onClick={openSearch}>
+        <button
+          className="search-trigger"
+          type="button"
+          aria-controls="book-contents"
+          aria-expanded={navOpen}
+          onClick={(event) => openNavigation(event.currentTarget, true)}
+        >
           <span aria-hidden="true">⌕</span>
           <span>Search</span>
           <kbd>⌘ K</kbd>
@@ -346,20 +433,36 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
 
       <div className="reader-workspace">
         {navOpen && (
-          <button
+          <div
             className="nav-scrim"
-            aria-label="Close table of contents"
-            type="button"
-            onClick={() => setNavOpen(false)}
+            aria-hidden="true"
+            onClick={() => closeNavigation()}
           />
         )}
 
-        <aside className={`contents-panel${navOpen ? " is-open" : ""}`} aria-label="Book I contents">
+        <aside
+          className={`contents-panel${navOpen ? " is-open" : ""}`}
+          id="book-contents"
+          ref={contentsPanelRef}
+          role={isCompact ? "dialog" : undefined}
+          aria-label={isCompact ? undefined : "Book I contents"}
+          aria-labelledby={isCompact ? "contents-title" : undefined}
+          aria-modal={isCompact && navOpen ? true : undefined}
+          inert={isCompact && !navOpen ? true : undefined}
+        >
           <div className="contents-heading">
             <div>
               <span className="eyebrow">Now reading</span>
-              <h2>{book.title}</h2>
+              <h2 id="contents-title" ref={contentsHeadingRef} tabIndex={-1}>{book.title}</h2>
             </div>
+            <button
+              className="contents-close"
+              type="button"
+              aria-label="Close table of contents"
+              onClick={() => closeNavigation()}
+            >
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
 
           <nav className="mobile-book-shelf" aria-label="Books of the Elements">

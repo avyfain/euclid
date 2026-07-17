@@ -229,6 +229,10 @@ kbd {
   display: none;
 }
 
+.contents-close {
+  display: none;
+}
+
 .reader-workspace {
   display: grid;
   min-height: 0;
@@ -1294,6 +1298,19 @@ kbd {
 
   .contents-panel.is-open {
     transform: translateX(0);
+  }
+
+  .contents-close {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 24px;
   }
 
   .mobile-book-shelf {

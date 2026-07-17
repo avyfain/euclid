@@ -511,7 +511,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 ref={searchRef}
                 type="search"
                 value={query}
-                aria-controls="search-results"
+                aria-controls={normalizedQuery.length >= 2 ? "search-results" : undefined}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search Book I"
               />

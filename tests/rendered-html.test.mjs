@@ -156,8 +156,15 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.equal((sourceHtml.match(/class="source-line-number"/g) ?? []).length, 229);
   assert.match(
     sourceHtml,
-    /<span class="segment" aria-label="line segment AB">AB<\/span>/,
+    /<span class="segment" aria-label="line segment A B">AB<\/span>/,
   );
+  const citationTags = [...sourceHtml.matchAll(/<a class="citation-link"[^>]+>/g)].map(
+    (match) => match[0],
+  );
+  assert.ok(citationTags.length > 100);
+  assert.ok(citationTags.every((tag) => /aria-label="Book \d+, /.test(tag)));
+  assert.match(sourceHtml, /aria-label="Book 1, Proposition 1"/);
+  assert.match(sourceHtml, /aria-label="Book 6, Proposition 3, opens in new tab"/);
   assert.doesNotMatch(sourceHtml, /<em>AB<\/em>/);
 
   assert.match(catalog, /"XIII"/);

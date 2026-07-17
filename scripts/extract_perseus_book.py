@@ -113,27 +113,28 @@ def beta_code_to_unicode(value: str) -> str:
     return "".join(output)
 
 
-def target_to_href(target: str, current_book: int) -> tuple[str, bool]:
+def target_to_href(target: str, current_book: int) -> tuple[str, bool, str]:
     patterns = (
-        (r"^elem\.(\d+)\.def\.(\d+)$", "def-{}", "Def"),
-        (r"^elem\.(\d+)\.post\.(\d+)$", "post-{}", "Post"),
-        (r"^elem\.(\d+)\.c\.n\.(\d+)$", "cn-{}", "CN"),
-        (r"^elem\.(\d+)\.(\d+)$", "prop-{}", "Prop"),
+        (r"^elem\.(\d+)\.def\.(\d+)$", "def-{}", "Def", "Definition"),
+        (r"^elem\.(\d+)\.post\.(\d+)$", "post-{}", "Post", "Postulate"),
+        (r"^elem\.(\d+)\.c\.n\.(\d+)$", "cn-{}", "CN", "Common notion"),
+        (r"^elem\.(\d+)\.(\d+)$", "prop-{}", "Prop", "Proposition"),
     )
-    for pattern, template, section_code in patterns:
+    for pattern, template, section_code, spoken_section in patterns:
         match = re.match(pattern, target, flags=re.I)
         if match:
             target_book = int(match.group(1))
             number = match.group(2)
+            accessible_label = f"Book {target_book}, {spoken_section} {number}"
             if target_book == current_book:
-                return f"#{template.format(number)}", False
+                return f"#{template.format(number)}", False, accessible_label
             url = (
                 "https://www.perseus.tufts.edu/hopper/text?doc="
                 f"Perseus%3Atext%3A1999.01.0086%3Abook%3D{target_book}%3A"
                 f"type%3D{section_code}%3Anumber%3D{number}"
             )
-            return url, True
-    return "", False
+            return url, True, f"{accessible_label}, opens in new tab"
+    return "", False, ""
 
 
 def render_children(
@@ -167,8 +168,9 @@ def render_node(
         segment_name = plain_text(element)
         if re.fullmatch(r"[A-Z]{2}", segment_name):
             escaped_name = html.escape(segment_name)
+            spoken_name = " ".join(segment_name)
             return (
-                f'<span class="segment" aria-label="line segment {escaped_name}">'
+                f'<span class="segment" aria-label="line segment {spoken_name}">'
                 f"{escaped_name}</span>"
             )
         return f"<em>{content}</em>"
@@ -186,10 +188,17 @@ def render_node(
     if tag == "title":
         return f"<cite>{content}</cite>"
     if tag in {"ref", "xref"}:
-        href, external = target_to_href(element.get("target", ""), book_number)
+        href, external, accessible_label = target_to_href(
+            element.get("target", ""),
+            book_number,
+        )
         if href:
             external_attributes = ' target="_blank" rel="noreferrer"' if external else ""
-            return f'<a class="citation-link" href="{href}"{external_attributes}>{content}</a>'
+            escaped_label = html.escape(accessible_label, quote=True)
+            return (
+                f'<a class="citation-link" href="{href}" aria-label="{escaped_label}"'
+                f"{external_attributes}>{content}</a>"
+            )
         return content
     if tag == "hi":
         rendition = element.get("rend", "")

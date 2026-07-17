@@ -503,37 +503,51 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             </div>
           </nav>
 
-          <label className="search-box">
-            <span aria-hidden="true">⌕</span>
-            <span className="sr-only">Search Book I</span>
-            <input
-              ref={searchRef}
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search Book I"
-            />
-            <kbd>/</kbd>
-          </label>
+          <div className="contents-search" role="search">
+            <label className="search-box">
+              <span aria-hidden="true">⌕</span>
+              <span className="sr-only">Search Book I</span>
+              <input
+                ref={searchRef}
+                type="search"
+                value={query}
+                aria-controls="search-results"
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search Book I"
+              />
+              <kbd>/</kbd>
+            </label>
 
-          {normalizedQuery.length >= 2 ? (
-            <div className="search-results" aria-live="polite">
-              <div className="results-meta">
-                {searchResults.length ? `${searchResults.length} results` : "No results"}
-              </div>
-              {searchResults.map(({ item, section }) => (
-                <button
-                  className="search-result"
-                  key={item.id}
-                  type="button"
-                  onClick={() => selectItem(item.id)}
+            {normalizedQuery.length >= 2 && (
+              <div className="search-results" id="search-results">
+                <div
+                  className="results-meta"
+                  id="search-results-status"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
                 >
-                  <span>{section.abbreviation} {item.number}</span>
-                  <strong>{item.headline}</strong>
-                </button>
-              ))}
-            </div>
-          ) : (
+                  {searchResults.length ? `${searchResults.length} results` : "No results"}
+                </div>
+                <ul className="search-result-list">
+                  {searchResults.map(({ item, section }) => (
+                    <li key={item.id}>
+                      <button
+                        className="search-result"
+                        type="button"
+                        onClick={() => selectItem(item.id)}
+                      >
+                        <span>{section.abbreviation} {item.number}</span>
+                        <strong>{item.headline}</strong>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {normalizedQuery.length < 2 && (
             <>
               <nav className="section-list" aria-label="Book I sections">
                 {readerSections.map((section) => (
@@ -541,6 +555,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                     className={section.id === activeSection.id ? "is-active" : ""}
                     type="button"
                     key={section.id}
+                    aria-current={section.id === activeSection.id ? "page" : undefined}
                     onClick={() => selectItem(section.items[0].id)}
                   >
                     <span>{section.label}</span>

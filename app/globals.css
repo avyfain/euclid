@@ -440,6 +440,12 @@ kbd {
   margin-top: 16px;
 }
 
+.search-result-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .results-meta {
   margin: 0 4px 9px;
 }

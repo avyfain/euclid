@@ -198,6 +198,10 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(reader, /Announce source line numbers/);
   assert.match(reader, /Source line \$1\./);
   assert.match(reader, /addAccessibleLineNumbers\(block, announceLineNumbers\)/);
+  assert.match(reader, /className="contents-search" role="search"/);
+  assert.match(reader, /id="search-results-status"[\s\S]*?role="status"/);
+  assert.match(reader, /<ul className="search-result-list">/);
+  assert.match(reader, /aria-current=\{section\.id === activeSection\.id \? "page" : undefined\}/);
   assert.match(reader, /<PropositionFigure propositionId=\{activeItem\.id\} \/>/);
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));

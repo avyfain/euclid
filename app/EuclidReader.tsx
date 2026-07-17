@@ -159,6 +159,8 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const [navOpen, setNavOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const articleRef = useRef<HTMLElement>(null);
+  const articleHeadingRef = useRef<HTMLHeadingElement>(null);
+  const focusArticleOnChangeRef = useRef(false);
 
   const activeIndex = Math.max(
     0,
@@ -167,23 +169,36 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const active = allItems[activeIndex] ?? allItems[0];
 
   useEffect(() => {
-    const syncFromLocation = () => {
+    const syncFromLocation = (focusArticle = false) => {
       const id = decodeURIComponent(window.location.hash.slice(1));
       const resolvedItemId = targetToItemId.get(id);
       if (resolvedItemId) {
+        focusArticleOnChangeRef.current = focusArticle;
         setActiveItemId(resolvedItemId);
         setAnchorTarget(id === resolvedItemId ? null : id);
       }
     };
 
     syncFromLocation();
-    window.addEventListener("hashchange", syncFromLocation);
-    window.addEventListener("popstate", syncFromLocation);
+    const syncAndFocusFromLocation = () => syncFromLocation(true);
+    window.addEventListener("hashchange", syncAndFocusFromLocation);
+    window.addEventListener("popstate", syncAndFocusFromLocation);
     return () => {
-      window.removeEventListener("hashchange", syncFromLocation);
-      window.removeEventListener("popstate", syncFromLocation);
+      window.removeEventListener("hashchange", syncAndFocusFromLocation);
+      window.removeEventListener("popstate", syncAndFocusFromLocation);
     };
   }, [targetToItemId]);
+
+  useEffect(() => {
+    if (!active) return;
+    document.title = `${active.item.label} | Euclid's Elements`;
+    if (!focusArticleOnChangeRef.current) return;
+    focusArticleOnChangeRef.current = false;
+    const frame = window.requestAnimationFrame(() => {
+      articleHeadingRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [active]);
 
   useEffect(() => {
     if (!anchorTarget) return;
@@ -252,6 +267,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const selectItem = (id: string, push = true) => {
     const resolvedItemId = targetToItemId.get(id);
     if (!resolvedItemId) return;
+    focusArticleOnChangeRef.current = true;
     setActiveItemId(resolvedItemId);
     setAnchorTarget(id === resolvedItemId ? null : id);
     setQuery("");
@@ -486,10 +502,12 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
               <h1
                 className="proposition-title"
                 data-line="1"
+                ref={articleHeadingRef}
+                tabIndex={-1}
                 dangerouslySetInnerHTML={{ __html: propositionHeadlineHtml ?? activeItem.headline }}
               />
             ) : (
-              <h1>{activeItem.label}</h1>
+              <h1 ref={articleHeadingRef} tabIndex={-1}>{activeItem.label}</h1>
             )}
 
             <PropositionFigure propositionId={activeItem.id} />

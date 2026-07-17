@@ -183,6 +183,9 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(articleMarkup, /position="bottom"/);
   assert.match(reader, /dangerouslySetInnerHTML=\{\{ __html: propositionHeadlineHtml/);
   assert.match(reader, /className="proposition-title"[\s\S]*?data-line="1"/);
+  assert.match(reader, /document\.title = `\$\{active\.item\.label\} \| Euclid's Elements`/);
+  assert.match(reader, /articleHeadingRef\.current\?\.focus\(\{ preventScroll: true \}\)/);
+  assert.equal((reader.match(/tabIndex=\{-1\}/g) ?? []).length, 2);
   assert.match(reader, /<PropositionFigure propositionId=\{activeItem\.id\} \/>/);
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));

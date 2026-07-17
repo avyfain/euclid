@@ -1379,6 +1379,28 @@ kbd {
   text-decoration-skip-ink: none;
 }
 
+.angle {
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.angle::before {
+  margin-right: 0.04em;
+  content: "∠";
+  font-style: normal;
+}
+
+.triangle {
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.triangle::before {
+  margin-right: 0.04em;
+  content: "△";
+  font-style: normal;
+}
+
 .source-copy q,
 .note-copy q {
   quotes: '"' '"' "'" "'";

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { BOOK_CATALOG } from "./data/catalog";
 import { EDITORIAL_NOTES } from "./data/editorial-notes";
+import { addGeometricNotation } from "./geometric-notation";
 import { PropositionFigure, type ProofReference } from "./PropositionFigure";
 import type { EuclidBook, EuclidItem, EuclidSection, SourceNote } from "./data/types";
 
@@ -94,7 +95,7 @@ function NotesList({ notes, editorial = false }: { notes: SourceNote[]; editoria
           {note.blocks.map((block, index) => (
             <div
               className="note-copy"
-              dangerouslySetInnerHTML={{ __html: block }}
+              dangerouslySetInnerHTML={{ __html: addGeometricNotation(block) }}
               key={index}
             />
           ))}
@@ -388,6 +389,9 @@ export function EuclidReader({
       '<span class="source-line-number" aria-hidden="true" data-line="1"></span>',
       "",
     );
+  const propositionTitleHtml = addGeometricNotation(
+    propositionHeadlineHtml ?? activeItem.headline,
+  );
   const proofReferences = extractProofReferences(activeItem);
 
   const selectItem = (id: string, push = true) => {
@@ -767,7 +771,7 @@ export function EuclidReader({
                   data-line="1"
                   ref={articleHeadingRef}
                   tabIndex={-1}
-                  dangerouslySetInnerHTML={{ __html: propositionHeadlineHtml ?? activeItem.headline }}
+                  dangerouslySetInnerHTML={{ __html: propositionTitleHtml }}
                 />
               </>
             ) : (
@@ -797,7 +801,7 @@ export function EuclidReader({
                       className="source-block"
                       // The extraction script emits only a small, explicit TEI tag allowlist.
                       dangerouslySetInnerHTML={{
-                        __html: addAccessibleLineNumbers(block),
+                        __html: addGeometricNotation(addAccessibleLineNumbers(block)),
                       }}
                       key={blockIndex}
                     />

@@ -281,7 +281,10 @@ test("ships all thirteen books and their visualization contracts", async () => {
   assert.doesNotMatch(articleMarkup, /position="top"/);
   assert.equal((articleMarkup.match(/<EntryPagination/g) ?? []).length, 1);
   assert.match(articleMarkup, /position="bottom"/);
-  assert.match(reader, /dangerouslySetInnerHTML=\{\{ __html: propositionHeadlineHtml/);
+  assert.match(reader, /dangerouslySetInnerHTML=\{\{ __html: propositionTitleHtml/);
+  assert.match(reader, /addGeometricNotation\(addAccessibleLineNumbers\(block\)\)/);
+  assert.match(styles, /\.angle::before \{[\s\S]*?content: "∠";/);
+  assert.match(styles, /\.triangle::before \{[\s\S]*?content: "△";/);
   assert.match(reader, /className="proposition-title"[\s\S]*?data-line="1"/);
   assert.match(reader, /document\.title = `\$\{active\.item\.label\} \| Euclid's Elements`/);
   assert.match(reader, /articleHeadingRef\.current\?\.focus\(\{ preventScroll: true \}\)/);

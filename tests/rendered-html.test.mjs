@@ -44,7 +44,7 @@ test("server-renders a cover before entering the reader", async () => {
   assert.doesNotMatch(html, />Definitions</);
   assert.match(
     html,
-    /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og\.png/,
+    /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og-hero\.png/,
   );
   assert.doesNotMatch(html, /https?:\/\/localhost|\/Users\//);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
@@ -75,7 +75,7 @@ test("emits a public static export without local metadata", async () => {
   assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(
     html,
-    /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og\.png/,
+    /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og-hero\.png/,
   );
   assert.doesNotMatch(html, /https?:\/\/localhost|\/Users\/|appgprj_/);
 });

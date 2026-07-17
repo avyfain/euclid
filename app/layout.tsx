@@ -16,7 +16,7 @@ const title = "Euclid's Elements";
 const description =
   "A searchable, modern reader for all thirteen books of Euclid's Elements in Thomas L. Heath's translation.";
 const imageUrl =
-  "https://raw.githubusercontent.com/avyfain/euclid/main/public/og.png";
+  "https://raw.githubusercontent.com/avyfain/euclid/main/public/og-hero.png";
 
 export const metadata: Metadata = {
   title: {

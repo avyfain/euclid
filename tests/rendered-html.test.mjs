@@ -29,7 +29,7 @@ test("server-renders the finished Book I reader", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Euclid(?:&#x27;|')s Elements - Book I<\/title>/i);
+  assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(html, /Euclid(?:&#x27;|')s Elements/);
   assert.match(html, /Heath(?:&#x27;|')s translation/);
   assert.match(html, />Definitions</);
@@ -45,6 +45,7 @@ test("server-renders the finished Book I reader", async () => {
   assert.match(html, /class="source-note"/);
   assert.match(html, /About this text/);
   assert.match(html, /About this project/);
+  assert.match(html, /class="source-note-copy source-note-project"/);
   assert.equal((html.match(/class="source-note"/g) ?? []).length, 2);
   assert.match(
     html,
@@ -54,7 +55,7 @@ test("server-renders the finished Book I reader", async () => {
     html,
     /href="https:\/\/catherineproject\.org\/"[^>]*>Catherine Project<\/a>/,
   );
-  assert.match(html, /I was inspired to build this reader while taking the/);
+  assert.match(html, /I was inspired to build this reader while studying/);
   assert.match(html, /Ancient Greek Writings on Knowledge and Mathematics/);
   assert.match(
     html,
@@ -82,13 +83,29 @@ test("server-renders the finished Book I reader", async () => {
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
 });
 
+test("licenses the original reader code under MIT", async () => {
+  const [license, packageJson, readme, styles] = await Promise.all([
+    readFile(new URL("../LICENSE", import.meta.url), "utf8"),
+    readFile(new URL("../package.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../README.md", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(license, /^MIT License/);
+  assert.match(license, /Copyright \(c\) 2026 Avy Faingezicht/);
+  assert.equal(packageJson.license, "MIT");
+  assert.match(readme, /original code is available under the \[MIT License\]\(LICENSE\)/);
+  assert.match(readme, /source material retain their[\s\S]*not relicensed by the MIT License/);
+  assert.match(styles, /\.source-note-project p \+ p \{[\s\S]*?margin-top: 14px;/);
+});
+
 test("emits a public static export without local metadata", async () => {
   const html = await readFile(
     new URL("../dist/client/index.html", import.meta.url),
     "utf8",
   );
 
-  assert.match(html, /<title>Euclid(?:&#x27;|')s Elements - Book I<\/title>/i);
+  assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(
     html,
     /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og\.png/,
@@ -107,7 +124,7 @@ test("keeps Cloudflare Workers Builds as the sole deployment owner", async () =>
   assert.doesNotMatch(workflow, /wrangler deploy|CLOUDFLARE_API_TOKEN/);
 });
 
-test("ships complete Book I data and an extensible book catalog", async () => {
+test("ships all thirteen books and their visualization contracts", async () => {
   const [book, catalog, editorialNotes, extractor, reader, figure, figureData, styles] = await Promise.all([
     readFile(new URL("../app/data/book-1.json", import.meta.url), "utf8").then(JSON.parse),
     readFile(new URL("../app/data/catalog.ts", import.meta.url), "utf8"),
@@ -117,6 +134,20 @@ test("ships complete Book I data and an extensible book catalog", async () => {
     readFile(new URL("../app/PropositionFigure.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/data/proposition-figure-data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+  const books = await Promise.all(
+    Array.from({ length: 13 }, (_, index) =>
+      readFile(
+        new URL(`../app/data/book-${index + 1}.json`, import.meta.url),
+        "utf8",
+      ).then(JSON.parse),
+    ),
+  );
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const [sceneRenderer, bookTwoFigures, bookFamilyFigures] = await Promise.all([
+    readFile(new URL("../app/EuclidScene.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-2-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-family-scenes.ts", import.meta.url), "utf8"),
   ]);
 
   const counts = Object.fromEntries(
@@ -134,6 +165,27 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   const itemIds = new Set(items.map((item) => item.id));
   assert.equal(itemIds.size, 81);
   assert.equal(items.reduce((sum, item) => sum + item.notes.length, 0), 73);
+  assert.equal(
+    books.flatMap((candidate) => candidate.sections.flatMap((section) => section.items)).length,
+    607,
+  );
+  assert.deepEqual(
+    books.map((candidate) =>
+      candidate.sections
+        .flatMap((section) => section.items)
+        .filter((item) => item.id.startsWith("prop-"))
+        .length,
+    ),
+    [48, 14, 37, 16, 25, 33, 39, 27, 36, 115, 39, 18, 18],
+  );
+  for (const candidate of books) {
+    const candidateItems = candidate.sections.flatMap((section) => section.items);
+    assert.equal(new Set(candidateItems.map((item) => item.id)).size, candidateItems.length);
+    assert.equal(
+      new Set(candidate.sections.map((section) => section.id)).size,
+      candidate.sections.length,
+    );
+  }
 
   const propositions = book.sections.find(
     (section) => section.id === "propositions",
@@ -163,12 +215,12 @@ test("ships complete Book I data and an extensible book catalog", async () => {
       ...item.notes.flatMap((note) => note.blocks),
     ])
     .join(" ");
-  const localTargets = [...sourceHtml.matchAll(/href="#([^"]+)"/g)].map(
+  const localTargets = [...sourceHtml.matchAll(/href="#((?!book-)[^"]+)"/g)].map(
     (match) => match[1],
   );
   assert.ok(localTargets.length > 100);
   assert.ok(localTargets.every((target) => itemIds.has(target)));
-  assert.equal((sourceHtml.match(/book%3D6/g) ?? []).length, 2);
+  assert.ok((sourceHtml.match(/href="#book-6-prop-3"/g) ?? []).length >= 1);
 
   const greekSpans = [...sourceHtml.matchAll(
     /<span class="foreign" lang="grc">([^<]+)<\/span>/g,
@@ -191,23 +243,27 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.ok(citationTags.length > 100);
   assert.ok(citationTags.every((tag) => /aria-label="Book \d+, /.test(tag)));
   assert.match(sourceHtml, /aria-label="Book 1, Proposition 1"/);
-  assert.match(sourceHtml, /aria-label="Book 6, Proposition 3, opens in new tab"/);
+  assert.match(sourceHtml, /aria-label="Book 6, Proposition 3"/);
   assert.doesNotMatch(sourceHtml, /<em>AB<\/em>/);
 
   assert.match(catalog, /"XIII"/);
-  assert.match(catalog, /available: index === 0/);
+  assert.match(catalog, /available: true/);
   assert.match(extractor, /choices=range\(1, 14\)/);
+  assert.match(extractor, /selection\.add_argument\("--all"/);
+  assert.match(page, /bookThirteen/);
+  assert.match(page, /<EuclidReader books=\{books\} \/>/);
   assert.match(reader, /!\["qed", "conclusion"\]\.includes\(part\.kind\)/);
   const conclusionStyles = styles.match(
     /\.source-part-qed,[\s\S]*?\.source-part-conclusion \{[\s\S]*?\}/,
   )?.[0] ?? "";
   assert.doesNotMatch(conclusionStyles, /border-top|padding-top/);
   assert.match(styles, /--faint: #796960;/);
+  assert.match(styles, /\.euclid-scene-label \{[\s\S]*?stroke: none;/);
   assert.ok(reader.indexOf("source-note") < reader.indexOf('className="reading-pane"'));
   assert.match(reader, /Perseus, a digital library at Tufts University/);
   assert.doesNotMatch(reader, /activeItem\.sourceUrl/);
   assert.match(reader, /COLLAPSED_FOUNDATION_SECTION_IDS/);
-  assert.match(reader, /targets\.set\(item\.id, collapsed \? section\.id : item\.id\)/);
+  assert.match(reader, /collapsed \? section\.id : item\.id/);
   assert.match(reader, /articleRef\.current\?\.scrollIntoView/);
   assert.match(reader, /id=\{part\.id\}/);
   const articleMarkup = reader.slice(
@@ -237,7 +293,8 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(reader, /id="search-results-status"[\s\S]*?role="status"/);
   assert.match(reader, /<ul className="search-result-list">/);
   assert.match(reader, /aria-current=\{section\.id === activeSection\.id \? "page" : undefined\}/);
-  assert.match(reader, /<PropositionFigure propositionId=\{activeItem\.id\} \/>/);
+  assert.match(reader, /bookNumber=\{book\.number\}/);
+  assert.match(reader, /references=\{proofReferences\}/);
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));
   }
@@ -249,10 +306,26 @@ test("ships complete Book I data and an extensible book catalog", async () => {
     Array.from({ length: 44 }, (_, index) => `prop-${index + 5}`),
   );
   assert.match(figure, /PROPOSITION_FIGURES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 2 && BOOK_TWO_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber >= 3/);
+  assert.match(figure, /createBookFamilyScene/);
+  assert.match(sceneRenderer, /data-scene=\{scene\.id\}/);
+  assert.match(sceneRenderer, /type="range"/);
+  assert.equal(
+    (bookTwoFigures.match(/id: "book-2-prop-\d+"/g) ?? []).length,
+    14,
+  );
+  assert.match(bookTwoFigures, /validateBookTwoScenes/);
+  assert.match(bookFamilyFigures, /const BOOK_STEPS: Record<number, string\[]>/);
+  assert.match(bookFamilyFigures, /validateBookFamilyScene/);
+  assert.equal((bookFamilyFigures.match(/^\s+\d+: \(value\)/gm) ?? []).length, 7);
+  assert.match(bookFamilyFigures, /3: \(value\) => circleScene/);
+  assert.match(bookFamilyFigures, /13: \(value\).*goldenRatioScene/);
+  assert.match(bookFamilyFigures, /fiveFiguresScene/);
   assert.match(figure, /function ParallelMark/);
   assert.match(figure, /function RightAngleMark/);
   assert.match(figure, /Replay construction/);
-  assert.match(figure, /Text description of construction/);
+  assert.match(figure, /Text description of \{heading\.toLowerCase\(\)\}/);
   assert.match(figure, /<desc id=\{descriptionId\}>\{title\} Current view: \{status\}\.<\/desc>/);
   assert.match(figure, /aria-current=\{index === currentStep \? "step" : undefined\}/);
   assert.equal((figure.match(/type="range"/g) ?? []).length, 3);
@@ -260,6 +333,8 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(styles, /\.geometry-parallel line/);
   assert.match(styles, /\.geometry-right-angle/);
   assert.match(styles, /\.geometry-area-secondary/);
+  assert.match(styles, /\.euclid-scene-area-secondary/);
+  assert.match(styles, /\.euclid-scene-range/);
   assert.match(reader, /showingEditorialNotes \? "Our notes" : "Heath's notes"/);
   assert.match(editorialNotes, /The two numbering systems/);
   assert.match(editorialNotes, /Heiberg's numbering from the transmitted Greek sequence/);
@@ -292,7 +367,7 @@ test("ships complete Book I data and an extensible book catalog", async () => {
     /\.source-line-number::after \{[^}]*left: calc\(100% \+ 10px\);[^}]*content: attr\(data-line\);/,
   );
   assert.match(styles, /\.source-line-number::after \{[^}]*font-size: 10px;/);
-  assert.match(extractor, /line_numbers=section_id == "propositions"/);
+  assert.match(extractor, /line_numbers=section_id\.startswith\("propositions"\)/);
   assert.match(styles, /\.source-note \{[^}]*padding-inline: 11px;/);
   assert.match(styles, /\.source-note \{[^}]*font-size: 12px;/);
   assert.match(styles, /\.source-note summary \{[^}]*font-size: 13px;/);

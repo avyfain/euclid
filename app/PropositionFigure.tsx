@@ -1,6 +1,9 @@
 "use client";
 
 import { useId, useState } from "react";
+import { EuclidScene } from "./EuclidScene";
+import { BOOK_TWO_SCENES } from "./data/book-2-figure-data";
+import { createBookFamilyScene } from "./data/book-family-scenes";
 import {
   PROPOSITION_FIGURES,
   type FigureElement,
@@ -9,6 +12,12 @@ import {
 } from "./data/proposition-figure-data";
 
 type Point = { x: number; y: number };
+
+export type ProofReference = {
+  book: number;
+  kind: string;
+  number: string;
+};
 
 const SQRT_THREE_OVER_TWO = Math.sqrt(3) / 2;
 
@@ -197,6 +206,7 @@ function transformPoint(
 }
 
 function FigureShell({
+  heading = "Construction",
   title,
   status,
   steps,
@@ -205,12 +215,13 @@ function FigureShell({
   controls,
   viewBox = "0 0 640 360",
 }: {
+  heading?: string;
   title: string;
   status: string;
   steps?: string[];
   currentStep?: number;
   children: React.ReactNode;
-  controls: React.ReactNode;
+  controls?: React.ReactNode;
   viewBox?: string;
 }) {
   const titleId = useId();
@@ -219,7 +230,7 @@ function FigureShell({
   return (
     <section className="proposition-figure" aria-labelledby={titleId}>
       <div className="proposition-figure-heading">
-        <h2 id={titleId}>Construction</h2>
+        <h2 id={titleId}>{heading}</h2>
         <output className="proposition-figure-status" aria-live="polite">
           {status}
         </output>
@@ -233,9 +244,9 @@ function FigureShell({
         <desc id={descriptionId}>{title} Current view: {status}.</desc>
         {children}
       </svg>
-      <div className="proposition-figure-controls">{controls}</div>
+      {controls ? <div className="proposition-figure-controls">{controls}</div> : null}
       <details className="figure-text-description">
-        <summary>Text description of construction</summary>
+        <summary>Text description of {heading.toLowerCase()}</summary>
         <p>{title}</p>
         {steps?.length ? (
           <ol>
@@ -671,7 +682,31 @@ function DataDrivenPropositionFigure({ config }: { config: PropositionFigureConf
   );
 }
 
-export function PropositionFigure({ propositionId }: { propositionId: string }) {
+export function PropositionFigure({
+  bookNumber,
+  propositionId,
+  propositionNumber,
+  propositionTitle,
+  references,
+}: {
+  bookNumber: number;
+  propositionId: string;
+  propositionNumber: number | string;
+  propositionTitle: string;
+  references: ProofReference[];
+}) {
+  if (!propositionId.startsWith("prop-")) return null;
+  if (bookNumber === 2 && BOOK_TWO_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_TWO_SCENES[propositionId]} key={`book-2-${propositionId}`} />;
+  }
+  if (bookNumber >= 3) {
+    return (
+      <EuclidScene
+        scene={createBookFamilyScene(bookNumber, propositionNumber, propositionTitle, references.length)}
+        key={`book-${bookNumber}-${propositionId}`}
+      />
+    );
+  }
   switch (propositionId) {
     case "prop-1":
       return <PropositionOneFigure />;

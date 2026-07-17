@@ -114,11 +114,28 @@ def beta_code_to_unicode(value: str) -> str:
 
 
 def target_to_href(target: str, current_book: int) -> tuple[str, bool, str]:
+    target = target.split()[0] if target.split() else target
+    definition_match = re.match(
+        r"^elem\.(\d+)\.def\.(?:(\d+)\.)?(\d+)",
+        target,
+        flags=re.I,
+    )
+    if definition_match:
+        target_book = int(definition_match.group(1))
+        group = definition_match.group(2)
+        number = definition_match.group(3)
+        if target_book == 10 and not group:
+            group = "1"
+        target_id = f"def-{group}-{number}" if group else f"def-{number}"
+        accessible_label = f"Book {target_book}, Definition {number}"
+        if target_book != current_book:
+            return f"#book-{target_book}-{target_id}", False, accessible_label
+        return f"#{target_id}", False, accessible_label
+
     patterns = (
-        (r"^elem\.(\d+)\.def\.(\d+)$", "def-{}", "Def", "Definition"),
         (r"^elem\.(\d+)\.post\.(\d+)$", "post-{}", "Post", "Postulate"),
         (r"^elem\.(\d+)\.c\.n\.(\d+)$", "cn-{}", "CN", "Common notion"),
-        (r"^elem\.(\d+)\.(\d+)$", "prop-{}", "Prop", "Proposition"),
+        (r"^elem\.(\d+)\.(\d+)(?:\..*)?$", "prop-{}", "Prop", "Proposition"),
     )
     for pattern, template, section_code, spoken_section in patterns:
         match = re.match(pattern, target, flags=re.I)
@@ -128,12 +145,7 @@ def target_to_href(target: str, current_book: int) -> tuple[str, bool, str]:
             accessible_label = f"Book {target_book}, {spoken_section} {number}"
             if target_book == current_book:
                 return f"#{template.format(number)}", False, accessible_label
-            url = (
-                "https://www.perseus.tufts.edu/hopper/text?doc="
-                f"Perseus%3Atext%3A1999.01.0086%3Abook%3D{target_book}%3A"
-                f"type%3D{section_code}%3Anumber%3D{number}"
-            )
-            return url, True, f"{accessible_label}, opens in new tab"
+            return f"#book-{target_book}-{template.format(number)}", False, accessible_label
     return "", False, ""
 
 
@@ -234,24 +246,33 @@ def section_meta(code: str, head: str) -> tuple[str, str, str]:
     if lowered.startswith("def"):
         suffix = code[3:].strip()
         label = f"Definitions {suffix}".strip()
-        return "definitions", label, "Def."
+        section_id = f"definitions-{suffix}" if suffix else "definitions"
+        return section_id, label, "Def."
     if lowered == "post":
         return "postulates", "Postulates", "Post."
     if lowered == "cn":
         return "common-notions", "Common notions", "C.N."
-    if lowered == "prop":
-        return "propositions", "Propositions", "Prop."
+    if lowered.startswith("prop"):
+        suffix = code[4:].strip()
+        section_id = f"propositions-{suffix}" if suffix else "propositions"
+        label = head.rstrip(".").title() if suffix else "Propositions"
+        return section_id, label, "Prop."
     slug = re.sub(r"[^a-z0-9]+", "-", code.lower()).strip("-") or "section"
     return slug, head.rstrip(".") or code, code
 
 
 def item_id(section_id: str, number: str) -> str:
-    prefix = {
-        "definitions": "def",
-        "postulates": "post",
-        "common-notions": "cn",
-        "propositions": "prop",
-    }.get(section_id, section_id)
+    if section_id.startswith("definitions-"):
+        prefix = f"def-{section_id.removeprefix('definitions-')}"
+    elif section_id == "definitions":
+        prefix = "def"
+    elif section_id.startswith("propositions"):
+        prefix = "prop"
+    else:
+        prefix = {"postulates": "post", "common-notions": "cn"}.get(
+            section_id,
+            section_id,
+        )
     return f"{prefix}-{number}"
 
 
@@ -282,7 +303,7 @@ def extract_item(
                 render_node(
                     p,
                     book,
-                    line_numbers=section_id == "propositions",
+                    line_numbers=section_id.startswith("propositions"),
                 )
                 for p in part.findall("p")
             ]
@@ -300,11 +321,11 @@ def extract_item(
             render_node(
                 p,
                 book,
-                line_numbers=section_id == "propositions",
+                line_numbers=section_id.startswith("propositions"),
             )
             for p in paragraph_nodes
         ]
-        if section_id == "propositions" and blocks:
+        if section_id.startswith("propositions") and blocks:
             parts.append({"kind": "enunc", "label": "Statement", "blocks": blocks[:1]})
             proof_blocks = blocks[1:]
             if proof_blocks and "Q. E. D." in plain_text(paragraph_nodes[-1]):
@@ -315,7 +336,7 @@ def extract_item(
         elif blocks:
             parts.append({"kind": "text", "label": "", "blocks": blocks})
 
-    if section_id == "propositions":
+    if section_id.startswith("propositions"):
         statement_part = next(
             (part for part in parts if part["kind"] == "enunc"),
             None,
@@ -378,7 +399,7 @@ def extract_item(
         "id": item_id(section_id, number),
         "number": int(number) if number.isdigit() else number,
         "sourceHeading": source_heading,
-        "label": f"{section_label.rstrip('s')} {number}" if section_id != "propositions" else f"Proposition {number}",
+        "label": f"Proposition {number}" if section_id.startswith("propositions") else f"{section_label.rstrip('s')} {number}",
         "headline": headline,
         "parts": parts,
         "notes": notes,
@@ -450,9 +471,15 @@ def extract_book(root: ET.Element, book_number: int) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--book", type=int, required=True, choices=range(1, 14))
-    parser.add_argument("--output", type=Path, required=True)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--book", type=int, choices=range(1, 14))
+    selection.add_argument("--all", action="store_true")
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--output-dir", type=Path, default=Path("app/data"))
     args = parser.parse_args()
+
+    if args.book is not None and args.output is None:
+        parser.error("--output is required when importing one book")
 
     request = urllib.request.Request(
         SOURCE_URL,
@@ -461,14 +488,17 @@ def main() -> None:
     with urllib.request.urlopen(request, timeout=45) as response:
         root = ET.fromstring(response.read())
 
-    payload = extract_book(root, args.book)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    item_count = sum(len(section["items"]) for section in payload["sections"])
-    print(f"Wrote {item_count} items from Book {payload['roman']} to {args.output}")
+    book_numbers = range(1, 14) if args.all else [args.book]
+    for book_number in book_numbers:
+        payload = extract_book(root, book_number)
+        output = args.output_dir / f"book-{book_number}.json" if args.all else args.output
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        item_count = sum(len(section["items"]) for section in payload["sections"])
+        print(f"Wrote {item_count} items from Book {payload['roman']} to {output}")
 
 
 if __name__ == "__main__":

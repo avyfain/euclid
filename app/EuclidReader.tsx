@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BOOK_CATALOG } from "./data/catalog";
 import { EDITORIAL_NOTES } from "./data/editorial-notes";
-import { PropositionFigure } from "./PropositionFigure";
+import { PropositionFigure, type ProofReference } from "./PropositionFigure";
 import type { EuclidBook, EuclidItem, EuclidSection, SourceNote } from "./data/types";
 
 type IndexedItem = {
@@ -17,6 +17,17 @@ const COLLAPSED_FOUNDATION_SECTION_IDS = new Set([
   "common-notions",
 ]);
 
+function isFoundationSection(sectionId: string) {
+  return (
+    COLLAPSED_FOUNDATION_SECTION_IDS.has(sectionId) ||
+    sectionId.startsWith("definitions-")
+  );
+}
+
+function isPropositionSection(sectionId: string) {
+  return sectionId === "propositions" || sectionId.startsWith("propositions-");
+}
+
 function addAccessibleLineNumbers(html: string) {
   return html.replace(
     /<span class="source-line-number" aria-hidden="true" data-line="([^"]+)"><\/span>/g,
@@ -25,7 +36,7 @@ function addAccessibleLineNumbers(html: string) {
 }
 
 function collapseFoundationSection(section: EuclidSection): EuclidSection {
-  if (!COLLAPSED_FOUNDATION_SECTION_IDS.has(section.id)) {
+  if (!isFoundationSection(section.id)) {
     return section;
   }
 
@@ -47,6 +58,22 @@ function collapseFoundationSection(section: EuclidSection): EuclidSection {
   };
 
   return { ...section, items: [item] };
+}
+
+function extractProofReferences(item: EuclidItem): ProofReference[] {
+  const references = new Map<string, ProofReference>();
+  const html = item.parts.flatMap((part) => part.blocks).join(" ");
+  for (const match of html.matchAll(
+    /aria-label="Book (\d+), (Definition|Postulate|Common notion|Proposition) ([^,"]+)/g,
+  )) {
+    const reference = {
+      book: Number(match[1]),
+      kind: match[2],
+      number: match[3],
+    } satisfies ProofReference;
+    references.set(`${reference.book}-${reference.kind}-${reference.number}`, reference);
+  }
+  return [...references.values()];
 }
 
 function Arrow({ direction }: { direction: "left" | "right" }) {
@@ -127,7 +154,9 @@ function EntryPagination({
   );
 }
 
-export function EuclidReader({ book }: { book: EuclidBook }) {
+export function EuclidReader({ books }: { books: EuclidBook[] }) {
+  const [activeBookNumber, setActiveBookNumber] = useState(books[0]?.number ?? 1);
+  const book = books.find((candidate) => candidate.number === activeBookNumber) ?? books[0];
   const readerSections = useMemo(
     () => book.sections.map(collapseFoundationSection),
     [book.sections],
@@ -149,7 +178,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const targetToItemId = useMemo(() => {
     const targets = new Map<string, string>();
     for (const section of book.sections) {
-      const collapsed = COLLAPSED_FOUNDATION_SECTION_IDS.has(section.id);
+      const collapsed = isFoundationSection(section.id);
       if (collapsed) {
         targets.set(section.id, section.id);
       }
@@ -159,6 +188,24 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
     }
     return targets;
   }, [book.sections]);
+  const allBookTargets = useMemo(() => {
+    const targets = new Map<string, string>();
+    for (const candidate of books) {
+      for (const section of candidate.sections) {
+        const collapsed = isFoundationSection(section.id);
+        if (collapsed) {
+          targets.set(`${candidate.number}:${section.id}`, section.id);
+        }
+        for (const item of section.items) {
+          targets.set(
+            `${candidate.number}:${item.id}`,
+            collapsed ? section.id : item.id,
+          );
+        }
+      }
+    }
+    return targets;
+  }, [books]);
   const initialItemId = allItems[0]?.item.id ?? "";
   const [activeItemId, setActiveItemId] = useState(initialItemId);
   const [anchorTarget, setAnchorTarget] = useState<string | null>(null);
@@ -181,10 +228,14 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
 
   useEffect(() => {
     const syncFromLocation = (focusArticle = false) => {
-      const id = decodeURIComponent(window.location.hash.slice(1));
-      const resolvedItemId = targetToItemId.get(id);
+      const hash = decodeURIComponent(window.location.hash.slice(1));
+      const match = hash.match(/^book-(\d+)-(.+)$/);
+      const bookNumber = match ? Number(match[1]) : 1;
+      const id = match ? match[2] : hash;
+      const resolvedItemId = allBookTargets.get(`${bookNumber}:${id}`);
       if (resolvedItemId) {
         focusArticleOnChangeRef.current = focusArticle;
+        setActiveBookNumber(bookNumber);
         setActiveItemId(resolvedItemId);
         setAnchorTarget(id === resolvedItemId ? null : id);
       }
@@ -198,7 +249,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
       window.removeEventListener("hashchange", syncAndFocusFromLocation);
       window.removeEventListener("popstate", syncAndFocusFromLocation);
     };
-  }, [targetToItemId]);
+  }, [allBookTargets]);
 
   useEffect(() => {
     if (!active) return;
@@ -313,13 +364,13 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   }
 
   const { item: activeItem, section: activeSection } = active;
-  const editorialNotes = EDITORIAL_NOTES[activeItem.id] ?? [];
+  const editorialNotes = book.number === 1 ? EDITORIAL_NOTES[activeItem.id] ?? [] : [];
   const showingEditorialNotes = editorialNotes.length > 0;
   const primaryNotes = showingEditorialNotes ? editorialNotes : activeItem.notes;
   const previous = allItems[activeIndex - 1];
   const next = allItems[activeIndex + 1];
   const visibleParts =
-    activeSection.id === "propositions"
+    isPropositionSection(activeSection.id)
       ? activeItem.parts.filter((part) => part.kind !== "enunc")
       : activeItem.parts;
   const propositionHeadlineHtml = activeItem.parts
@@ -330,6 +381,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
       '<span class="source-line-number" aria-hidden="true" data-line="1"></span>',
       "",
     );
+  const proofReferences = extractProofReferences(activeItem);
 
   const selectItem = (id: string, push = true) => {
     const resolvedItemId = targetToItemId.get(id);
@@ -340,12 +392,30 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
     setQuery("");
     setNavOpen(false);
     if (push) {
-      window.history.pushState(null, "", `#${id}`);
+      window.history.pushState(null, "", `#book-${book.number}-${id}`);
     }
     if (id === resolvedItemId) {
       articleRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
+
+  const selectBook = (bookNumber: number) => {
+    const nextBook = books.find((candidate) => candidate.number === bookNumber);
+    if (!nextBook) return;
+    const firstSection = nextBook.sections[0];
+    const firstId = isFoundationSection(firstSection.id)
+      ? firstSection.id
+      : firstSection.items[0]?.id;
+    if (!firstId) return;
+    focusArticleOnChangeRef.current = true;
+    setActiveBookNumber(bookNumber);
+    setActiveItemId(firstId);
+    setAnchorTarget(null);
+    setQuery("");
+    setNavOpen(false);
+    window.history.pushState(null, "", `#book-${bookNumber}-${firstId}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const closeNavigation = (restoreFocus = true) => {
@@ -387,7 +457,14 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
           <span aria-hidden="true">☰</span>
         </button>
 
-        <a className="brand" href="#definitions" onClick={() => selectItem("definitions")}>
+        <a
+          className="brand"
+          href={`#book-${book.number}-${readerSections[0]?.items[0]?.id ?? ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            selectItem(readerSections[0]?.items[0]?.id ?? "");
+          }}
+        >
           <span className="brand-mark" aria-hidden="true">E</span>
           <span>
             <strong>Euclid&apos;s Elements</strong>
@@ -401,11 +478,12 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             {BOOK_CATALOG.map((entry) =>
               entry.available ? (
                 <button
-                  className="book-button is-active"
+                  className={`book-button${entry.number === book.number ? " is-active" : ""}`}
                   type="button"
-                  aria-current="page"
+                  aria-current={entry.number === book.number ? "page" : undefined}
+                  onClick={() => selectBook(entry.number)}
                   key={entry.number}
-                  title={`${entry.title}, available now`}
+                  title={entry.title}
                 >
                   {entry.roman}
                 </button>
@@ -452,7 +530,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
           id="book-contents"
           ref={contentsPanelRef}
           role={isCompact ? "dialog" : undefined}
-          aria-label={isCompact ? undefined : "Book I contents"}
+          aria-label={isCompact ? undefined : `${book.title} contents`}
           aria-labelledby={isCompact ? "contents-title" : undefined}
           aria-modal={isCompact && navOpen ? true : undefined}
           inert={isCompact && !navOpen ? true : undefined}
@@ -477,11 +555,12 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             <div>
               {BOOK_CATALOG.map((entry) => (
                 <button
-                  className={entry.available ? "is-active" : ""}
+                  className={entry.number === book.number ? "is-active" : ""}
                   type="button"
                   disabled={!entry.available}
-                  aria-current={entry.available ? "page" : undefined}
+                  aria-current={entry.number === book.number ? "page" : undefined}
                   aria-label={entry.available ? entry.title : `${entry.title}, forthcoming`}
+                  onClick={() => selectBook(entry.number)}
                   key={entry.number}
                 >
                   {entry.roman}
@@ -493,14 +572,14 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
           <div className="contents-search" role="search">
             <label className="search-box">
               <span aria-hidden="true">⌕</span>
-              <span className="sr-only">Search Book I</span>
+              <span className="sr-only">Search {book.title}</span>
               <input
                 ref={searchRef}
                 type="search"
                 value={query}
                 aria-controls={normalizedQuery.length >= 2 ? "search-results" : undefined}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search Book I"
+                placeholder={`Search ${book.title}`}
               />
               <kbd>/</kbd>
             </label>
@@ -536,7 +615,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
 
           {normalizedQuery.length < 2 && (
             <>
-              <nav className="section-list" aria-label="Book I sections">
+              <nav className="section-list" aria-label={`${book.title} sections`}>
                 {readerSections.map((section) => (
                   <button
                     className={section.id === activeSection.id ? "is-active" : ""}
@@ -550,7 +629,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 ))}
               </nav>
 
-              {activeSection.id === "propositions" && (
+              {isPropositionSection(activeSection.id) && (
                 <div className="item-index">
                   <div className="index-label">
                     <span>{activeSection.label}</span>
@@ -609,9 +688,15 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
               <span>About this project</span>
               <span aria-hidden="true">+</span>
             </summary>
-            <div className="source-note-copy">
+            <div className="source-note-copy source-note-project">
               <p>
-                I was inspired to build this reader while taking the{" "}
+                Built by{" "}
+                <a href="https://www.faingezicht.com/" target="_blank" rel="noreferrer">
+                  Avy Faingezicht
+                </a>
+                , a human in San Francisco. I was inspired to build this reader while
+                studying <em>Ancient Greek Writings on Knowledge and Mathematics</em>{" "}
+                with the{" "}
                 <a
                   href="https://catherineproject.org/"
                   target="_blank"
@@ -619,13 +704,8 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 >
                   Catherine Project
                 </a>
-                &apos;s <em>Ancient Greek Writings on Knowledge and Mathematics</em>{" "}
-                course. Built by{" "}
-                <a href="https://www.faingezicht.com/" target="_blank" rel="noreferrer">
-                  Avy Faingezicht
-                </a>
-                , a human in San Francisco. Building projects like this is how I teach
-                myself about difficult subjects and understand the world more deeply.
+                . Building projects like this is how I teach myself about difficult subjects
+                and understand the world more deeply.
               </p>
               <p>
                 Built with Codex on Sol 5.6. It&apos;s open source; suggestions are
@@ -657,17 +737,17 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             }
           }}
         >
-          <article className="source-article" key={activeItem.id}>
+          <article className="source-article" key={`${book.number}-${activeItem.id}`}>
             <div className="article-kicker">
               <span>{book.title}</span>
               <span aria-hidden="true">/</span>
               <span>{activeSection.label}</span>
             </div>
 
-            {activeSection.id === "propositions" && (
+            {isPropositionSection(activeSection.id) && (
               <p className="article-number">{activeItem.label}</p>
             )}
-            {activeSection.id === "propositions" ? (
+            {isPropositionSection(activeSection.id) ? (
               <>
                 <span className="sr-only">Source line 1.</span>
                 <h1
@@ -682,7 +762,13 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
               <h1 ref={articleHeadingRef} tabIndex={-1}>{activeItem.label}</h1>
             )}
 
-            <PropositionFigure propositionId={activeItem.id} />
+            <PropositionFigure
+              bookNumber={book.number}
+              propositionId={activeItem.id}
+              propositionNumber={activeItem.number}
+              propositionTitle={activeItem.headline}
+              references={proofReferences}
+            />
 
             <div className="source-copy">
               {visibleParts.map((part, partIndex) => (

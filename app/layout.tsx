@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Euclid's Elements - Book I";
+const title = "Euclid's Elements";
 const description =
-  "A searchable, modern reader for Book I of Euclid's Elements in Thomas L. Heath's translation.";
+  "A searchable, modern reader for all thirteen books of Euclid's Elements in Thomas L. Heath's translation.";
 const imageUrl =
   "https://raw.githubusercontent.com/avyfain/euclid/main/public/og.png";
 

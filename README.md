@@ -1,8 +1,8 @@
 # Euclid's Elements reader
 
 A searchable, responsive reader for Thomas L. Heath's translation of Euclid's
-*Elements*. Book I is complete; the navigation and data model already account
-for Books II-XIII.
+*Elements*. All thirteen books are included. Every proposition has a restrained
+interactive construction tied to its geometric or numerical proof family.
 
 ## Run locally
 
@@ -49,9 +49,19 @@ section hierarchy, inline cross-references, and Heath's notes.
 python3 scripts/extract_perseus_book.py --book 2 --output app/data/book-2.json
 ```
 
-After importing a book, add it to the page-level data registry and mark its
-entry available in `app/data/catalog.ts`. The reader shell does not need to be
-redesigned.
+Refresh all thirteen books with one source download:
+
+```bash
+python3 scripts/extract_perseus_book.py --all
+```
+
+The page-level registry in `app/page.tsx` loads the generated book files.
+
+## License
+
+The reader's original code is available under the [MIT License](LICENSE).
+Thomas L. Heath's translated text and the Perseus source material retain their
+respective source licenses and are not relicensed by the MIT License.
 
 ## Source and reuse
 

@@ -20,5 +20,5 @@ export const BOOK_CATALOG: BookCatalogEntry[] = ROMAN.map((roman, index) => ({
   number: index + 1,
   roman,
   title: `Book ${roman}`,
-  available: index === 0,
+  available: true,
 }));

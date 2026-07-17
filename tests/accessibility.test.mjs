@@ -85,6 +85,82 @@ test("has no automated WCAG A/AA violations in core reader states", async () => 
   await page.getByRole("searchbox", { name: "Search Book I" }).fill("equilateral");
   await page.locator("#search-results-status").waitFor();
   await assertNoWcagViolations(page, "search results");
+
+  await page.goto(`${baseUrl}/#book-2-prop-1`);
+  await page.getByRole("heading", { name: "Construction" }).waitFor();
+  await assertNoWcagViolations(page, "Book II construction");
+  await context.close();
+});
+
+test("renders and exercises every Book II construction", async () => {
+  const context = await browser.newContext({ viewport: { width: 1100, height: 820 } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+
+  for (let proposition = 1; proposition <= 14; proposition += 1) {
+    await page.goto(`${baseUrl}/#book-2-prop-${proposition}`);
+    const scene = page.locator(`[data-scene="book-2-prop-${proposition}"]`);
+    await scene.waitFor();
+    const range = scene.getByRole("slider");
+    if (await range.count()) {
+      const before = await range.inputValue();
+      const status = scene.getByRole("status");
+      const statusBefore = await status.innerText();
+      const svgBefore = await scene.locator("svg").innerHTML();
+      await range.evaluate((element) => {
+        const input = element;
+        input.value = input.max;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      assert.notEqual(await range.inputValue(), before, `II.${proposition} slider moves`);
+      await assert.doesNotReject(
+        status.waitFor({ state: "visible" }),
+        `II.${proposition} status remains visible`,
+      );
+      const svgAfter = await scene.locator("svg").innerHTML();
+      assert.notEqual(svgAfter, svgBefore, `II.${proposition} geometry updates`);
+      assert.ok((await status.innerText()).length >= statusBefore.length / 2, `II.${proposition} explanation remains readable`);
+    } else {
+      await scene.getByRole("button", { name: "Replay construction" }).click();
+      await scene.getByRole("button", { name: "Show next step" }).waitFor();
+    }
+    await scene.locator("svg").waitFor();
+  }
+
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test("renders and exercises every Book III-XIII construction", async () => {
+  const context = await browser.newContext({ viewport: { width: 1100, height: 820 } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+
+  for (let book = 3; book <= 13; book += 1) {
+    const data = JSON.parse(await readFile(new URL(`../app/data/book-${book}.json`, import.meta.url), "utf8"));
+    const propositions = data.sections
+      .filter((section) => section.id.startsWith("propositions"))
+      .flatMap((section) => section.items);
+    for (const proposition of propositions) {
+      await page.goto(`${baseUrl}/#book-${book}-${proposition.id}`);
+      const scene = page.locator(`[data-scene="book-${book}-prop-${proposition.number}"]`);
+      await scene.waitFor();
+      const range = scene.getByRole("slider");
+      assert.equal(await range.count(), 1, `Book ${book}, proposition ${proposition.number} has one control`);
+      const svg = scene.locator("svg");
+      const before = await svg.innerHTML();
+      await range.evaluate((element) => {
+        const input = element;
+        input.value = input.max;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      assert.notEqual(await svg.innerHTML(), before, `Book ${book}, proposition ${proposition.number} geometry updates`);
+    }
+  }
+
+  assert.deepEqual(errors, []);
   await context.close();
 });
 

@@ -44,6 +44,31 @@ test("server-renders the finished Book I reader", async () => {
   );
   assert.match(html, /class="source-note"/);
   assert.match(html, /About this text/);
+  assert.match(html, /About this project/);
+  assert.equal((html.match(/class="source-note"/g) ?? []).length, 2);
+  assert.match(
+    html,
+    /href="https:\/\/www\.perseus\.tufts\.edu\/hopper\/text\?doc=Euc\.\+1"[^>]*>Read Heath&#x27;s translation at Perseus<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/catherineproject\.org\/"[^>]*>Catherine Project<\/a>/,
+  );
+  assert.match(html, /Ancient Greek Writings on Knowledge and Mathematics/);
+  assert.match(
+    html,
+    /I&#x27;m a software engineer in San Francisco interested in understanding things deeply\./,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/www\.faingezicht\.com\/"[^>]*>faingezicht\.com<\/a>/,
+  );
+  assert.match(html, /This project was built using Codex on Sol 5\.6\./);
+  assert.match(
+    html,
+    /href="https:\/\/github\.com\/avyfain\/euclid"[^>]*>GitHub repository<\/a>/,
+  );
+  assert.match(html, /Everything is open source, and suggestions are welcome/);
   assert.doesNotMatch(html, /View this entry at Perseus/);
   assert.doesNotMatch(html, /class="article-meta"/);
   assert.match(html, /Text provided by Perseus Digital Library/);

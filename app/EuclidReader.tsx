@@ -444,6 +444,12 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 Perseus, a digital library at Tufts University, hosts the original
                 digitized version of Heath&apos;s text used by this reader.
               </p>
+              <p>
+                <a href={book.source.textUrl} target="_blank" rel="noreferrer">
+                  Read Heath&apos;s translation at Perseus
+                </a>
+                .
+              </p>
               <p>{book.source.credit}</p>
               <p>{book.source.citation}</p>
               <p>
@@ -454,6 +460,44 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 .
               </p>
               <p>{book.source.availabilityNotice}</p>
+            </div>
+          </details>
+
+          <details className="source-note">
+            <summary>
+              <span>About this project</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="source-note-copy">
+              <p>
+                I was inspired to build this reader while taking the{" "}
+                <a
+                  href="https://catherineproject.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Catherine Project
+                </a>
+                &apos;s <em>Ancient Greek Writings on Knowledge and Mathematics</em>
+                course. I&apos;m a software engineer in San Francisco interested in
+                understanding things deeply. You can find more of my work at{" "}
+                <a href="https://www.faingezicht.com/" target="_blank" rel="noreferrer">
+                  faingezicht.com
+                </a>
+                .
+              </p>
+              <p>
+                This project was built using Codex on Sol 5.6. Everything is open
+                source, and suggestions are welcome on the{" "}
+                <a
+                  href="https://github.com/avyfain/euclid"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub repository
+                </a>
+                .
+              </p>
             </div>
           </details>
         </aside>

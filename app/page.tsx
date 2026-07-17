@@ -1,4 +1,4 @@
-import { EuclidReader } from "./EuclidReader";
+import { EuclidExperience } from "./EuclidExperience";
 import bookOne from "./data/book-1.json";
 import bookTwo from "./data/book-2.json";
 import bookThree from "./data/book-3.json";
@@ -31,5 +31,5 @@ export default function Home() {
     bookThirteen,
   ] as EuclidBook[];
 
-  return <EuclidReader books={books} />;
+  return <EuclidExperience books={books} />;
 }

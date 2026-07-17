@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { BOOK_CATALOG } from "./data/catalog";
 import { EDITORIAL_NOTES } from "./data/editorial-notes";
 import { PropositionFigure, type ProofReference } from "./PropositionFigure";
@@ -154,7 +155,13 @@ function EntryPagination({
   );
 }
 
-export function EuclidReader({ books }: { books: EuclidBook[] }) {
+export function EuclidReader({
+  books,
+  onHome,
+}: {
+  books: EuclidBook[];
+  onHome?: () => void;
+}) {
   const [activeBookNumber, setActiveBookNumber] = useState(books[0]?.number ?? 1);
   const book = books.find((candidate) => candidate.number === activeBookNumber) ?? books[0];
   const readerSections = useMemo(
@@ -457,12 +464,16 @@ export function EuclidReader({ books }: { books: EuclidBook[] }) {
           <span aria-hidden="true">☰</span>
         </button>
 
-        <a
+        <Link
           className="brand"
-          href={`#book-${book.number}-${readerSections[0]?.items[0]?.id ?? ""}`}
+          href="/"
           onClick={(event) => {
             event.preventDefault();
-            selectItem(readerSections[0]?.items[0]?.id ?? "");
+            if (onHome) {
+              onHome();
+            } else {
+              window.location.assign("/");
+            }
           }}
         >
           <span className="brand-mark" aria-hidden="true">E</span>
@@ -470,7 +481,7 @@ export function EuclidReader({ books }: { books: EuclidBook[] }) {
             <strong>Euclid&apos;s Elements</strong>
             <small>Heath&apos;s translation</small>
           </span>
-        </a>
+        </Link>
 
         <nav className="book-shelf" aria-label="Books of the Elements">
           <span className="shelf-label">Books</span>

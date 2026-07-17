@@ -23,7 +23,7 @@ async function render() {
   );
 }
 
-test("server-renders the finished Book I reader", async () => {
+test("server-renders a cover before entering the reader", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -31,50 +31,17 @@ test("server-renders the finished Book I reader", async () => {
   const html = await response.text();
   assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(html, /Euclid(?:&#x27;|')s Elements/);
-  assert.match(html, /Heath(?:&#x27;|')s translation/);
-  assert.match(html, />Definitions</);
-  assert.doesNotMatch(html, /entry-total|51 entries/);
-  assert.match(html, />Propositions</);
-  assert.match(html, /A point is that which has no part\./);
-  assert.match(html, /id="def-23"/);
-  assert.match(html, /Definition 23/);
-  assert.equal(
-    (html.match(/aria-label="Previous and next entries"/g) ?? []).length,
-    1,
-  );
-  assert.match(html, /class="source-note"/);
-  assert.match(html, /About this text/);
-  assert.match(html, /About this project/);
-  assert.match(html, /class="source-note-copy source-note-project"/);
-  assert.equal((html.match(/class="source-note"/g) ?? []).length, 2);
+  assert.match(html, /Thomas L\. Heath(?:&#x27;|')s translation/);
+  assert.match(html, /See how geometry was built\./);
+  assert.match(html, /Begin with Proposition I\.1/);
+  assert.match(html, /465 propositions/);
+  assert.match(html, /Searchable across all 13 books/);
   assert.match(
     html,
-    /href="https:\/\/www\.perseus\.tufts\.edu\/hopper\/text\?doc=Euc\.\+1"[^>]*>Read Heath&#x27;s translation at Perseus<\/a>/,
+    /Built in SF by(?:<!-- -->)? <a href="https:\/\/faingezicht\.com\/"[^>]*>Avy Faingezicht<\/a>/,
   );
-  assert.match(
-    html,
-    /href="https:\/\/catherineproject\.org\/"[^>]*>Catherine Project<\/a>/,
-  );
-  assert.match(html, /I was inspired to build this reader while studying/);
-  assert.match(html, /Ancient Greek Writings on Knowledge and Mathematics/);
-  assert.match(
-    html,
-    /Built by(?:<!-- -->)? <a href="https:\/\/www\.faingezicht\.com\/"[^>]*>Avy Faingezicht<\/a>, a human in San Francisco\./,
-  );
-  assert.match(
-    html,
-    /Building projects like this is how I teach myself about difficult subjects and understand the world more deeply\./,
-  );
-  assert.match(html, /Built with Codex on Sol 5\.6\. It&#x27;s open source;/);
-  assert.match(
-    html,
-    /href="https:\/\/github\.com\/avyfain\/euclid"[^>]*>GitHub repository<\/a>/,
-  );
-  assert.match(html, /suggestions are welcome/);
-  assert.doesNotMatch(html, /View this entry at Perseus/);
-  assert.doesNotMatch(html, /class="article-meta"/);
-  assert.match(html, /Text provided by Perseus Digital Library/);
-  assert.match(html, /Creative Commons Attribution-ShareAlike 3\.0 United States/);
+  assert.match(html, /Construction of an equilateral triangle/);
+  assert.doesNotMatch(html, />Definitions</);
   assert.match(
     html,
     /https:\/\/raw\.githubusercontent\.com\/avyfain\/euclid\/main\/public\/og\.png/,
@@ -144,10 +111,11 @@ test("ships all thirteen books and their visualization contracts", async () => {
     ),
   );
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
-  const [sceneRenderer, bookTwoFigures, bookFamilyFigures] = await Promise.all([
+  const [sceneRenderer, bookTwoFigures, bookFamilyFigures, experience] = await Promise.all([
     readFile(new URL("../app/EuclidScene.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/data/book-2-figure-data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/data/book-family-scenes.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/EuclidExperience.tsx", import.meta.url), "utf8"),
   ]);
 
   const counts = Object.fromEntries(
@@ -251,7 +219,10 @@ test("ships all thirteen books and their visualization contracts", async () => {
   assert.match(extractor, /choices=range\(1, 14\)/);
   assert.match(extractor, /selection\.add_argument\("--all"/);
   assert.match(page, /bookThirteen/);
-  assert.match(page, /<EuclidReader books=\{books\} \/>/);
+  assert.match(page, /<EuclidExperience books=\{books\} \/>/);
+  assert.match(experience, /FIRST_PROPOSITION_HASH = "#book-1-prop-1"/);
+  assert.match(experience, /window\.addEventListener\("popstate", syncFromLocation\)/);
+  assert.match(experience, /window\.history\.pushState\(null, "", "\/"\)/);
   assert.match(reader, /!\["qed", "conclusion"\]\.includes\(part\.kind\)/);
   const conclusionStyles = styles.match(
     /\.source-part-qed,[\s\S]*?\.source-part-conclusion \{[\s\S]*?\}/,
@@ -265,6 +236,7 @@ test("ships all thirteen books and their visualization contracts", async () => {
   assert.match(reader, /COLLAPSED_FOUNDATION_SECTION_IDS/);
   assert.match(reader, /collapsed \? section\.id : item\.id/);
   assert.match(reader, /articleRef\.current\?\.scrollIntoView/);
+  assert.match(reader, /<Link[\s\S]*?className="brand"[\s\S]*?href="\/"/);
   assert.match(reader, /id=\{part\.id\}/);
   const articleMarkup = reader.slice(
     reader.indexOf('<article className="source-article"'),

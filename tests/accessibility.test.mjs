@@ -71,12 +71,12 @@ async function assertNoWcagViolations(page, state) {
   );
 }
 
-test("has no automated WCAG A/AA violations in core reader states", async () => {
+test("has no automated WCAG A/AA violations in the cover and core reader states", async () => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   const page = await context.newPage();
   await page.goto(baseUrl);
   await page.waitForSelector("h1");
-  await assertNoWcagViolations(page, "initial reader");
+  await assertNoWcagViolations(page, "cover");
 
   await page.goto(`${baseUrl}/#prop-1`);
   await page.getByRole("heading", { level: 1 }).waitFor();
@@ -199,7 +199,7 @@ test("renders and exercises every Book III-XIII construction", async () => {
 test("has no automated WCAG A/AA violations in the mobile contents dialog", async () => {
   const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
   const page = await context.newPage();
-  await page.goto(baseUrl);
+  await page.goto(`${baseUrl}/#book-1-prop-1`);
   await page.getByRole("button", { name: "Open table of contents" }).click();
   await page.getByRole("dialog", { name: "Book I" }).waitFor();
   await assertNoWcagViolations(page, "mobile contents dialog");

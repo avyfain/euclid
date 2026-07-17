@@ -799,6 +799,34 @@ kbd {
   cursor: pointer;
 }
 
+.figure-text-description {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.figure-text-description summary {
+  width: fit-content;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.figure-text-description p,
+.figure-text-description ol {
+  max-width: 65ch;
+  margin-block: 10px 0;
+}
+
+.figure-text-description li[aria-current="step"] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .source-part {
   margin: 0 0 42px;
 }

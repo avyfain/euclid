@@ -199,12 +199,16 @@ function transformPoint(
 function FigureShell({
   title,
   status,
+  steps,
+  currentStep,
   children,
   controls,
   viewBox = "0 0 640 360",
 }: {
   title: string;
   status: string;
+  steps?: string[];
+  currentStep?: number;
   children: React.ReactNode;
   controls: React.ReactNode;
   viewBox?: string;
@@ -226,10 +230,24 @@ function FigureShell({
         role="img"
         aria-labelledby={`${titleId} ${descriptionId}`}
       >
-        <desc id={descriptionId}>{title}</desc>
+        <desc id={descriptionId}>{title} Current view: {status}.</desc>
         {children}
       </svg>
       <div className="proposition-figure-controls">{controls}</div>
+      <details className="figure-text-description">
+        <summary>Text description of construction</summary>
+        <p>{title}</p>
+        {steps?.length ? (
+          <ol>
+            {steps.map((step, index) => (
+              <li aria-current={index === currentStep ? "step" : undefined} key={step}>
+                {step}
+              </li>
+            ))}
+          </ol>
+        ) : null}
+        <p><strong>Current view:</strong> {status}.</p>
+      </details>
     </section>
   );
 }
@@ -256,6 +274,8 @@ function PropositionOneFigure() {
     <FigureShell
       title="An equilateral triangle is constructed on AB by intersecting two circles whose radius is AB."
       status={statuses[stage]}
+      steps={statuses}
+      currentStep={stage}
       controls={
         <button
           className="geometry-action"
@@ -610,6 +630,8 @@ function DataDrivenPropositionFigure({ config }: { config: PropositionFigureConf
     <FigureShell
       title={config.description}
       status={currentStep.status}
+      steps={config.steps.map((step) => step.status)}
+      currentStep={stage}
       viewBox={config.viewBox}
       controls={
         <button

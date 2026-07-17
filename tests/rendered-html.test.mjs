@@ -201,6 +201,9 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(figure, /function ParallelMark/);
   assert.match(figure, /function RightAngleMark/);
   assert.match(figure, /Replay construction/);
+  assert.match(figure, /Text description of construction/);
+  assert.match(figure, /<desc id=\{descriptionId\}>\{title\} Current view: \{status\}\.<\/desc>/);
+  assert.match(figure, /aria-current=\{index === currentStep \? "step" : undefined\}/);
   assert.equal((figure.match(/type="range"/g) ?? []).length, 3);
   assert.match(figure, /prefers-reduced-motion|geometry-reveal/);
   assert.match(styles, /\.geometry-parallel line/);

@@ -278,7 +278,7 @@ function PropositionOneFigure() {
     "Draw circle from A",
     "Draw circle from B",
     "Join C to A and B",
-    "Replay construction",
+    "Show construction",
   ];
 
   return (
@@ -650,7 +650,7 @@ function DataDrivenPropositionFigure({ config }: { config: PropositionFigureConf
           type="button"
           onClick={() => setStage(stage === lastStage ? 0 : stage + 1)}
         >
-          {stage === lastStage ? "Replay construction" : currentStep.action}
+          {stage === lastStage ? "Show construction" : currentStep.action}
           <span aria-hidden="true">→</span>
         </button>
       }

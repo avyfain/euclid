@@ -122,7 +122,7 @@ test("renders and exercises every Book II construction", async () => {
       assert.notEqual(svgAfter, svgBefore, `II.${proposition} geometry updates`);
       assert.ok((await status.innerText()).length >= statusBefore.length / 2, `II.${proposition} explanation remains readable`);
     } else {
-      await scene.getByRole("button", { name: "Replay construction" }).click();
+      await scene.getByRole("button", { name: "Show construction" }).click();
       await scene.getByRole("button", { name: "Show next step" }).waitFor();
     }
     await scene.locator("svg").waitFor();

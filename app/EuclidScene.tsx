@@ -82,7 +82,7 @@ export function EuclidScene({ scene }: { scene: EuclidSceneSpec }) {
           </label>
         ) : (
           <button className="geometry-action" type="button" onClick={() => setStage(stage === lastStage ? 0 : stage + 1)}>
-            {stage === lastStage ? "Replay construction" : "Show next step"}<span aria-hidden="true">→</span>
+            {stage === lastStage ? "Show construction" : "Show next step"}<span aria-hidden="true">→</span>
           </button>
         )}
       </div>

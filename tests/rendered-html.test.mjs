@@ -324,7 +324,7 @@ test("ships all thirteen books and their visualization contracts", async () => {
   assert.match(bookFamilyFigures, /fiveFiguresScene/);
   assert.match(figure, /function ParallelMark/);
   assert.match(figure, /function RightAngleMark/);
-  assert.match(figure, /Replay construction/);
+  assert.match(figure, /Show construction/);
   assert.match(figure, /Text description of \{heading\.toLowerCase\(\)\}/);
   assert.match(figure, /<desc id=\{descriptionId\}>\{title\} Current view: \{status\}\.<\/desc>/);
   assert.match(figure, /aria-current=\{index === currentStep \? "step" : undefined\}/);

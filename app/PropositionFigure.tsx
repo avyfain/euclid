@@ -1,6 +1,12 @@
 "use client";
 
 import { useId, useState } from "react";
+import {
+  PROPOSITION_FIGURES,
+  type FigureElement,
+  type FigurePoint,
+  type PropositionFigureConfig,
+} from "./data/proposition-figure-data";
 
 type Point = { x: number; y: number };
 
@@ -81,6 +87,83 @@ function Tick({
       })}
     </g>
   );
+}
+
+function ParallelMark({
+  from,
+  to,
+  count = 1,
+}: {
+  from: Point;
+  to: Point;
+  count?: number;
+}) {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const length = Math.hypot(dx, dy);
+  const ux = dx / length;
+  const uy = dy / length;
+  const px = -uy;
+  const py = ux;
+  const center = { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
+
+  return (
+    <g className="geometry-parallel">
+      {Array.from({ length: count }, (_, index) => {
+        const offset = (index - (count - 1) / 2) * 15;
+        const x = center.x + ux * offset;
+        const y = center.y + uy * offset;
+        const tip = { x: x + ux * 6, y: y + uy * 6 };
+        return (
+          <g key={index}>
+            <line
+              x1={x - ux * 6 + px * 6}
+              y1={y - uy * 6 + py * 6}
+              x2={tip.x}
+              y2={tip.y}
+            />
+            <line
+              x1={x - ux * 6 - px * 6}
+              y1={y - uy * 6 - py * 6}
+              x2={tip.x}
+              y2={tip.y}
+            />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+function RightAngleMark({
+  vertex,
+  towardA,
+  towardB,
+  size = 15,
+}: {
+  vertex: Point;
+  towardA: Point;
+  towardB: Point;
+  size?: number;
+}) {
+  const firstLength = Math.hypot(towardA.x - vertex.x, towardA.y - vertex.y);
+  const secondLength = Math.hypot(towardB.x - vertex.x, towardB.y - vertex.y);
+  const first = {
+    x: (towardA.x - vertex.x) / firstLength,
+    y: (towardA.y - vertex.y) / firstLength,
+  };
+  const second = {
+    x: (towardB.x - vertex.x) / secondLength,
+    y: (towardB.y - vertex.y) / secondLength,
+  };
+  const a = { x: vertex.x + first.x * size, y: vertex.y + first.y * size };
+  const corner = {
+    x: vertex.x + (first.x + second.x) * size,
+    y: vertex.y + (first.y + second.y) * size,
+  };
+  const b = { x: vertex.x + second.x * size, y: vertex.y + second.y * size };
+
+  return <path className="geometry-right-angle" d={`M ${a.x} ${a.y} L ${corner.x} ${corner.y} L ${b.x} ${b.y}`} />;
 }
 
 function polar(center: Point, radius: number, degrees: number): Point {
@@ -430,6 +513,142 @@ function PropositionFourFigure() {
   );
 }
 
+function revealClass(requiredStage: number | undefined, stage: number) {
+  if (!requiredStage) return undefined;
+  return `geometry-reveal${stage >= requiredStage ? " is-visible" : ""}`;
+}
+
+function FigureElementView({
+  element,
+  points,
+  stage,
+  index,
+}: {
+  element: FigureElement;
+  points: Record<string, FigurePoint>;
+  stage: number;
+  index: number;
+}) {
+  const point = (id: string) => points[id];
+  const className = revealClass(element.stage, stage);
+  let shape: React.ReactNode;
+
+  switch (element.kind) {
+    case "segment":
+      shape = (
+        <Line
+          from={point(element.from)}
+          to={point(element.to)}
+          className={`geometry-${element.style ?? "line"}`}
+        />
+      );
+      break;
+    case "circle": {
+      const center = point(element.center);
+      shape = <circle className="geometry-circle" cx={center.x} cy={center.y} r={element.radius} />;
+      break;
+    }
+    case "angle":
+      shape = (
+        <path
+          className={`geometry-angle geometry-angle-${element.style ?? "accent"}`}
+          d={arcPath(point(element.center), element.radius, element.start, element.end)}
+        />
+      );
+      break;
+    case "polygon":
+      shape = (
+        <polygon
+          className={`geometry-${element.style ?? "area"}`}
+          points={element.points.map((id) => `${point(id).x},${point(id).y}`).join(" ")}
+        />
+      );
+      break;
+    case "tick":
+      shape = (
+        <Tick
+          from={point(element.from)}
+          to={point(element.to)}
+          count={element.count}
+        />
+      );
+      break;
+    case "parallel":
+      shape = (
+        <ParallelMark
+          from={point(element.from)}
+          to={point(element.to)}
+          count={element.count}
+        />
+      );
+      break;
+    case "right-angle":
+      shape = (
+        <RightAngleMark
+          vertex={point(element.vertex)}
+          towardA={point(element.towardA)}
+          towardB={point(element.towardB)}
+          size={element.size}
+        />
+      );
+      break;
+  }
+
+  return (
+    <g className={className} aria-hidden={element.stage ? stage < element.stage : undefined} key={index}>
+      {shape}
+    </g>
+  );
+}
+
+function DataDrivenPropositionFigure({ config }: { config: PropositionFigureConfig }) {
+  const lastStage = config.steps.length - 1;
+  const [stage, setStage] = useState(lastStage);
+  const currentStep = config.steps[stage];
+
+  return (
+    <FigureShell
+      title={config.description}
+      status={currentStep.status}
+      viewBox={config.viewBox}
+      controls={
+        <button
+          className="geometry-action"
+          type="button"
+          onClick={() => setStage(stage === lastStage ? 0 : stage + 1)}
+        >
+          {stage === lastStage ? "Replay construction" : currentStep.action}
+          <span aria-hidden="true">→</span>
+        </button>
+      }
+    >
+      {config.elements.map((element, index) => (
+        <FigureElementView
+          element={element}
+          points={config.points}
+          stage={stage}
+          index={index}
+          key={index}
+        />
+      ))}
+      {Object.entries(config.points).map(([id, figurePoint]) => (
+        <g
+          className={revealClass(figurePoint.stage, stage)}
+          aria-hidden={figurePoint.stage ? stage < figurePoint.stage : undefined}
+          key={id}
+        >
+          <Dot point={figurePoint} />
+          {figurePoint.label ? (
+            <Label point={figurePoint} dx={figurePoint.dx} dy={figurePoint.dy}>
+              {figurePoint.label}
+            </Label>
+          ) : null}
+        </g>
+      ))}
+    </FigureShell>
+  );
+}
+
 export function PropositionFigure({ propositionId }: { propositionId: string }) {
   switch (propositionId) {
     case "prop-1":
@@ -441,6 +660,8 @@ export function PropositionFigure({ propositionId }: { propositionId: string }) 
     case "prop-4":
       return <PropositionFourFigure />;
     default:
-      return null;
+      return PROPOSITION_FIGURES[propositionId] ? (
+        <DataDrivenPropositionFigure config={PROPOSITION_FIGURES[propositionId]} />
+      ) : null;
   }
 }

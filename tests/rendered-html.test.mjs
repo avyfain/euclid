@@ -81,13 +81,14 @@ test("keeps Cloudflare Workers Builds as the sole deployment owner", async () =>
 });
 
 test("ships complete Book I data and an extensible book catalog", async () => {
-  const [book, catalog, editorialNotes, extractor, reader, figure, styles] = await Promise.all([
+  const [book, catalog, editorialNotes, extractor, reader, figure, figureData, styles] = await Promise.all([
     readFile(new URL("../app/data/book-1.json", import.meta.url), "utf8").then(JSON.parse),
     readFile(new URL("../app/data/catalog.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/data/editorial-notes.ts", import.meta.url), "utf8"),
     readFile(new URL("../scripts/extract_perseus_book.py", import.meta.url), "utf8"),
     readFile(new URL("../app/EuclidReader.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/PropositionFigure.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/proposition-figure-data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
 
@@ -186,9 +187,22 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));
   }
+  const dataDrivenFigureIds = [...figureData.matchAll(/^\s+"(prop-\d+)": \{/gm)].map(
+    (match) => match[1],
+  );
+  assert.deepEqual(
+    dataDrivenFigureIds,
+    Array.from({ length: 44 }, (_, index) => `prop-${index + 5}`),
+  );
+  assert.match(figure, /PROPOSITION_FIGURES\[propositionId\]/);
+  assert.match(figure, /function ParallelMark/);
+  assert.match(figure, /function RightAngleMark/);
   assert.match(figure, /Replay construction/);
   assert.equal((figure.match(/type="range"/g) ?? []).length, 3);
   assert.match(figure, /prefers-reduced-motion|geometry-reveal/);
+  assert.match(styles, /\.geometry-parallel line/);
+  assert.match(styles, /\.geometry-right-angle/);
+  assert.match(styles, /\.geometry-area-secondary/);
   assert.match(reader, /showingEditorialNotes \? "Our notes" : "Heath's notes"/);
   assert.match(editorialNotes, /The two numbering systems/);
   assert.match(editorialNotes, /Heiberg's numbering from the transmitted Greek sequence/);

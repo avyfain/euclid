@@ -614,8 +614,10 @@ kbd {
 .geometry-construction,
 .geometry-circle,
 .geometry-angle,
+.geometry-right-angle,
 .geometry-tick line,
-.geometry-source-tick line {
+.geometry-source-tick line,
+.geometry-parallel line {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -653,6 +655,20 @@ kbd {
   stroke-width: 1.4;
 }
 
+.geometry-angle-accent {
+  stroke: var(--accent);
+}
+
+.geometry-angle-muted {
+  stroke: var(--muted);
+  stroke-dasharray: 3 3;
+}
+
+.geometry-right-angle {
+  stroke: var(--accent);
+  stroke-width: 1.4;
+}
+
 .geometry-target-angle {
   stroke: var(--muted);
   stroke-dasharray: 3 3;
@@ -670,6 +686,21 @@ kbd {
 .geometry-source-tick line {
   stroke: var(--accent);
   stroke-width: 1.5;
+}
+
+.geometry-parallel line {
+  stroke: var(--ink);
+  stroke-width: 1.25;
+}
+
+.geometry-area {
+  fill: color-mix(in srgb, var(--accent) 12%, transparent);
+  stroke: none;
+}
+
+.geometry-area-secondary {
+  fill: color-mix(in srgb, var(--ink) 6%, transparent);
+  stroke: none;
 }
 
 .geometry-dot {

@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "euclid",
   "compatibility_date": "2026-07-16",
+  "preview_urls": true,
   "main": "./worker/index.ts",
   "assets": {
     "directory": "dist/client",

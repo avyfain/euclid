@@ -58,7 +58,11 @@ test("server-renders the finished Book I reader", async () => {
   assert.match(html, /Ancient Greek Writings on Knowledge and Mathematics/);
   assert.match(
     html,
-    /href="https:\/\/www\.faingezicht\.com\/"[^>]*>Avy Faingezicht<\/a>, a software engineer in San Francisco interested in understanding things deeply\./,
+    /Built by(?:<!-- -->)? <a href="https:\/\/www\.faingezicht\.com\/"[^>]*>Avy Faingezicht<\/a>, a software engineer in San Francisco\./,
+  );
+  assert.match(
+    html,
+    /Building projects like this is how I teach myself about difficult subjects and understand the world more deeply\./,
   );
   assert.match(html, /Built with Codex on Sol 5\.6\. It&#x27;s open source;/);
   assert.match(

@@ -139,8 +139,19 @@ a {
   font-size: clamp(58px, 7.3vw, 96px);
   font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 0.95;
-  text-wrap: balance;
+  line-height: 1;
+}
+
+.cover-title-line {
+  display: block;
+}
+
+.cover-title-line:nth-child(2) {
+  margin-top: -0.23em;
+}
+
+.cover-title-line:nth-child(3) {
+  margin-top: 0.14em;
 }
 
 .cover-summary {

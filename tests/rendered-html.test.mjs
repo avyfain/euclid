@@ -32,7 +32,7 @@ test("server-renders a cover before entering the reader", async () => {
   assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(html, /Euclid(?:&#x27;|')s Elements/);
   assert.match(html, /Thomas L\. Heath(?:&#x27;|')s translation/);
-  assert.match(html, /See how geometry builds up\./);
+  assert.match(html, /aria-label="See how geometry builds up\."/);
   assert.match(html, /Begin with Proposition I\.1/);
   assert.match(html, /465 propositions/);
   assert.match(html, /Searchable across all 13 books/);
@@ -262,6 +262,9 @@ test("ships all thirteen books and their visualization contracts", async () => {
   )?.[0] ?? "";
   assert.doesNotMatch(conclusionStyles, /border-top|padding-top/);
   assert.match(styles, /--faint: #796960;/);
+  assert.match(styles, /\.cover-introduction h1 \{[\s\S]*?line-height: 1;/);
+  assert.match(styles, /\.cover-title-line:nth-child\(2\) \{[\s\S]*?margin-top: -0\.23em;/);
+  assert.match(styles, /\.cover-title-line:nth-child\(3\) \{[\s\S]*?margin-top: 0\.14em;/);
   assert.match(styles, /\.euclid-scene-label \{[\s\S]*?stroke: none;/);
   assert.ok(reader.indexOf("source-note") < reader.indexOf('className="reading-pane"'));
   assert.match(reader, /Perseus, a digital library at Tufts University/);

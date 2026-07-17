@@ -194,6 +194,10 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(reader, /event\.key === "Escape" && navOpen && isCompact/);
   assert.match(reader, /role=\{isCompact \? "dialog" : undefined\}/);
   assert.match(reader, /aria-modal=\{isCompact && navOpen \? true : undefined\}/);
+  assert.match(reader, /euclid-announce-source-line-numbers/);
+  assert.match(reader, /Announce source line numbers/);
+  assert.match(reader, /Source line \$1\./);
+  assert.match(reader, /addAccessibleLineNumbers\(block, announceLineNumbers\)/);
   assert.match(reader, /<PropositionFigure propositionId=\{activeItem\.id\} \/>/);
   for (const id of ["prop-1", "prop-2", "prop-3", "prop-4"]) {
     assert.match(figure, new RegExp(`case "${id}"`));

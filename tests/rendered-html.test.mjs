@@ -175,6 +175,7 @@ test("ships complete Book I data and an extensible book catalog", async () => {
     /\.source-part-qed,[\s\S]*?\.source-part-conclusion \{[\s\S]*?\}/,
   )?.[0] ?? "";
   assert.doesNotMatch(conclusionStyles, /border-top|padding-top/);
+  assert.match(styles, /--faint: #796960;/);
   assert.ok(reader.indexOf("source-note") < reader.indexOf('className="reading-pane"'));
   assert.match(reader, /Perseus, a digital library at Tufts University/);
   assert.doesNotMatch(reader, /activeItem\.sourceUrl/);

@@ -478,17 +478,17 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                 >
                   Catherine Project
                 </a>
-                &apos;s <em>Ancient Greek Writings on Knowledge and Mathematics</em>
-                course. I&apos;m a software engineer in San Francisco interested in
-                understanding things deeply. You can find more of my work at{" "}
+                &apos;s <em>Ancient Greek Writings on Knowledge and Mathematics</em>{" "}
+                course. I&apos;m{" "}
                 <a href="https://www.faingezicht.com/" target="_blank" rel="noreferrer">
-                  faingezicht.com
+                  Avy Faingezicht
                 </a>
-                .
+                , a software engineer in San Francisco interested in understanding
+                things deeply.
               </p>
               <p>
-                This project was built using Codex on Sol 5.6. Everything is open
-                source, and suggestions are welcome on the{" "}
+                Built with Codex on Sol 5.6. It&apos;s open source; suggestions are
+                welcome on the{" "}
                 <a
                   href="https://github.com/avyfain/euclid"
                   target="_blank"

@@ -54,21 +54,18 @@ test("server-renders the finished Book I reader", async () => {
     html,
     /href="https:\/\/catherineproject\.org\/"[^>]*>Catherine Project<\/a>/,
   );
+  assert.match(html, /I was inspired to build this reader while taking the/);
   assert.match(html, /Ancient Greek Writings on Knowledge and Mathematics/);
   assert.match(
     html,
-    /I&#x27;m a software engineer in San Francisco interested in understanding things deeply\./,
+    /href="https:\/\/www\.faingezicht\.com\/"[^>]*>Avy Faingezicht<\/a>, a software engineer in San Francisco interested in understanding things deeply\./,
   );
-  assert.match(
-    html,
-    /href="https:\/\/www\.faingezicht\.com\/"[^>]*>faingezicht\.com<\/a>/,
-  );
-  assert.match(html, /This project was built using Codex on Sol 5\.6\./);
+  assert.match(html, /Built with Codex on Sol 5\.6\. It&#x27;s open source;/);
   assert.match(
     html,
     /href="https:\/\/github\.com\/avyfain\/euclid"[^>]*>GitHub repository<\/a>/,
   );
-  assert.match(html, /Everything is open source, and suggestions are welcome/);
+  assert.match(html, /suggestions are welcome/);
   assert.doesNotMatch(html, /View this entry at Perseus/);
   assert.doesNotMatch(html, /class="article-meta"/);
   assert.match(html, /Text provided by Perseus Digital Library/);
@@ -263,6 +260,9 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(styles, /\.source-line-number::after \{[^}]*font-size: 10px;/);
   assert.match(extractor, /line_numbers=section_id == "propositions"/);
   assert.match(styles, /\.source-note \{[^}]*padding-inline: 11px;/);
+  assert.match(styles, /\.source-note \{[^}]*font-size: 12px;/);
+  assert.match(styles, /\.source-note summary \{[^}]*font-size: 13px;/);
+  assert.match(styles, /\.source-note-copy > strong \{[^}]*font-size: 12px;/);
   assert.match(
     styles,
     /@media \(max-width: 1240px\)[\s\S]*?\.reader-workspace \{[^}]*grid-auto-rows: max-content;[^}]*align-content: start;/,

@@ -110,41 +110,94 @@ const scene4: EuclidSceneSpec = {
 
 const scene5: EuclidSceneSpec = {
   id: "book-2-prop-5",
-  title: "The square on the half split into CD² and a gnomon.",
-  description: "As D moves away from the midpoint C, CD² grows by exactly the area lost from AD by DB.",
-  steps: ["Bisect AB at C and choose an unequal cut D", "Place CD² inside the square on CB", "The remaining gnomon has area AD·DB"],
+  title: "The square on CB split into CD² and the remaining gnomon.",
+  description: "C is the midpoint of AB. As D moves from C toward B, the square on CD grows inside the square on CB while the surrounding gnomon remains equal to AD by DB.",
+  steps: ["Bisect AB at C and choose the unequal cut D", "Place the square on CD inside the square on CB", "The square CD² and the gnomon AD·DB exactly fill CB²"],
   control: { kind: "range", label: "Move the unequal cut D", min: 0.15, max: 0.76, step: 0.01, initial: 0.42 },
-  build: (xValue) => {
-    const x = 205, y = 55, side = 260, inner = side * xValue;
-    return [rect(x, y, side, side, "area"), rect(x + side - inner, y + side - inner, inner, inner, "area-secondary"), label(x + side * 0.38, y + side * 0.45, "AD·DB"), label(x + side - inner / 2, y + side - inner / 2, "CD²"), line(x, y + side + 25, x + side, y + side + 25, "given"), point(x, y + side + 25, "A", 0, 20), point(x + side / 2, y + side + 25, "C", 0, 20), point(x + side / 2 + inner / 2, y + side + 25, "D", 0, 20), point(x + side, y + side + 25, "B", 0, 20)];
+  build: (displacement) => {
+    const half = 220, a = 90, c = a + half, b = c + half, baseline = 305;
+    const cd = half * displacement;
+    const d = c + cd;
+    return [
+      rect(c, baseline - half, half, half, "area"),
+      rect(c, baseline - cd, cd, cd, "area-secondary"),
+      line(d, baseline - cd, d, baseline, "construction"),
+      line(c, baseline - cd, d, baseline - cd, "construction"),
+      line(a, baseline, b, baseline, "given"),
+      point(a, baseline, "A", -10, 20), point(c, baseline, "C", 0, 20),
+      point(d, baseline, "D", 0, 20), point(b, baseline, "B", 10, 20),
+      label(c + half * 0.62, baseline - half * 0.58, "AD·DB"),
+      label(c + cd / 2, baseline - cd / 2 + 5, "CD²"),
+      label(c + half / 2, baseline - half - 18, "square on CB"),
+    ];
   },
-  status: (x) => `AD·DB + CD² = ${fixed(1 - x ** 2)} + ${fixed(x ** 2)} = CB²`,
-  invariant: (x) => close((1 + x) * (1 - x) + x ** 2, 1),
+  status: (displacement) => `AD·DB + CD² = ${fixed(1 - displacement ** 2)} + ${fixed(displacement ** 2)} = CB²`,
+  invariant: (displacement) => close((1 + displacement) * (1 - displacement) + displacement ** 2, 1),
 };
 
 const scene6: EuclidSceneSpec = {
   id: "book-2-prop-6",
   title: "The square on CD decomposed into CB² and the gnomon AD by DB.",
-  description: "Adding DB to a bisected line turns the surrounding gnomon into the rectangle AD by DB.",
-  steps: ["Bisect AB at C and extend to D", "Describe the square on CD", "Its unit square is CB²; the gnomon is AD·DB"],
+  description: "C bisects AB and D extends the line beyond B. The square on CD contains the square on CB; the exact surrounding gnomon has area AD by DB.",
+  steps: ["Bisect AB at C and extend the line to D", "Describe the square on CD", "The square CB² and the gnomon AD·DB exactly fill CD²"],
   control: { kind: "range", label: "Change the added length DB", min: 0.16, max: 0.68, step: 0.01, initial: 0.38 },
-  build: (xValue) => {
-    const unit = 170, side = unit * (1 + xValue), x = 195, y = 45, extra = unit * xValue;
-    return [rect(x, y, unit, unit, "area"), rect(x + unit, y, extra, unit, "area-secondary"), rect(x, y + unit, unit, extra, "area-secondary"), rect(x + unit, y + unit, extra, extra, "area-secondary"), label(x + unit / 2, y + unit / 2, "CB²"), label(x + unit + extra / 2, y + side / 2, "AD·DB", "line"), line(x - 35, y + side + 28, x + side, y + side + 28, "given"), point(x - 35, y + side + 28, "A", 0, 20), point(x + unit - 35, y + side + 28, "B", 0, 20), point(x + unit / 2 - 35, y + side + 28, "C", 0, 20), point(x + side, y + side + 28, "D", 0, 20)];
+  build: (added) => {
+    const half = 145, a = 80, c = a + half, b = c + half;
+    const db = half * added;
+    const d = b + db;
+    const cd = half + db;
+    const baseline = 310;
+    return [
+      rect(c, baseline - cd, cd, cd, "area-secondary"),
+      rect(c, baseline - half, half, half, "area"),
+      line(c + half, baseline - cd, c + half, baseline, "construction"),
+      line(c, baseline - half, d, baseline - half, "construction"),
+      line(a, baseline, d, baseline, "given"),
+      point(a, baseline, "A", -10, 20), point(c, baseline, "C", 0, 20),
+      point(b, baseline, "B", 0, 20), point(d, baseline, "D", 10, 20),
+      label(c + half / 2, baseline - half / 2 + 5, "CB²"),
+      label(c + half + db / 2, baseline - cd / 2 + 5, "AD·DB"),
+      label(c + cd / 2, baseline - cd - 18, "square on CD"),
+    ];
   },
-  status: (x) => `AD·DB + CB² = ${fixed((2 + x) * x)} + 1 = CD²`,
-  invariant: (x) => close((2 + x) * x + 1, (1 + x) ** 2),
+  status: (added) => `AD·DB + CB² = ${fixed((2 + added) * added)} + 1 = CD²`,
+  invariant: (added) => close((2 + added) * added + 1, (1 + added) ** 2),
 };
 
 const scene7: EuclidSceneSpec = {
   id: "book-2-prop-7",
-  title: "Two equal-area arrangements for the cut AB = AC + CB.",
-  description: "The square on AB together with BC² equals two AB by BC rectangles and the remaining square AC².",
-  steps: ["Cut AB at C", "Compare the two area arrangements", "Both sides cover the same total area"],
+  title: "The two sides of II.7 built from the same cut AB = AC + CB.",
+  description: "Moving C changes every term together: the square on AB plus BC² always balances the square on AC plus two copies of AB by BC.",
+  steps: ["Cut AB at C", "Build AB² and BC² on the left", "Build AC² and two AB by BC rectangles on the right", "The paired areas remain equal as C moves"],
   control: { kind: "range", label: "Move C along AB", min: 0.18, max: 0.68, step: 0.01, initial: 0.4 },
-  build: (xValue) => {
-    const base = 135, small = base * xValue, remain = base * (1 - xValue);
-    return [...square(55, 70, base, "AB²", "area"), ...square(215, 70, small, "BC²", "area-secondary"), label(150, 45, "+"), ...square(410, 70, remain, "AC²", "area"), rect(365, 235, base, small, "area-secondary"), rect(365, 235 + small + 8, base, small, "area-secondary"), label(432, 235 + small / 2, "AB·BC"), label(432, 243 + small * 1.5, "AB·BC"), label(320, 170, "=", "given")];
+  build: (bcRatio) => {
+    const unit = 118;
+    const bc = unit * bcRatio;
+    const ac = unit - bc;
+    const top = 55;
+    const leftSquareX = 40;
+    const leftSmallX = 185;
+    const rightSquareX = 365;
+    const rightRectX = 470;
+    const baselineY = 330;
+    const baselineA = 205;
+    const baselineB = baselineA + 230;
+    const baselineC = baselineB - 230 * bcRatio;
+    return [
+      ...square(leftSquareX, top, unit, "AB²", "area"),
+      ...square(leftSmallX, top + unit - bc, bc, "BC²", "area-secondary"),
+      label(172, top + unit / 2, "+"),
+      label(320, top + unit / 2, "="),
+      ...square(rightSquareX, top + unit - ac, ac, "AC²", "area"),
+      rect(rightRectX, top, unit, bc, "area-secondary"),
+      rect(rightRectX, top + bc + 10, unit, bc, "area-secondary"),
+      label(rightRectX + unit / 2, top + bc / 2 + 4, "AB·BC"),
+      label(rightRectX + unit / 2, top + bc * 1.5 + 14, "AB·BC"),
+      line(baselineA, baselineY, baselineB, baselineY, "given"),
+      point(baselineA, baselineY, "A", -10, 20),
+      point(baselineC, baselineY, "C", 0, 20),
+      point(baselineB, baselineY, "B", 10, 20),
+    ];
   },
   status: () => "AB² + BC² = 2AB·BC + AC²",
   invariant: (x) => close(1 + x ** 2, 2 * x + (1 - x) ** 2),
@@ -152,13 +205,34 @@ const scene7: EuclidSceneSpec = {
 
 const scene8: EuclidSceneSpec = {
   id: "book-2-prop-8",
-  title: "A larger square surrounding the square on AC.",
-  description: "The area between side 1 + BC and side 1 - BC is four rectangles AB by BC.",
-  steps: ["Extend AB by a copy of BC", "Describe the square on AB + BC", "Remove AC²; the surrounding gnomon is four AB·BC"],
+  title: "The square on AD = AB + BC surrounding the square on AC.",
+  description: "C cuts AB and BD copies BC. The centered square on AC leaves a surrounding gnomon whose area is four times AB by BC.",
+  steps: ["Cut AB at C and extend it by BD = BC", "Describe the square on AD = AB + BC", "Place the square on AC inside it", "The surrounding gnomon has area 4(AB·BC)"],
   control: { kind: "range", label: "Move C along AB", min: 0.16, max: 0.62, step: 0.01, initial: 0.34 },
-  build: (xValue) => {
-    const unit = 175, outer = unit * (1 + xValue), inner = unit * (1 - xValue), x = 190, y = 40, inset = (outer - inner) / 2;
-    return [rect(x, y, outer, outer, "area-secondary"), rect(x + inset, y + inset, inner, inner, "area"), label(x + outer / 2, y + 22, "4(AB·BC)"), label(x + outer / 2, y + outer / 2 + 5, "AC²")];
+  build: (bcRatio) => {
+    const unit = 185;
+    const outer = unit * (1 + bcRatio);
+    const inner = unit * (1 - bcRatio);
+    const x = 145;
+    const bottom = 295;
+    const inset = unit * bcRatio;
+    const a = x;
+    const c = a + inner;
+    const b = a + unit;
+    const d = a + outer;
+    return [
+      rect(x, bottom - outer, outer, outer, "area-secondary"),
+      rect(x + inset, bottom - outer + inset, inner, inner, "area"),
+      line(x + inset, bottom - outer, x + inset, bottom, "construction"),
+      line(x + outer - inset, bottom - outer, x + outer - inset, bottom, "construction"),
+      line(x, bottom - outer + inset, x + outer, bottom - outer + inset, "construction"),
+      line(x, bottom - inset, x + outer, bottom - inset, "construction"),
+      line(a, bottom + 28, d, bottom + 28, "given"),
+      point(a, bottom + 28, "A", -10, 20), point(c, bottom + 28, "C", 0, 20),
+      point(b, bottom + 28, "B", 0, 20), point(d, bottom + 28, "D", 10, 20),
+      label(x + outer / 2, bottom - outer + 18, "gnomon = 4(AB·BC)"),
+      label(x + outer / 2, bottom - outer / 2 + 5, "AC²"),
+    ];
   },
   status: (x) => `4AB·BC + AC² = ${fixed(4 * x)} + ${fixed((1 - x) ** 2)} = (AB + BC)²`,
   invariant: (x) => close(4 * x + (1 - x) ** 2, (1 + x) ** 2),
@@ -263,16 +337,38 @@ const scene13: EuclidSceneSpec = {
 
 const scene14: EuclidSceneSpec = {
   id: "book-2-prop-14",
-  title: "A semicircle converts a rectangle into an equal square.",
-  description: "The altitude EH is the geometric mean of BE and EF, so the square on EH equals the given rectangle.",
-  viewBox: "0 0 700 380",
-  steps: ["Replace the figure by rectangle BE by ED", "Set EF equal to ED and draw the semicircle on BF", "Raise EH perpendicular to BF", "By the right-triangle mean, EH² = BE·EF = area BD"],
+  title: "A semicircle constructs the geometric mean EH of the rectangle sides BE and EF.",
+  description: "EF is set equal to the rectangle's second side ED. Because EH is the altitude to the diameter BF, its square is exactly equal to the rectangle BE by EF.",
+  viewBox: "0 0 760 410",
+  steps: ["Replace the given figure by the rectangle BE by ED", "Set EF equal to ED and draw the semicircle on BF", "Raise EH perpendicular to BF", "The right-triangle mean gives EH² = BE·EF, so the square equals the given figure"],
   control: { kind: "range", label: "Change the rectangle's proportions", min: 0.24, max: 0.72, step: 0.01, initial: 0.46 },
   build: (t) => {
-    const bx = 55, fx = 395, gy = 255, gx = (bx + fx) / 2, radius = (fx - bx) / 2, ex = bx + (fx - bx) * t;
-    const height = Math.sqrt(Math.max(0, radius ** 2 - (ex - gx) ** 2));
-    const hy = gy - height;
-    return [rect(55, 275, (fx - bx) * t, 60, "area"), label(55 + (fx - bx) * t / 2, 309, "given rectangle"), { kind: "arc", cx: gx, cy: gy, r: radius, start: 180, end: 360, tone: "construction" }, line(bx, gy, fx, gy, "given"), line(ex, gy, ex, hy, "result"), point(bx, gy, "B", 0, 20), point(ex, gy, "E", -9, 20), point(gx, gy, "G", 8, 20), point(fx, gy, "F", 0, 20), point(ex, hy, "H", 0, -10), ...square(465, gy - height, height, "EH²", "area-secondary"), label(550, 345, "EH² = BE·EF", "result")];
+    const diameter = 240;
+    const bx = 35, fx = bx + diameter, baseline = 235;
+    const gx = (bx + fx) / 2, radius = diameter / 2;
+    const ex = bx + diameter * t;
+    const be = ex - bx;
+    const ef = fx - ex;
+    const eh = Math.sqrt(be * ef);
+    const hy = baseline - eh;
+    const rectangleX = 335, rectangleBottom = 265;
+    const squareX = 585, squareBottom = 265;
+    return [
+      { kind: "arc", cx: gx, cy: baseline, r: radius, start: 180, end: 360, tone: "construction" },
+      line(bx, baseline, fx, baseline, "given"),
+      line(ex, baseline, ex, hy, "result"),
+      { kind: "right-angle", x: ex, y: baseline, size: 13, flipX: true, flipY: true },
+      point(bx, baseline, "B", -8, 20), point(ex, baseline, "E", -8, 20),
+      point(gx, baseline, "G", 9, 20), point(fx, baseline, "F", 8, 20),
+      point(ex, hy, "H", 0, -10),
+      rect(rectangleX, rectangleBottom - ef, be, ef, "area"),
+      label(rectangleX + be / 2, rectangleBottom - ef / 2 + 5, "BE·EF"),
+      label(rectangleX + be / 2, rectangleBottom + 24, "given rectangle"),
+      label(555, 165, "="),
+      rect(squareX, squareBottom - eh, eh, eh, "area-secondary"),
+      label(squareX + eh / 2, squareBottom - eh / 2 + 5, "EH²"),
+      label(510, 350, "EH² = BE·EF", "result"),
+    ];
   },
   status: (t) => `EH² = BE·EF = ${fixed(t * (1 - t))} of BF²`,
   invariant: (t) => close(t * (1 - t), 0.25 - (t - 0.5) ** 2),

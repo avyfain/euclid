@@ -3,6 +3,17 @@
 import { useId, useState } from "react";
 import { EuclidScene } from "./EuclidScene";
 import { BOOK_TWO_SCENES } from "./data/book-2-figure-data";
+import { BOOK_THREE_SCENES } from "./data/book-3-figure-data";
+import { BOOK_FOUR_SCENES } from "./data/book-4-figure-data";
+import { BOOK_FIVE_SCENES } from "./data/book-5-figure-data";
+import { BOOK_SIX_SCENES } from "./data/book-6-figure-data";
+import { BOOK_SEVEN_SCENES } from "./data/book-7-figure-data";
+import { BOOK_EIGHT_SCENES } from "./data/book-8-figure-data";
+import { BOOK_NINE_SCENES } from "./data/book-9-figure-data";
+import { BOOK_TEN_SCENES } from "./data/book-10-figure-data";
+import { BOOK_ELEVEN_SCENES } from "./data/book-11-figure-data";
+import { BOOK_TWELVE_SCENES } from "./data/book-12-figure-data";
+import { BOOK_THIRTEEN_SCENES } from "./data/book-13-figure-data";
 import { createBookFamilyScene } from "./data/book-family-scenes";
 import {
   PROPOSITION_FIGURES,
@@ -698,6 +709,39 @@ export function PropositionFigure({
   if (!propositionId.startsWith("prop-")) return null;
   if (bookNumber === 2 && BOOK_TWO_SCENES[propositionId]) {
     return <EuclidScene scene={BOOK_TWO_SCENES[propositionId]} key={`book-2-${propositionId}`} />;
+  }
+  if (bookNumber === 3 && BOOK_THREE_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_THREE_SCENES[propositionId]} key={`book-3-${propositionId}`} />;
+  }
+  if (bookNumber === 4 && BOOK_FOUR_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_FOUR_SCENES[propositionId]} key={`book-4-${propositionId}`} />;
+  }
+  if (bookNumber === 5 && BOOK_FIVE_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_FIVE_SCENES[propositionId]} key={`book-5-${propositionId}`} />;
+  }
+  if (bookNumber === 6 && BOOK_SIX_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_SIX_SCENES[propositionId]} key={`book-6-${propositionId}`} />;
+  }
+  if (bookNumber === 7 && BOOK_SEVEN_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_SEVEN_SCENES[propositionId]} key={`book-7-${propositionId}`} />;
+  }
+  if (bookNumber === 8 && BOOK_EIGHT_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_EIGHT_SCENES[propositionId]} key={`book-8-${propositionId}`} />;
+  }
+  if (bookNumber === 9 && BOOK_NINE_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_NINE_SCENES[propositionId]} key={`book-9-${propositionId}`} />;
+  }
+  if (bookNumber === 10 && BOOK_TEN_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_TEN_SCENES[propositionId]} key={`book-10-${propositionId}`} />;
+  }
+  if (bookNumber === 11 && BOOK_ELEVEN_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_ELEVEN_SCENES[propositionId]} key={`book-11-${propositionId}`} />;
+  }
+  if (bookNumber === 12 && BOOK_TWELVE_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_TWELVE_SCENES[propositionId]} key={`book-12-${propositionId}`} />;
+  }
+  if (bookNumber === 13 && BOOK_THIRTEEN_SCENES[propositionId]) {
+    return <EuclidScene scene={BOOK_THIRTEEN_SCENES[propositionId]} key={`book-13-${propositionId}`} />;
   }
   if (bookNumber >= 3) {
     return (

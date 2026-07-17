@@ -517,6 +517,7 @@ export function EuclidReader({
         <button
           className="search-trigger"
           type="button"
+          aria-label="Search this book"
           aria-controls="book-contents"
           aria-expanded={navOpen}
           onClick={(event) => openNavigation(event.currentTarget, true)}

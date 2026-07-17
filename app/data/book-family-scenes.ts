@@ -1,9 +1,9 @@
 import type { EuclidSceneSpec, ScenePrimitive, SceneTone } from "./book-2-figure-data";
 
-const line = (x1: number, y1: number, x2: number, y2: number, tone: SceneTone = "line"): ScenePrimitive => ({ kind: "line", x1, y1, x2, y2, tone });
-const rect = (x: number, y: number, width: number, height: number, tone: SceneTone = "area"): ScenePrimitive => ({ kind: "rect", x, y, width, height, tone });
-const label = (x: number, y: number, text: string, tone: SceneTone = "line"): ScenePrimitive => ({ kind: "label", x, y, text, tone });
-const point = (x: number, y: number, text: string, dx = 0, dy = -10): ScenePrimitive => ({ kind: "point", x, y, label: text, dx, dy });
+const line = (x1: number, y1: number, x2: number, y2: number, tone: SceneTone = "line", stage = 0): ScenePrimitive => ({ kind: "line", x1, y1, x2, y2, tone, stage });
+const rect = (x: number, y: number, width: number, height: number, tone: SceneTone = "area", stage = 0): ScenePrimitive => ({ kind: "rect", x, y, width, height, tone, stage });
+const label = (x: number, y: number, text: string, tone: SceneTone = "line", stage = 0): ScenePrimitive => ({ kind: "label", x, y, text, tone, stage });
+const point = (x: number, y: number, text: string, dx = 0, dy = -10, stage = 0): ScenePrimitive => ({ kind: "point", x, y, label: text, dx, dy, stage });
 const circle = (cx: number, cy: number, r: number, tone: SceneTone = "construction"): ScenePrimitive => ({ kind: "circle", cx, cy, r, tone });
 const polygon = (points: Array<[number, number]>, tone: SceneTone = "area"): ScenePrimitive => ({ kind: "polygon", points, tone });
 const fixed = (value: number) => value.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
@@ -196,10 +196,142 @@ function regularSolidScene(value: number, proposition: number): ScenePrimitive[]
   return [polygon(outer, "area"), polygon(inner, "area-secondary"), ...spokes, ...outer.map(([x, y], index) => point(x, y, String(index + 1), 6, -6)), label(320, 350, "equal radii preserve the regular symmetry", "result")];
 }
 
-function goldenRatioScene(value: number): ScenePrimitive[] {
-  const whole = 400, greater = whole * (Math.sqrt(5) - 1) / 2;
-  const x = 110, y = 205, lift = (value - 0.5) * 35;
-  return [line(x, y, x + whole, y, "given"), line(x, y + lift, x + greater, y + lift, "result"), point(x, y, "A", -12, 20), point(x + greater, y, "C", 0, 20), point(x + whole, y, "B", 10, 20), rect(x, 65, greater, 82, "area"), rect(x + greater, 65, whole - greater, 82, "area-secondary"), label(320, 330, "AB : AC = AC : CB", "result")];
+const PHI = (1 + Math.sqrt(5)) / 2;
+const GOLDEN_GREATER = 1 / PHI;
+
+function equalAreaCells(x: number, y: number, side: number, count: number, text: string, stage = 2): ScenePrimitive[] {
+  return [
+    ...Array.from({ length: count }, (_, index) => rect(x + index * side, y, side, side, index % 2 ? "area-secondary" : "area", stage)),
+    label(x + count * side / 2, y - 14, text, "result", stage),
+  ];
+}
+
+function bookThirteenOpeningScene(proposition: number, title: string): EuclidSceneSpec {
+  const approximatelyEqual = (a: number, b: number) => Math.abs(a - b) < 1e-9;
+  const descriptions: Record<number, string> = {
+    1: "The golden cut is fixed. Extending by half of AB makes CD exactly √5 times AD, so its square has five times the area.",
+    2: "The hypothesis AB² = 5·AC² forces AB = √5·AC. On the doubled segment CD, the remainder BC is the greater golden segment.",
+    3: "Bisecting the greater golden segment AC at D makes BD exactly √5 times DC, so the square on BD equals five squares on DC.",
+    4: "With C fixed at the golden cut, the squares on the whole AB and lesser part BC together equal three squares on AC.",
+    5: "Adding AD equal to the greater segment AC transfers the golden ratio: DB is cut at A, with AB as its greater segment.",
+    6: "Taking rational AB as one unit exposes both golden segments as explicit irrational differences, the apotomes named by Euclid.",
+  };
+  const steps: Record<number, string[]> = {
+    1: ["Fix C at the golden-ratio cut of AB", "Extend through A by AD = AB/2", "Compare CD² with five equal copies of AD²"],
+    2: ["Start from AB² = 5·AC²", "Make CD = 2·AC and mark off BC", "Read CD : CB = CB : BD"],
+    3: ["Fix C at the golden-ratio cut of AB", "Bisect the greater segment AC at D", "Compare BD² with five equal copies of DC²"],
+    4: ["Fix C at the golden-ratio cut of AB", "Form the squares on AB, BC, and AC", "See AB² + BC² equal three copies of AC²"],
+    5: ["Fix the original golden cut of AB at C", "Add AD equal to the greater segment AC", "Read the same ratio on the enlarged segment DB"],
+    6: ["Take rational AB as one unit", "Use XIII.1 to obtain CD/AD = √5", "Subtract rational halves to expose the two apotomes"],
+  };
+
+  const builders: Record<number, () => ScenePrimitive[]> = {
+    1: () => {
+      const a = 215, b = 495, c = a + (b - a) * GOLDEN_GREATER, d = a - (b - a) / 2, e = (a + b) / 2;
+      const unit = 51, large = Math.sqrt(5) * unit;
+      return [
+        line(d, 58, b, 58, "given"), point(d, 58, "D", 0, 20), point(a, 58, "A", 0, 20), point(e, 58, "E", 0, 20, 1), point(c, 58, "C", 0, 20), point(b, 58, "B", 0, 20),
+        label((a + b) / 2, 36, "AC is the fixed golden segment", "given"),
+        line(d, 92, a, 92, "construction", 1), line(a, 92, e, 92, "construction", 1), line(e, 92, b, 92, "construction", 1),
+        line(d, 84, d, 100, "construction", 1), line(a, 84, a, 100, "construction", 1), line(e, 84, e, 100, "construction", 1), line(b, 84, b, 100, "construction", 1),
+        label((d + a) / 2, 119, "AD", "construction", 1), label((a + e) / 2, 119, "AE", "construction", 1), label((e + b) / 2, 119, "EB", "construction", 1),
+        label((a + b) / 2, 142, "AD = AE = EB; AB = 2·AD", "result", 1),
+        rect(72, 165, large, large, "area", 2), label(72 + large / 2, 165 + large / 2 + 5, "CD²", "result", 2),
+        ...equalAreaCells(270, 198, unit, 5, "5 × AD²"),
+      ];
+    },
+    2: () => {
+      const unit = 43, large = Math.sqrt(5) * unit;
+      const c = 120, d = 520, b = c + (d - c) * GOLDEN_GREATER;
+      return [
+        rect(58, 42, large, large, "area"), label(58 + large / 2, 42 + large / 2 + 5, "AB²", "result"),
+        ...equalAreaCells(205, 68, unit, 5, "5 × AC²", 0),
+        line(c, 238, d, 238, "given", 1), point(c, 238, "C", 0, 22, 1), point(b, 238, "B", 0, 22, 1), point(d, 238, "D", 0, 22, 1),
+        label((c + d) / 2, 211, "CD = 2·AC", "construction", 1),
+        line(c, 290, b, 290, "result", 2), line(b, 290, d, 290, "construction", 2),
+        label((c + b) / 2, 320, "greater: BC = (√5 − 1)·AC", "result", 2),
+        label(320, 358, "CD : CB = CB : BD = φ", "result", 2),
+      ];
+    },
+    3: () => {
+      const a = 110, b = 530, c = a + (b - a) * GOLDEN_GREATER, d = (a + c) / 2;
+      const unit = 49, large = Math.sqrt(5) * unit;
+      return [
+        line(a, 58, b, 58, "given"), point(a, 58, "A", 0, 20), point(d, 58, "D", 0, 20, 1), point(c, 58, "C", 0, 20), point(b, 58, "B", 0, 20),
+        label((a + c) / 2, 35, "D bisects the greater segment AC", "construction", 1),
+        rect(76, 170, large, large, "area", 2), label(76 + large / 2, 170 + large / 2 + 5, "BD²", "result", 2),
+        ...equalAreaCells(265, 198, unit, 5, "5 × DC²"),
+      ];
+    },
+    4: () => {
+      const whole = 112, greater = whole * GOLDEN_GREATER, lesser = whole - greater;
+      const a = 120, b = 520, c = a + (b - a) * GOLDEN_GREATER;
+      return [
+        line(a, 48, b, 48, "given"), point(a, 48, "A", 0, 20), point(c, 48, "C", 0, 20), point(b, 48, "B", 0, 20),
+        label((a + c) / 2, 27, "greater AC", "given"), label((c + b) / 2, 27, "lesser CB", "construction"),
+        rect(52, 138, whole, whole, "area", 1), label(52 + whole / 2, 138 + whole / 2 + 5, "AB²", "line", 1),
+        rect(180, 138 + whole - lesser, lesser, lesser, "area-secondary", 1), label(180 + lesser / 2, 138 + whole - lesser / 2 + 5, "BC²", "line", 1),
+        label(138, 278, "AB² + BC²", "result", 2),
+        ...Array.from({ length: 3 }, (_, index) => rect(315 + index * greater, 171, greater, greater, index % 2 ? "area-secondary" : "area", 2)),
+        label(315 + greater * 1.5, 153, "3 × AC²", "result", 2),
+        label(320, 332, "AB² + BC² = 3·AC²", "result", 2),
+      ];
+    },
+    5: () => {
+      const a = 235, b = 505, c = a + (b - a) * GOLDEN_GREATER, d = a - (c - a);
+      return [
+        line(a, 82, b, 82, "given"), point(a, 82, "A", 0, 20), point(c, 82, "C", 0, 20), point(b, 82, "B", 0, 20),
+        label((a + c) / 2, 52, "AC", "given"), label((c + b) / 2, 52, "CB", "construction"),
+        label(370, 132, "AB : AC = AC : CB", "result", 0),
+        line(d, 202, a, 202, "construction", 1), line(a, 202, b, 202, "given", 1),
+        point(d, 202, "D", 0, 22, 1), point(a, 202, "A", 0, 22, 1), point(b, 202, "B", 0, 22, 1),
+        label((d + a) / 2, 177, "AD = AC", "construction", 1), label((a + b) / 2, 177, "greater AB", "given", 1),
+        line(d, 278, b, 278, "result", 2), point(a, 278, "A", 0, 22, 2),
+        label((d + a) / 2, 310, "lesser AD", "construction", 2), label((a + b) / 2, 310, "greater AB", "result", 2),
+        label(320, 354, "DB : AB = AB : AD = φ", "result", 2),
+      ];
+    },
+    6: () => {
+      const a = 210, b = 510, c = a + (b - a) * GOLDEN_GREATER, d = a - (b - a) / 2;
+      return [
+        line(a, 62, b, 62, "given"), point(a, 62, "A", 0, 20), point(c, 62, "C", 0, 20), point(b, 62, "B", 0, 20), label((a + b) / 2, 35, "rational AB = 1", "given"),
+        line(d, 145, c, 145, "construction", 1), point(d, 145, "D", 0, 20, 1), point(a, 145, "A", 0, 20, 1), point(c, 145, "C", 0, 20, 1),
+        label((d + a) / 2, 121, "AD = 1/2", "construction", 1), label((d + c) / 2, 178, "CD = √5/2", "result", 1),
+        line(a, 252, c, 252, "result", 2), line(c, 252, b, 252, "construction", 2),
+        label((a + c) / 2, 230, "AC = (√5 − 1)/2", "result", 2), label((c + b) / 2, 282, "CB = (3 − √5)/2", "result", 2),
+        label(320, 338, "both are irrational apotomes", "result", 2),
+      ];
+    },
+  };
+
+  const statuses: Record<number, string[]> = {
+    1: ["C is fixed by AB : AC = AC : CB", "AD is half of AB", "CD² = 5·AD²"],
+    2: ["AB² = 5·AC²", "CD is twice AC", "CD : CB = CB : BD"],
+    3: ["C is the fixed golden cut", "DC is half of AC", "BD² = 5·DC²"],
+    4: ["C is the fixed golden cut", "Form the three relevant squares", "AB² + BC² = 3·AC²"],
+    5: ["AB : AC = AC : CB", "Add AD equal to AC", "DB : AB = AB : AD"],
+    6: ["AB is rational", "CD/AD = √5", "AC and CB are irrational apotomes"],
+  };
+  const identities: Record<number, boolean> = {
+    1: approximatelyEqual((GOLDEN_GREATER + 0.5) ** 2, 5 * 0.5 ** 2),
+    2: approximatelyEqual(2 / (Math.sqrt(5) - 1), (Math.sqrt(5) - 1) / (3 - Math.sqrt(5))),
+    3: approximatelyEqual((1 - GOLDEN_GREATER / 2) ** 2, 5 * (GOLDEN_GREATER / 2) ** 2),
+    4: approximatelyEqual(1 + (1 - GOLDEN_GREATER) ** 2, 3 * GOLDEN_GREATER ** 2),
+    5: approximatelyEqual(1 + GOLDEN_GREATER, 1 / GOLDEN_GREATER),
+    6: approximatelyEqual((Math.sqrt(5) - 1) / 2 + (3 - Math.sqrt(5)) / 2, 1),
+  };
+
+  return {
+    id: `book-13-prop-${proposition}`,
+    family: true,
+    title,
+    description: descriptions[proposition],
+    steps: steps[proposition],
+    control: { kind: "steps" },
+    build: builders[proposition],
+    status: (_value, stage) => statuses[proposition][stage] ?? statuses[proposition][2],
+    invariant: () => identities[proposition],
+  };
 }
 
 function fiveFiguresScene(value: number): ScenePrimitive[] {
@@ -214,6 +346,7 @@ function fiveFiguresScene(value: number): ScenePrimitive[] {
 
 export function createBookFamilyScene(book: number, propositionNumber: number | string, title: string, referenceCount: number): EuclidSceneSpec {
   const proposition = Number.parseInt(String(propositionNumber), 10) || 1;
+  if (book === 13 && proposition <= 6) return bookThirteenOpeningScene(proposition, title);
   const relation = relationFor(book, title);
   const builders: Record<number, (value: number) => ScenePrimitive[]> = {
     3: (value) => circleScene(value, proposition, title),
@@ -226,7 +359,7 @@ export function createBookFamilyScene(book: number, propositionNumber: number | 
     10: (value) => proposition === 1 ? shrinkingRemainderScene(value) : magnitudeScene(value, proposition),
     11: solidScene,
     12: (value) => exhaustionScene(value, title),
-    13: (value) => proposition <= 6 ? goldenRatioScene(value) : proposition <= 12 ? polygonScene(value, proposition, title) : proposition === 18 ? fiveFiguresScene(value) : regularSolidScene(value, proposition),
+    13: (value) => proposition <= 12 ? polygonScene(value, proposition, title) : proposition === 18 ? fiveFiguresScene(value) : regularSolidScene(value, proposition),
   };
   const labels: Record<number, string> = {
     3: "Move the point on the circle", 4: "Rotate the regular construction", 5: "Change the common ratio", 6: "Scale the similar figure", 7: "Change the counted multiple", 8: "Change the continued ratio", 9: "Change the generated number", 10: "Refine the rational approximation", 11: "Rotate the spatial view", 12: "Refine the exhaustion", 13: "Rotate the regular figure",
@@ -242,9 +375,7 @@ export function createBookFamilyScene(book: number, propositionNumber: number | 
           ? "Continue the subtraction"
           : book === 12 && /cone|cylinder/i.test(title)
             ? "Change the common height"
-            : book === 13 && proposition <= 6
-              ? "Move the golden cut"
-              : labels[book] ?? "Explore the construction";
+            : labels[book] ?? "Explore the construction";
   return {
     id: `book-${book}-prop-${proposition}`,
     family: true,

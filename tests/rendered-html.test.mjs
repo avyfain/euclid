@@ -111,9 +111,20 @@ test("ships all thirteen books and their visualization contracts", async () => {
     ),
   );
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
-  const [sceneRenderer, bookTwoFigures, bookFamilyFigures, experience] = await Promise.all([
+  const [sceneRenderer, bookTwoFigures, bookThreeFigures, bookFourFigures, bookFiveFigures, bookSixFigures, bookSevenFigures, bookEightFigures, bookNineFigures, bookTenFigures, bookElevenFigures, bookTwelveFigures, bookThirteenFigures, bookFamilyFigures, experience] = await Promise.all([
     readFile(new URL("../app/EuclidScene.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/data/book-2-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-3-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-4-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-5-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-6-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-7-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-8-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-9-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-10-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-11-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-12-figure-data.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/data/book-13-figure-data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/data/book-family-scenes.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/EuclidExperience.tsx", import.meta.url), "utf8"),
   ]);
@@ -154,6 +165,27 @@ test("ships all thirteen books and their visualization contracts", async () => {
       candidate.sections.length,
     );
   }
+  const sourceHtmlByBook = books.map((candidate) =>
+    candidate.sections
+      .flatMap((section) => section.items)
+      .flatMap((item) => [
+        ...item.parts.flatMap((part) => part.blocks),
+        ...item.notes.flatMap((note) => note.blocks),
+      ])
+      .join(" "),
+  );
+  assert.deepEqual(
+    sourceHtmlByBook.map((html) => (html.match(/class="segment"/g) ?? []).length),
+    [997, 764, 892, 448, 515, 1134, 494, 0, 233, 5792, 1553, 559, 794],
+  );
+  assert.doesNotMatch(
+    sourceHtmlByBook.slice(6).join(" "),
+    /class="source-italic">[A-Z]{2}<\/span>/,
+  );
+  assert.match(
+    sourceHtmlByBook[12],
+    /<span class="segment" aria-label="line segment A D">AD<\/span>/,
+  );
 
   const propositions = book.sections.find(
     (section) => section.id === "propositions",
@@ -218,6 +250,7 @@ test("ships all thirteen books and their visualization contracts", async () => {
   assert.match(catalog, /available: true/);
   assert.match(extractor, /choices=range\(1, 14\)/);
   assert.match(extractor, /selection\.add_argument\("--all"/);
+  assert.match(extractor, /rendition in \{"ital", "italic"\}/);
   assert.match(page, /bookThirteen/);
   assert.match(page, /<EuclidExperience books=\{books\} \/>/);
   assert.match(experience, /FIRST_PROPOSITION_HASH = "#book-1-prop-1"/);
@@ -279,6 +312,17 @@ test("ships all thirteen books and their visualization contracts", async () => {
   );
   assert.match(figure, /PROPOSITION_FIGURES\[propositionId\]/);
   assert.match(figure, /bookNumber === 2 && BOOK_TWO_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 3 && BOOK_THREE_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 4 && BOOK_FOUR_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 5 && BOOK_FIVE_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 6 && BOOK_SIX_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 7 && BOOK_SEVEN_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 8 && BOOK_EIGHT_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 9 && BOOK_NINE_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 10 && BOOK_TEN_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 11 && BOOK_ELEVEN_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 12 && BOOK_TWELVE_SCENES\[propositionId\]/);
+  assert.match(figure, /bookNumber === 13 && BOOK_THIRTEEN_SCENES\[propositionId\]/);
   assert.match(figure, /bookNumber >= 3/);
   assert.match(figure, /createBookFamilyScene/);
   assert.match(sceneRenderer, /data-scene=\{scene\.id\}/);
@@ -288,11 +332,70 @@ test("ships all thirteen books and their visualization contracts", async () => {
     14,
   );
   assert.match(bookTwoFigures, /validateBookTwoScenes/);
+  assert.equal((bookThreeFigures.match(/id: "book-3-prop-\d+"/g) ?? []).length, 37);
+  assert.match(bookThreeFigures, /validateBookThreeScenes/);
+  assert.match(bookThreeFigures, /perpendicular bisectors meet at O/);
+  assert.match(bookThreeFigures, /PB greatest; PA least/);
+  assert.match(bookThreeFigures, /A and B are the only common points/);
+  assert.match(bookThreeFigures, /OT ⟂ PT, therefore PT touches the circle/);
+  assert.match(bookThreeFigures, /∠AOB = 2∠ACB/);
+  assert.match(bookThreeFigures, /∠ACB = ∠ADB/);
+  assert.match(bookThreeFigures, /OA = OB completes the given segment's circle/);
+  assert.match(bookThreeFigures, /arc AB = arc CD, therefore chord AB = CD/);
+  assert.match(bookThreeFigures, /arc AC = arc CB/);
+  assert.match(bookThreeFigures, /∠DFE < right < ∠DGE/);
+  assert.match(bookThreeFigures, /PT² = PA·PB/);
+  assert.match(bookThreeFigures, /OT ⟂ PT, therefore PT is tangent/);
+  assert.equal((bookFourFigures.match(/id: "book-4-prop-\d+"/g) ?? []).length, 16);
+  assert.match(bookFourFigures, /validateBookFourScenes/);
+  assert.match(bookFourFigures, /AB = DE/);
+  assert.match(bookFourFigures, /IE = IF = IG/);
+  assert.match(bookFourFigures, /∠B = ∠C = 72° = 2∠A/);
+  assert.match(bookFourFigures, /120° − 72° = 48°; bisect to 24°/);
+  assert.equal((bookFiveFigures.match(/makeScene\(\d+/g) ?? []).length, 25);
+  assert.match(bookFiveFigures, /validateBookFiveScenes/);
+  assert.match(bookFiveFigures, /A is 3·B exactly when C is 3·D/);
+  assert.match(bookFiveFigures, /A:C = D:F = 4:1/);
+  assert.match(bookFiveFigures, /A \+ D = 11 > 10 = B \+ C/);
+  assert.equal((bookSixFigures.match(/id: "book-6-prop-\d+"/g) ?? []).length, 33);
+  assert.match(bookSixFigures, /validateBookSixScenes/);
+  assert.match(bookSixFigures, /AC : CD = CD : CB/);
+  assert.match(bookSixFigures, /AB : AC = AC : CB = φ/);
+  assert.match(bookSixFigures, /figure\(hypotenuse\) = figure\(leg 1\) \+ figure\(leg 2\)/);
+  assert.match(bookSevenFigures, /scene39/);
+  assert.match(bookSevenFigures, /validateBookSevenScenes/);
+  assert.match(bookSevenFigures, /gcd\(19,12\) = 1/);
+  assert.match(bookSevenFigures, /lcm\(4,6,9\)=36/);
+  assert.match(bookEightFigures, /validateBookEightScenes/);
+  assert.match(bookEightFigures, /4:9 = \(2:3\)²/);
+  assert.match(bookEightFigures, /8:27 = \(2:3\)³/);
+  assert.match(bookNineFigures, /validateBookNineScenes/);
+  assert.match(bookNineFigures, /2·3·5 \+ 1 = 31/);
+  assert.match(bookNineFigures, /7·4=28 perfect/);
+  assert.match(bookTenFigures, /validateBookTenScenes/);
+  assert.match(bookTenFigures, /1,⁴√2: square also/);
+  assert.match(bookTenFigures, /apotome is a difference, not a binomial sum/);
+  assert.match(bookElevenFigures, /validateBookElevenScenes/);
+  assert.match(bookElevenFigures, /a·b·c = b³/);
+  assert.match(bookElevenFigures, /common section is one straight line/);
+  assert.match(bookTwelveFigures, /validateBookTwelveScenes/);
+  assert.match(bookTwelveFigures, /cone = ⅓ cylinder/);
+  assert.match(bookTwelveFigures, /sphere ratio k³ : 1/);
+  assert.match(bookThirteenFigures, /validateBookThirteenScenes/);
+  assert.match(bookThirteenFigures, /D² = 3s²/);
+  assert.match(bookThirteenFigures, /hexagon side \+ decagon side/);
   assert.match(bookFamilyFigures, /const BOOK_STEPS: Record<number, string\[]>/);
   assert.match(bookFamilyFigures, /validateBookFamilyScene/);
   assert.equal((bookFamilyFigures.match(/^\s+\d+: \(value\)/gm) ?? []).length, 7);
   assert.match(bookFamilyFigures, /3: \(value\) => circleScene/);
-  assert.match(bookFamilyFigures, /13: \(value\).*goldenRatioScene/);
+  assert.match(bookFamilyFigures, /bookThirteenOpeningScene/);
+  assert.match(bookFamilyFigures, /control: \{ kind: "steps" \}/);
+  assert.match(bookFamilyFigures, /CD² = 5·AD²/);
+  assert.match(bookFamilyFigures, /AD = AE = EB; AB = 2·AD/);
+  assert.match(bookFamilyFigures, /AB² \+ BC² = 3·AC²/);
+  assert.match(bookFamilyFigures, /DB : AB = AB : AD/);
+  assert.match(bookFamilyFigures, /both are irrational apotomes/);
+  assert.doesNotMatch(bookFamilyFigures, /Move the golden cut/);
   assert.match(bookFamilyFigures, /fiveFiguresScene/);
   assert.match(figure, /function ParallelMark/);
   assert.match(figure, /function RightAngleMark/);

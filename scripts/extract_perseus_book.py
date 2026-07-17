@@ -214,6 +214,14 @@ def render_node(
         return content
     if tag == "hi":
         rendition = element.get("rend", "")
+        segment_name = plain_text(element)
+        if rendition in {"ital", "italic"} and re.fullmatch(r"[A-Z]{2}", segment_name):
+            escaped_name = html.escape(segment_name)
+            spoken_name = " ".join(segment_name)
+            return (
+                f'<span class="segment" aria-label="line segment {spoken_name}">'
+                f"{escaped_name}</span>"
+            )
         class_name = {
             "bold": "source-bold",
             "center": "source-center",

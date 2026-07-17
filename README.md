@@ -27,6 +27,14 @@ GitHub repository.
 The Worker is named `euclid`; `wrangler.jsonc` contains the public deployment
 configuration. Run `npm run deploy` for an authorized manual deployment.
 
+The canonical production URL is <https://explore-euclid.online>. Cloudflare
+attaches that custom domain directly to the `euclid` Worker and manages its TLS
+certificate. Zone-level settings enforce HTTPS, while a proxied `www` DNS
+record and an active 301 Redirect Rule send `www.explore-euclid.online` to the
+canonical hostname while preserving paths and query strings. Those zone-level
+DNS, redirect, and HTTPS settings live in the Cloudflare dashboard rather than
+`wrangler.jsonc` and must be recreated if the zone is replaced.
+
 ## Import another book
 
 The importer accepts every book in the *Elements* and preserves the source's

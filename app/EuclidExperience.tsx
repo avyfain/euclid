@@ -21,7 +21,7 @@ function EuclidCover({ onEnter }: { onEnter: () => void }) {
       <section className="cover-hero" aria-labelledby="cover-title">
         <div className="cover-introduction">
           <p className="cover-declaration">Thirteen books. One long argument.</p>
-          <h1 id="cover-title">See how geometry was built.</h1>
+          <h1 id="cover-title">See how geometry builds up.</h1>
           <p className="cover-summary">
             A close-reading edition of the <em>Elements</em>, pairing Heath&apos;s
             translation with figures that reveal each construction one step at a time.

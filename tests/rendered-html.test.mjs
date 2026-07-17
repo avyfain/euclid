@@ -32,7 +32,7 @@ test("server-renders a cover before entering the reader", async () => {
   assert.match(html, /<title>Euclid(?:&#x27;|')s Elements<\/title>/i);
   assert.match(html, /Euclid(?:&#x27;|')s Elements/);
   assert.match(html, /Thomas L\. Heath(?:&#x27;|')s translation/);
-  assert.match(html, /See how geometry was built\./);
+  assert.match(html, /See how geometry builds up\./);
   assert.match(html, /Begin with Proposition I\.1/);
   assert.match(html, /465 propositions/);
   assert.match(html, /Searchable across all 13 books/);

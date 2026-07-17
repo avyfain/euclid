@@ -132,6 +132,38 @@ test("renders and exercises every Book II construction", async () => {
   await context.close();
 });
 
+test("every Book I interaction changes the geometry at every step", async () => {
+  const context = await browser.newContext({ viewport: { width: 1100, height: 820 } });
+  const page = await context.newPage();
+
+  for (let proposition = 1; proposition <= 48; proposition += 1) {
+    await page.goto(`${baseUrl}/#book-1-prop-${proposition}`);
+    const figure = page.locator(".proposition-figure");
+    await figure.waitFor();
+    const svg = figure.locator("svg");
+    const slider = figure.getByRole("slider");
+    if (await slider.count()) {
+      const before = await svg.innerHTML();
+      await slider.fill(await slider.getAttribute("max"));
+      assert.notEqual(await svg.innerHTML(), before, `I.${proposition} slider changes the construction`);
+      continue;
+    }
+
+    const action = figure.locator("button.geometry-action");
+    const finished = await svg.innerHTML();
+    await action.click();
+    const given = await svg.innerHTML();
+    assert.notEqual(given, finished, `I.${proposition} can return to its given state`);
+    await action.click();
+    const construction = await svg.innerHTML();
+    assert.notEqual(construction, given, `I.${proposition} construction step changes the drawing`);
+    await action.click();
+    assert.notEqual(await svg.innerHTML(), construction, `I.${proposition} result step changes the drawing`);
+  }
+
+  await context.close();
+});
+
 test("renders and exercises every Book III-XIII construction", async () => {
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 } });
   const page = await context.newPage();

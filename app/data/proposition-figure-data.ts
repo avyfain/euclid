@@ -301,7 +301,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
     },
     elements: [
       s("a", "b", "given"), s("c", "d", "given"),
-      angle("e", 36, 29, 151), angle("e", 36, 209, 331),
+      angle("e", 36, 29, 151, 1, "muted"), angle("e", 36, 209, 331, 1, "muted"),
       angle("e", 50, 151, 209, 2, "muted"), angle("e", 50, 331, 389, 2, "muted"),
     ],
     steps: steps("Lines AB and CD intersect at E", "Each adjacent pair forms two right angles", "Opposite vertical angles are equal"),
@@ -343,15 +343,19 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
     steps: steps("AC is greater than AB", "Cut AD = AB and join BD", "The greater side AC subtends the greater angle ABC"),
   },
   "prop-19": {
-    description: "In triangle ABC the larger angle at B is opposite AC, showing the order of angles determines the order of sides.",
+    description: "The larger angle at B rules out an equal or shorter opposite side: the equal-side comparison would make the angles equal, and I.18 reverses the shorter-side case.",
     points: {
       a: p(150, 85, "A", -20, -8), b: p(105, 285, "B", -22, 10), c: p(545, 285, "C", 12, 10),
+      e: p(333, 178, "E", 10, -8, 1),
     },
     elements: [
       s("a", "b", "given"), s("b", "c"), s("a", "c", "result", 2),
+      s("a", "e", "construction", 1), s("b", "e", "construction", 1),
+      tick("a", "b", 2, 1), tick("a", "e", 2, 1),
+      angle("b", 25, -77, -25, 1, "muted"), angle("e", 25, 155, 207, 1, "muted"),
       angle("b", 38, -77, 0), angle("c", 30, 180, 205),
     ],
-    steps: steps("Angle ABC is greater than angle BCA", "Compare the possible orders of AC and AB", "The greater angle ABC is subtended by greater side AC"),
+    steps: steps("Angle ABC is greater than angle BCA", "If AC equalled AB the base angles would be equal; if shorter, I.18 would reverse their order", "The greater angle ABC is subtended by greater side AC"),
   },
   "prop-20": {
     description: "Extending BA by DA equal to AC turns the triangle inequality into a direct side comparison in triangle DBC.",
@@ -541,7 +545,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       a: p(135, 85, "A", -22, -8), c: p(400, 85, "C", 10, -8), d: p(505, 295, "D", 10, 12), b: p(240, 295, "B", -22, 12),
     },
     elements: [
-      polygon(["a", "b", "c"], "area", 1), polygon(["b", "c", "d"], "area-secondary", 1),
+      polygon(["a", "b", "c"], "area", 2), polygon(["b", "c", "d"], "area-secondary", 2),
       s("a", "c", "given"), s("c", "d", "given"), s("d", "b", "given"), s("b", "a", "given"), s("b", "c", "result", 1),
       tick("a", "c"), tick("b", "d"), tick("a", "b", 2), tick("c", "d", 2), parallel("a", "c", 1, 0), parallel("b", "d", 1, 0), parallel("a", "b", 2, 0), parallel("c", "d", 2, 0),
     ],
@@ -554,8 +558,8 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       b: p(205, 295, "B", -22, 12), c: p(415, 295, "C", 10, 12),
     },
     elements: [
-      polygon(["a", "b", "c", "d"], "area", 1), polygon(["e", "b", "c", "f"], "area-secondary", 1),
-      s("a", "f", "construction"), s("b", "c", "given"), s("a", "b", "given"), s("d", "c", "given"), s("e", "b", "target"), s("f", "c", "target"),
+      polygon(["a", "b", "c", "d"], "area", 2), polygon(["e", "b", "c", "f"], "area-secondary", 2),
+      s("a", "f", "construction", 1), s("b", "c", "given"), s("a", "b", "given"), s("d", "c", "given"), s("e", "b", "target"), s("f", "c", "target"),
       parallel("a", "f", 1, 0), parallel("b", "c", 1, 0),
     ],
     steps: steps("Two parallelograms share base BC", "Both lie between parallels AF and BC", "The parallelograms have equal area"),
@@ -567,7 +571,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       b: p(105, 295, "B", -22, 12), c: p(295, 295, "C", -5, 24), f: p(385, 295, "F", -5, 24), g: p(575, 295, "G", 10, 12),
     },
     elements: [
-      polygon(["a", "b", "c", "d"], "area", 1), polygon(["e", "f", "g", "h"], "area-secondary", 1),
+      polygon(["a", "b", "c", "d"], "area", 2), polygon(["e", "f", "g", "h"], "area-secondary", 2),
       s("a", "h", "construction"), s("b", "g", "construction"), s("a", "b", "given"), s("c", "d", "given"), s("e", "f", "target"), s("g", "h", "target"),
       tick("b", "c"), tick("f", "g"), parallel("a", "h", 1, 0), parallel("b", "g", 1, 0),
     ],
@@ -579,8 +583,8 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       a: p(175, 85, "A", -22, -8), d: p(465, 85, "D", 10, -8), b: p(135, 295, "B", -22, 12), c: p(505, 295, "C", 10, 12),
     },
     elements: [
-      polygon(["a", "b", "c"], "area", 1), polygon(["d", "b", "c"], "area-secondary", 1),
-      s("a", "d", "construction"), s("b", "c", "given"), s("a", "b", "given"), s("a", "c", "given"), s("d", "b", "target"), s("d", "c", "target"),
+      polygon(["a", "b", "c"], "area", 2), polygon(["d", "b", "c"], "area-secondary", 2),
+      s("a", "d", "construction", 1), s("b", "c", "given"), s("a", "b", "given"), s("a", "c", "given"), s("d", "b", "target"), s("d", "c", "target"),
       parallel("a", "d", 1, 0), parallel("b", "c", 1, 0),
     ],
     steps: steps("Triangles ABC and DBC share base BC", "Their apexes lie on parallel AD", "The triangles have equal area"),
@@ -591,7 +595,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       a: p(155, 85, "A", -22, -8), d: p(475, 85, "D", 10, -8), b: p(65, 295, "B", -22, 12), c: p(255, 295, "C", -5, 24), e: p(365, 295, "E", -5, 24), f: p(555, 295, "F", 10, 12),
     },
     elements: [
-      polygon(["a", "b", "c"], "area", 1), polygon(["d", "e", "f"], "area-secondary", 1),
+      polygon(["a", "b", "c"], "area", 2), polygon(["d", "e", "f"], "area-secondary", 2),
       s("a", "d", "construction"), s("b", "f", "construction"), s("a", "b", "given"), s("a", "c", "given"), s("d", "e", "target"), s("d", "f", "target"),
       tick("b", "c"), tick("e", "f"), parallel("a", "d", 1, 0), parallel("b", "f", 1, 0),
     ],
@@ -627,7 +631,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       a: p(145, 85, "A", -22, -8), d: p(425, 85, "D", 10, -8), e: p(520, 85, "E", 10, -8), b: p(215, 295, "B", -22, 12), c: p(495, 295, "C", 10, 12),
     },
     elements: [
-      polygon(["a", "b", "c", "d"], "area-secondary", 0), polygon(["e", "b", "c"], "area", 1),
+      polygon(["a", "b", "c", "d"], "area-secondary", 0), polygon(["e", "b", "c"], "area", 2),
       s("a", "d", "given"), s("a", "b", "given"), s("b", "c", "given"), s("c", "d", "given"), s("e", "b", "target"), s("e", "c", "target"), s("a", "c", "construction", 1),
       parallel("a", "e", 1, 0), parallel("b", "c", 1, 0),
     ],
@@ -655,7 +659,7 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
       d: p(120, 330, "D", -22, 14), g: p(320, 330, "G", -5, 25, 1), c: p(540, 330, "C", 10, 14),
     },
     elements: [
-      polygon(["e", "b", "f", "k"], "area", 1), polygon(["h", "k", "g", "d"], "area", 1),
+      polygon(["e", "b", "f", "k"], "area", 2), polygon(["h", "k", "g", "d"], "area", 2),
       s("a", "b", "given"), s("b", "c", "given"), s("c", "d", "given"), s("d", "a", "given"), s("a", "c", "result"),
       s("e", "g", "construction", 1), s("h", "f", "construction", 1),
     ],

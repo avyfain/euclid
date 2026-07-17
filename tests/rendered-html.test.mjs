@@ -144,10 +144,11 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.equal((sourceHtml.match(/book%3D6/g) ?? []).length, 2);
 
   const greekSpans = [...sourceHtml.matchAll(
-    /<span class="foreign" lang="greek">([^<]+)<\/span>/g,
+    /<span class="foreign" lang="grc">([^<]+)<\/span>/g,
   )].map((match) => match[1]);
   assert.equal(greekSpans.length, 126);
   assert.ok(greekSpans.every((value) => /[\u0370-\u03ff\u1f00-\u1fff]/u.test(value)));
+  assert.doesNotMatch(sourceHtml, /lang="greek"/);
   assert.match(sourceHtml, /ἐκβεβλήσθωσαν/);
   assert.match(sourceHtml, /πρὸς τῷ δοθέντι σημείῳ/);
 

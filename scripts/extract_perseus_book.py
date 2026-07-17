@@ -173,7 +173,11 @@ def render_node(
             )
         return f"<em>{content}</em>"
     if tag == "foreign":
-        language = html.escape(element.get("lang", ""), quote=True)
+        source_language = element.get("lang", "")
+        language = html.escape(
+            "grc" if source_language.lower() == "greek" else source_language,
+            quote=True,
+        )
         return f'<span class="foreign" lang="{language}">{content}</span>'
     if tag == "quote":
         return f"<q>{content}</q>"

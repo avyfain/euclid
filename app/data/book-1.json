@@ -706,7 +706,7 @@
               "id": "prop-1-note-1",
               "label": "1. On a given finite straight line.",
               "blocks": [
-                "<p>The Greek usage differs from ours in that the definite article is employed in such a phrase as this where we have the indefinite. <span class=\"foreign\" lang=\"greek\">ἐπὶ τῆς δοθείσης εὐθείας πεπερασμένης</span>, <q>on <em>the</em> given finite straight line,</q>\n i.e. the finite straight line which we choose to take.</p>"
+                "<p>The Greek usage differs from ours in that the definite article is employed in such a phrase as this where we have the indefinite. <span class=\"foreign\" lang=\"grc\">ἐπὶ τῆς δοθείσης εὐθείας πεπερασμένης</span>, <q>on <em>the</em> given finite straight line,</q>\n i.e. the finite straight line which we choose to take.</p>"
               ]
             },
             {
@@ -720,21 +720,21 @@
               "id": "prop-1-note-3",
               "label": "8. let the circle BCD be described.",
               "blocks": [
-                "<p>Two things are here to be noted, (1) the elegant and practically universal use of the perfect passive imperative in constructions, <span class=\"foreign\" lang=\"greek\">γεγράφθω</span> meaning of course <q>let it <em>have been</em> described</q>\n or <q>suppose it described,</q>\n (2) the impossibility of expressing shortly in a translation the force of the words in their original order. <span class=\"foreign\" lang=\"greek\">κύκλος γεγράφθω ὸ ΒΓΔ</span> means literally <q>let a circle have been described, the (circle, namely, which I denote by) <em>BCD</em>.</q>\n Similarly we have lower down <q>let straight lines, (namely) the (straight lines) <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment CB\">CB</span>, be joined,</q>\n <span class=\"foreign\" lang=\"greek\">ἐπεζεύχθωσαν εὐθεῖαι αί ΓΑ, ΓΒ</span>. There seems to be no practicable alternative, in English, but to translate as I have done in the text.</p>"
+                "<p>Two things are here to be noted, (1) the elegant and practically universal use of the perfect passive imperative in constructions, <span class=\"foreign\" lang=\"grc\">γεγράφθω</span> meaning of course <q>let it <em>have been</em> described</q>\n or <q>suppose it described,</q>\n (2) the impossibility of expressing shortly in a translation the force of the words in their original order. <span class=\"foreign\" lang=\"grc\">κύκλος γεγράφθω ὸ ΒΓΔ</span> means literally <q>let a circle have been described, the (circle, namely, which I denote by) <em>BCD</em>.</q>\n Similarly we have lower down <q>let straight lines, (namely) the (straight lines) <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment CB\">CB</span>, be joined,</q>\n <span class=\"foreign\" lang=\"grc\">ἐπεζεύχθωσαν εὐθεῖαι αί ΓΑ, ΓΒ</span>. There seems to be no practicable alternative, in English, but to translate as I have done in the text.</p>"
               ]
             },
             {
               "id": "prop-1-note-4",
               "label": "13. from the point C....",
               "blocks": [
-                "<p>Euclid is careful to adhere to the phraseology of <a class=\"citation-link\" href=\"#post-1\">Postulate 1</a> except that he speaks of <q>joining</q>\n (<span class=\"foreign\" lang=\"greek\">ἐπεζεύχθωσαν</span>) instead of <q>drawing</q>\n (<span class=\"foreign\" lang=\"greek\">γράφειν</span>). He does not allow himself to use the shortened expression <q>let the straight line <span class=\"segment\" aria-label=\"line segment FC\">FC</span> be joined</q>\n (without mention of the points <em>F</em>, <em>C</em>) until <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>.</p>"
+                "<p>Euclid is careful to adhere to the phraseology of <a class=\"citation-link\" href=\"#post-1\">Postulate 1</a> except that he speaks of <q>joining</q>\n (<span class=\"foreign\" lang=\"grc\">ἐπεζεύχθωσαν</span>) instead of <q>drawing</q>\n (<span class=\"foreign\" lang=\"grc\">γράφειν</span>). He does not allow himself to use the shortened expression <q>let the straight line <span class=\"segment\" aria-label=\"line segment FC\">FC</span> be joined</q>\n (without mention of the points <em>F</em>, <em>C</em>) until <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>.</p>"
               ]
             },
             {
               "id": "prop-1-note-5",
               "label": "20. each of the straight lines CA, CB",
               "blocks": [
-                "<p>, <span class=\"foreign\" lang=\"greek\">ἑκατέρα τῶν ΓΑ, ΓΒ</span> and <span class=\"source-bold\">24. the three straight</span> lines CA, AB, BC, <span class=\"foreign\" lang=\"greek\">αἱ τρεῖς αἱ ΓΑ, ΑΒ, ΒΓ</span>. I have, here and in all similar expressions, inserted the words <q>straight lines</q>\n which are not in the Greek. The possession of the inflected definite article enables the Greek to omit the words, but this is not possible in English, and it would scarcely be English to write <q>each of <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment CB\">CB</span></q>\n or <q>the three <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment AB\">AB</span>, <span class=\"segment\" aria-label=\"line segment BC\">BC</span>.</q></p>"
+                "<p>, <span class=\"foreign\" lang=\"grc\">ἑκατέρα τῶν ΓΑ, ΓΒ</span> and <span class=\"source-bold\">24. the three straight</span> lines CA, AB, BC, <span class=\"foreign\" lang=\"grc\">αἱ τρεῖς αἱ ΓΑ, ΑΒ, ΒΓ</span>. I have, here and in all similar expressions, inserted the words <q>straight lines</q>\n which are not in the Greek. The possession of the inflected definite article enables the Greek to omit the words, but this is not possible in English, and it would scarcely be English to write <q>each of <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment CB\">CB</span></q>\n or <q>the three <span class=\"segment\" aria-label=\"line segment CA\">CA</span>, <span class=\"segment\" aria-label=\"line segment AB\">AB</span>, <span class=\"segment\" aria-label=\"line segment BC\">BC</span>.</q></p>"
               ]
             }
           ],
@@ -784,21 +784,21 @@
               "id": "prop-2-note-1",
               "label": "1. (as an extremity).",
               "blocks": [
-                "<p>I have inserted these words because <q>to place a straight line <em>at</em> a given point</q>\n (<span class=\"foreign\" lang=\"greek\">πρὸς τῷ δοθέντι σημείῳ</span>) is not quite clear enough, at least in English.</p>"
+                "<p>I have inserted these words because <q>to place a straight line <em>at</em> a given point</q>\n (<span class=\"foreign\" lang=\"grc\">πρὸς τῷ δοθέντι σημείῳ</span>) is not quite clear enough, at least in English.</p>"
               ]
             },
             {
               "id": "prop-2-note-2",
               "label": "11. Let the straight lines AE, BF be produced....",
               "blocks": [
-                "<p>It will be observed that in this first application of <a class=\"citation-link\" href=\"#post-2\">Postulate 2</a>, and again in <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>, Euclid speaks of the <em>continuation</em> of the straight line as that which is produced in such cases, <span class=\"foreign\" lang=\"greek\">ἐκβεβλήσθωσαν</span> and <span class=\"foreign\" lang=\"greek\">προσεκβεβλήσθωσαν</span> meaning little more than <em>drawing</em> straight lines <q>in a straight line with</q>\n the given straight lines. The first place in which Euclid uses phraseology exactly corresponding to ours when  speaking of a straight line being produced is in <a class=\"citation-link\" href=\"#prop-16\">I. 16</a>: <q>let one side of it, <span class=\"segment\" aria-label=\"line segment BC\">BC</span>, be produced to <em>D</em></q>\n (<span class=\"foreign\" lang=\"greek\">προσεκβεβλήσθω αὐτοῦ μία πλευρὰ ἡ ΒΓ ἐπὶ τὸ Δ</span>).</p>"
+                "<p>It will be observed that in this first application of <a class=\"citation-link\" href=\"#post-2\">Postulate 2</a>, and again in <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>, Euclid speaks of the <em>continuation</em> of the straight line as that which is produced in such cases, <span class=\"foreign\" lang=\"grc\">ἐκβεβλήσθωσαν</span> and <span class=\"foreign\" lang=\"grc\">προσεκβεβλήσθωσαν</span> meaning little more than <em>drawing</em> straight lines <q>in a straight line with</q>\n the given straight lines. The first place in which Euclid uses phraseology exactly corresponding to ours when  speaking of a straight line being produced is in <a class=\"citation-link\" href=\"#prop-16\">I. 16</a>: <q>let one side of it, <span class=\"segment\" aria-label=\"line segment BC\">BC</span>, be produced to <em>D</em></q>\n (<span class=\"foreign\" lang=\"grc\">προσεκβεβλήσθω αὐτοῦ μία πλευρὰ ἡ ΒΓ ἐπὶ τὸ Δ</span>).</p>"
               ]
             },
             {
               "id": "prop-2-note-3",
               "label": "23. the remainder AL...the remainder BG.",
               "blocks": [
-                "<p>The Greek expressions are <span class=\"foreign\" lang=\"greek\">λοιπὴ ἡ ΑΛ</span> and <span class=\"foreign\" lang=\"greek\">λοιπῇ τῇ</span> BH, and the literal translation would be <q><span class=\"segment\" aria-label=\"line segment AL\">AL</span> (or <span class=\"segment\" aria-label=\"line segment BG\">BG</span>) <em>remaining</em>,</q>\n but the shade of meaning conveyed by the position of the definite article can hardly be expressed in English.</p>"
+                "<p>The Greek expressions are <span class=\"foreign\" lang=\"grc\">λοιπὴ ἡ ΑΛ</span> and <span class=\"foreign\" lang=\"grc\">λοιπῇ τῇ</span> BH, and the literal translation would be <q><span class=\"segment\" aria-label=\"line segment AL\">AL</span> (or <span class=\"segment\" aria-label=\"line segment BG\">BG</span>) <em>remaining</em>,</q>\n but the shade of meaning conveyed by the position of the definite article can hardly be expressed in English.</p>"
               ]
             }
           ],
@@ -883,42 +883,42 @@
               "id": "prop-4-note-1",
               "label": "1-3",
               "blocks": [
-                "<p>It is a fact that Euclid&#x27;s enunciations not infrequently leave something to be desired in point of clearness and precision. Here he speaks of the triangles having <q>the angle equal to the angle, namely the angle contained by the equal straight lines</q>\n (<span class=\"foreign\" lang=\"greek\">τὴν γωνίαν τῇ γωνίᾳ ἴσην ἔχῃ τὴν ὑπὸ τῶν ἴσων εὐθειῶν περιεχομένην</span>), only one of the two angles being described in the latter expression (in the accusative), and a similar expression in the dative being left to be understood of the other angle. It is curious too that, after mentioning two <q><em>sides</em>,</q>\n he speaks of the angles contained by the equal <q><em>straight lines</em>,</q>\n not <q><em>sides</em>.</q>\n It may be that he wished to adhere scrupulously, at the outset, to the phraseology of the definitions, where the angle is the inclination to one another of two <em>lines</em> or <em>straight lines</em>. Similarly in the enunciation of <a class=\"citation-link\" href=\"#prop-5\">I. 5</a> he speaks of producing the equal <q>straight lines</q>\n as if to keep strictly to the wording of <a class=\"citation-link\" href=\"#post-2\">Postulate 2</a>.</p>"
+                "<p>It is a fact that Euclid&#x27;s enunciations not infrequently leave something to be desired in point of clearness and precision. Here he speaks of the triangles having <q>the angle equal to the angle, namely the angle contained by the equal straight lines</q>\n (<span class=\"foreign\" lang=\"grc\">τὴν γωνίαν τῇ γωνίᾳ ἴσην ἔχῃ τὴν ὑπὸ τῶν ἴσων εὐθειῶν περιεχομένην</span>), only one of the two angles being described in the latter expression (in the accusative), and a similar expression in the dative being left to be understood of the other angle. It is curious too that, after mentioning two <q><em>sides</em>,</q>\n he speaks of the angles contained by the equal <q><em>straight lines</em>,</q>\n not <q><em>sides</em>.</q>\n It may be that he wished to adhere scrupulously, at the outset, to the phraseology of the definitions, where the angle is the inclination to one another of two <em>lines</em> or <em>straight lines</em>. Similarly in the enunciation of <a class=\"citation-link\" href=\"#prop-5\">I. 5</a> he speaks of producing the equal <q>straight lines</q>\n as if to keep strictly to the wording of <a class=\"citation-link\" href=\"#post-2\">Postulate 2</a>.</p>"
               ]
             },
             {
               "id": "prop-4-note-2",
               "label": "2. respectively.",
               "blocks": [
-                "<p>I agree with Mr H. M. Taylor (<cite>Euclid</cite>, p. ix) that it is best to abandon the traditional translation of <q>each to each,</q>\n which would naturally seem to imply that all the four magnitudes are equal rather than (as the Greek <span class=\"foreign\" lang=\"greek\">ὲκατέρα ὲκατέρᾳ</span> does) that one is equal to one and the other to the other.</p>"
+                "<p>I agree with Mr H. M. Taylor (<cite>Euclid</cite>, p. ix) that it is best to abandon the traditional translation of <q>each to each,</q>\n which would naturally seem to imply that all the four magnitudes are equal rather than (as the Greek <span class=\"foreign\" lang=\"grc\">ὲκατέρα ὲκατέρᾳ</span> does) that one is equal to one and the other to the other.</p>"
               ]
             },
             {
               "id": "prop-4-note-3",
               "label": "3. the base.",
               "blocks": [
-                "<p>Here we have the word <em>base</em> used for the first time in the <cite>Elements</cite>. Proclus explains it (p. 236, 12-15) as meaning (1), when no side of a triangle has been mentioned before, the side <q>which is on a level with the sight</q>\n (<span class=\"foreign\" lang=\"greek\">τὴν πρὸς τῇ ὄψει κειμένην</span>), and (2), when two sides have already been mentioned, the third side. Proclus thus avoids the mistake made by some modern editors who explain the term exclusively with reference to the case where two sides have been mentioned before. That this is an error is proved (1) by the occurrence of the term in the enunciations of <a class=\"citation-link\" href=\"#prop-37\">I. 37</a> etc. about triangles on the same base and equal bases, (2) by the application of the same term to the bases of parallelograms in <a class=\"citation-link\" href=\"#prop-35\">I. 35</a> etc. The truth is that the use of the term must have been suggested by the practice of drawing the particular side horizontally, as it were, and the rest of the figure above it. The <em>base</em> of a figure was therefore spoken of, primarily, in the same sense as the base of anything  else, e.g. of a pedestal or column; but when, as in <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>, two triangles were compared occupying other than the normal positions which gave rise to the name, and when two sides had been previously mentioned, the base was, as Proclus says, necessarily the third side.</p>"
+                "<p>Here we have the word <em>base</em> used for the first time in the <cite>Elements</cite>. Proclus explains it (p. 236, 12-15) as meaning (1), when no side of a triangle has been mentioned before, the side <q>which is on a level with the sight</q>\n (<span class=\"foreign\" lang=\"grc\">τὴν πρὸς τῇ ὄψει κειμένην</span>), and (2), when two sides have already been mentioned, the third side. Proclus thus avoids the mistake made by some modern editors who explain the term exclusively with reference to the case where two sides have been mentioned before. That this is an error is proved (1) by the occurrence of the term in the enunciations of <a class=\"citation-link\" href=\"#prop-37\">I. 37</a> etc. about triangles on the same base and equal bases, (2) by the application of the same term to the bases of parallelograms in <a class=\"citation-link\" href=\"#prop-35\">I. 35</a> etc. The truth is that the use of the term must have been suggested by the practice of drawing the particular side horizontally, as it were, and the rest of the figure above it. The <em>base</em> of a figure was therefore spoken of, primarily, in the same sense as the base of anything  else, e.g. of a pedestal or column; but when, as in <a class=\"citation-link\" href=\"#prop-5\">I. 5</a>, two triangles were compared occupying other than the normal positions which gave rise to the name, and when two sides had been previously mentioned, the base was, as Proclus says, necessarily the third side.</p>"
               ]
             },
             {
               "id": "prop-4-note-4",
               "label": "6. subtend.",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">ὑποτείνειν ὑπό</span>, <q>to stretch under,</q>\n with accusative.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">ὑποτείνειν ὑπό</span>, <q>to stretch under,</q>\n with accusative.</p>"
               ]
             },
             {
               "id": "prop-4-note-5",
               "label": "9. the angle BAC.",
               "blocks": [
-                "<p>The full Greek expression would be <span class=\"foreign\" lang=\"greek\">ἡ ὑπὸ τῶν ΒΑ, ΑΓ περιεχομένη γωνία</span>, <q>the angle contained by the (straight lines) <span class=\"segment\" aria-label=\"line segment BA\">BA</span>, <span class=\"segment\" aria-label=\"line segment AC\">AC</span>.</q>\n But it was a common practice of Greek geometers, e.g. of Archimedes and Apollonius (and Euclid too in Books X.—XIII.), to use the abbreviation <span class=\"foreign\" lang=\"greek\">αἱ ΒΑΓ</span> for <span class=\"foreign\" lang=\"greek\">αἱ ΒΑ, ΑΓ</span>, <q>the (straight lines) <span class=\"segment\" aria-label=\"line segment BA\">BA</span>, <span class=\"segment\" aria-label=\"line segment AC\">AC</span>.</q>\n Thus, on <span class=\"foreign\" lang=\"greek\">περιεχομένη</span> being dropped, the expression would become first <span class=\"foreign\" lang=\"greek\">ἡ ὑπὸ τῶν ΒΑΓ γωνία</span>, then <span class=\"foreign\" lang=\"greek\">ἡ ὑπὸ ΒΑΓ γωνία</span>, and finally <span class=\"foreign\" lang=\"greek\">ἡ ὑπὸ ΒΑΓ</span>, without <span class=\"foreign\" lang=\"greek\">γωνία</span>, as we regularly find it in Euclid.</p>"
+                "<p>The full Greek expression would be <span class=\"foreign\" lang=\"grc\">ἡ ὑπὸ τῶν ΒΑ, ΑΓ περιεχομένη γωνία</span>, <q>the angle contained by the (straight lines) <span class=\"segment\" aria-label=\"line segment BA\">BA</span>, <span class=\"segment\" aria-label=\"line segment AC\">AC</span>.</q>\n But it was a common practice of Greek geometers, e.g. of Archimedes and Apollonius (and Euclid too in Books X.—XIII.), to use the abbreviation <span class=\"foreign\" lang=\"grc\">αἱ ΒΑΓ</span> for <span class=\"foreign\" lang=\"grc\">αἱ ΒΑ, ΑΓ</span>, <q>the (straight lines) <span class=\"segment\" aria-label=\"line segment BA\">BA</span>, <span class=\"segment\" aria-label=\"line segment AC\">AC</span>.</q>\n Thus, on <span class=\"foreign\" lang=\"grc\">περιεχομένη</span> being dropped, the expression would become first <span class=\"foreign\" lang=\"grc\">ἡ ὑπὸ τῶν ΒΑΓ γωνία</span>, then <span class=\"foreign\" lang=\"grc\">ἡ ὑπὸ ΒΑΓ γωνία</span>, and finally <span class=\"foreign\" lang=\"grc\">ἡ ὑπὸ ΒΑΓ</span>, without <span class=\"foreign\" lang=\"grc\">γωνία</span>, as we regularly find it in Euclid.</p>"
               ]
             },
             {
               "id": "prop-4-note-6",
               "label": "17. if the triangle be applied to..., 23. coincide.",
               "blocks": [
-                "<p>The difference between the technical use of the passive <span class=\"foreign\" lang=\"greek\">ἐφαρμόζεσθαι</span> <q>to be <em>applied</em> (to),</q>\n and of the active <span class=\"foreign\" lang=\"greek\">ἐφαρμόζειν</span> <q>to <em>coincide</em> (with)</q>\n has been noticed above (note on <cite>Common Notion</cite> 4, pp. 224-5).</p>"
+                "<p>The difference between the technical use of the passive <span class=\"foreign\" lang=\"grc\">ἐφαρμόζεσθαι</span> <q>to be <em>applied</em> (to),</q>\n and of the active <span class=\"foreign\" lang=\"grc\">ἐφαρμόζειν</span> <q>to <em>coincide</em> (with)</q>\n has been noticed above (note on <cite>Common Notion</cite> 4, pp. 224-5).</p>"
               ]
             },
             {
@@ -987,28 +987,28 @@
               "id": "prop-5-note-2",
               "label": "10. Let a point F be taken at random on BD",
               "blocks": [
-                "<p>, <span class=\"foreign\" lang=\"greek\">εἰλήφθω ἐπὶ τῆς ΒΔ τυχὸν σημεῖον τὸ Ζ</span>, where <span class=\"foreign\" lang=\"greek\">τυχὸν σημεῖον</span>means <q>a chance point.</q></p>"
+                "<p>, <span class=\"foreign\" lang=\"grc\">εἰλήφθω ἐπὶ τῆς ΒΔ τυχὸν σημεῖον τὸ Ζ</span>, where <span class=\"foreign\" lang=\"grc\">τυχὸν σημεῖον</span>means <q>a chance point.</q></p>"
               ]
             },
             {
               "id": "prop-5-note-3",
               "label": "17. the two sides FA, AC are equal to the two sides GA, AB respectively,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">δύο αἱ ΖΑ, ΑΓ δυσὶ ταῖς ΗΑ, ΑΒ ἴσαι εἰσὶν ἑκατέρα ἑκατέρᾳ</span>. Here, and in numberless later passages, I have inserted the word <q>sides</q>\n for the reason given in the note on <a class=\"citation-link\" href=\"#prop-1\">I. 1</a>, line 20. It would have been permissible to supply either <q>straight lines</q>\n or <q>sides</q>\n; but on the whole <q>sides</q>\n seems to be more in accordance with the phraseology of <a class=\"citation-link\" href=\"#prop-4\">I. 4</a>.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">δύο αἱ ΖΑ, ΑΓ δυσὶ ταῖς ΗΑ, ΑΒ ἴσαι εἰσὶν ἑκατέρα ἑκατέρᾳ</span>. Here, and in numberless later passages, I have inserted the word <q>sides</q>\n for the reason given in the note on <a class=\"citation-link\" href=\"#prop-1\">I. 1</a>, line 20. It would have been permissible to supply either <q>straight lines</q>\n or <q>sides</q>\n; but on the whole <q>sides</q>\n seems to be more in accordance with the phraseology of <a class=\"citation-link\" href=\"#prop-4\">I. 4</a>.</p>"
               ]
             },
             {
               "id": "prop-5-note-4",
               "label": "33. the base BC is common to them,",
               "blocks": [
-                "<p>i.e., apparently, common to the <em>angles</em>, as the <span class=\"foreign\" lang=\"greek\">αὐτῶν</span> in <span class=\"foreign\" lang=\"greek\">βάσις αὐτῶν κοινὴ</span> can only refer to <span class=\"foreign\" lang=\"greek\">γωνία</span> and <span class=\"foreign\" lang=\"greek\">γωνίᾳ</span> preceding. Simson wrote <q>and the base <span class=\"segment\" aria-label=\"line segment BC\">BC</span> is common to the two triangles <em>BFC</em>, <em>CGB</em></q>\n; Todhunter left out these words as being of no use and tending to perplex a beginner. But Euclid evidently chose to quote the conclusion of <a class=\"citation-link\" href=\"#prop-4\">I. 4</a> exactly; the first phrase of that conclusion is that the bases (of the two triangles) are equal, and, as the equal bases are here the <em>same</em> base, Euclid naturally substitutes the word <q>common</q>\n for <q>equal.</q></p>"
+                "<p>i.e., apparently, common to the <em>angles</em>, as the <span class=\"foreign\" lang=\"grc\">αὐτῶν</span> in <span class=\"foreign\" lang=\"grc\">βάσις αὐτῶν κοινὴ</span> can only refer to <span class=\"foreign\" lang=\"grc\">γωνία</span> and <span class=\"foreign\" lang=\"grc\">γωνίᾳ</span> preceding. Simson wrote <q>and the base <span class=\"segment\" aria-label=\"line segment BC\">BC</span> is common to the two triangles <em>BFC</em>, <em>CGB</em></q>\n; Todhunter left out these words as being of no use and tending to perplex a beginner. But Euclid evidently chose to quote the conclusion of <a class=\"citation-link\" href=\"#prop-4\">I. 4</a> exactly; the first phrase of that conclusion is that the bases (of the two triangles) are equal, and, as the equal bases are here the <em>same</em> base, Euclid naturally substitutes the word <q>common</q>\n for <q>equal.</q></p>"
               ]
             },
             {
               "id": "prop-5-note-5",
               "label": "48",
               "blocks": [
-                "<p>As <q>(Being) what it was required to prove</q>\n (or <q>do</q>\n) is somewhat long, I shall henceforth write the time-honoured <q>Q. E. D.</q>\n and <q>Q. E. F.</q>\n for <span class=\"foreign\" lang=\"greek\">ὅπερ ἔδει δεῖξαι</span> and <span class=\"foreign\" lang=\"greek\">ὅπερ ἔδει ποιῆσαι</span>.</p>"
+                "<p>As <q>(Being) what it was required to prove</q>\n (or <q>do</q>\n) is somewhat long, I shall henceforth write the time-honoured <q>Q. E. D.</q>\n and <q>Q. E. F.</q>\n for <span class=\"foreign\" lang=\"grc\">ὅπερ ἔδει δεῖξαι</span> and <span class=\"foreign\" lang=\"grc\">ὅπερ ἔδει ποιῆσαι</span>.</p>"
               ]
             }
           ],
@@ -1091,9 +1091,9 @@
               "id": "prop-7-note-1",
               "label": "1-6",
               "blocks": [
-                "<p>In an English translation of the enunciation of this proposition it is absolutely necessary, in order to make it intelligible, to insert some words which are not in the Greek. The reason is partly that the Greek enunciation is itself very elliptical, and partly that some words used in it conveyed more meaning than the corresponding words in English do. Particularly is this the case with <span class=\"foreign\" lang=\"greek\">οὐ συσταθήσονται ἐπί</span> <q>there shall not be constructed upon,</q>\n since <span class=\"foreign\" lang=\"greek\">συνίστασθαι</span> is the regular word for constructing a <em>triangle</em> in particular. Thus a Greek would easily understahd <span class=\"foreign\" lang=\"greek\">συσταθήσονται ἐπί</span> as meaning the construction of two lines <em>forming a triangle on</em> a given straight line as base; whereas to <q>construct two straight lines on a straight line</q>\n is not in English sufficiently definite unless we explain that they are drawn from the <em>ends</em> of the straight line to <em>meet</em> at a point. I have had the less hesitation in putting in the words <q>from its extremities</q>\n because they are actually used by Euclid in the somewhat similar enunciation of <a class=\"citation-link\" href=\"#prop-21\">I. 21</a>.</p>",
-                "<p>How impossible a literal translation into English is, if it is to convey the meaning of the enunciation intelligibly, will be clear from the following attempt to render literally: <q>On the same straight line there shall not be constructed two other straight lines equal, each to each, to the same two straight lines, (terminating) at different points on the same side, having the same extremities as the original straight lines</q>\n (<span class=\"foreign\" lang=\"greek\">ἐπὶ τῆς αὐτῆς εὐθείας δύο ταῖς αὐταῖς εὐθείαις ἄλλαι δύο εὐθεῖαι ἴσαι ἑκατὲρα ἑκατέρα οὐ συσταθήσονται πρὸς ἄλλῳ καἰ ἄλλῳ σημείῳ ἐπἰ τὰ αὐτὰ μέρη τὰ αὐτὰ πέρατα ἔχουσαι ταῖς ἐξ ἀρχῆς εὐθείαις</span>).</p>",
-                "<p>The reason why Euclid allowed himself to use, in this enunciation, language apparently so obscure is no doubt that the phraseology was traditional and therefore, vague as it was, had a conventional meaning which the contemporary geometer well understood. This is proved, I think, by the occurrence in Aristotle (<cite>Meteorologica</cite> III. 5, 376 a 2 sqq.) of the very same, evidently technical, expressions. Aristotle is there alluding to the theorem given by Eutocius from Apollonius&#x27; <cite>Plane Loci</cite> to the effect that, if <em>H</em>, <em>K</em> be two fixed points and <em>M</em> such a variable point that the ratio of <span class=\"segment\" aria-label=\"line segment MH\">MH</span> to <span class=\"segment\" aria-label=\"line segment MK\">MK</span> is a given ratio (not one of equality), the locus of <em>M</em> is a circle. (For an account of this theorem see note on <a class=\"citation-link\" href=\"https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D3\" target=\"_blank\" rel=\"noreferrer\">VI. 3</a> below.) Now Aristotle says <q>The lines drawn up from <em>H</em>, <em>K</em> in this ratio cannot be constructed to two different points of the semicircle <em>A</em></q>\n (<span class=\"foreign\" lang=\"greek\">αἰ οὖν ἀπὸ τῶν ΗΚ ἀναγόμεναι γραμμαὶ ἐν τούτῳ τῷ λόγῳ οὐ συσταθήσουται τοῦ ἐφ̓ ᾦ Α ἡμικυκλίου πρὸς ἄλλο καὶ ἄλλο σημεῖον</span>).</p>",
+                "<p>In an English translation of the enunciation of this proposition it is absolutely necessary, in order to make it intelligible, to insert some words which are not in the Greek. The reason is partly that the Greek enunciation is itself very elliptical, and partly that some words used in it conveyed more meaning than the corresponding words in English do. Particularly is this the case with <span class=\"foreign\" lang=\"grc\">οὐ συσταθήσονται ἐπί</span> <q>there shall not be constructed upon,</q>\n since <span class=\"foreign\" lang=\"grc\">συνίστασθαι</span> is the regular word for constructing a <em>triangle</em> in particular. Thus a Greek would easily understahd <span class=\"foreign\" lang=\"grc\">συσταθήσονται ἐπί</span> as meaning the construction of two lines <em>forming a triangle on</em> a given straight line as base; whereas to <q>construct two straight lines on a straight line</q>\n is not in English sufficiently definite unless we explain that they are drawn from the <em>ends</em> of the straight line to <em>meet</em> at a point. I have had the less hesitation in putting in the words <q>from its extremities</q>\n because they are actually used by Euclid in the somewhat similar enunciation of <a class=\"citation-link\" href=\"#prop-21\">I. 21</a>.</p>",
+                "<p>How impossible a literal translation into English is, if it is to convey the meaning of the enunciation intelligibly, will be clear from the following attempt to render literally: <q>On the same straight line there shall not be constructed two other straight lines equal, each to each, to the same two straight lines, (terminating) at different points on the same side, having the same extremities as the original straight lines</q>\n (<span class=\"foreign\" lang=\"grc\">ἐπὶ τῆς αὐτῆς εὐθείας δύο ταῖς αὐταῖς εὐθείαις ἄλλαι δύο εὐθεῖαι ἴσαι ἑκατὲρα ἑκατέρα οὐ συσταθήσονται πρὸς ἄλλῳ καἰ ἄλλῳ σημείῳ ἐπἰ τὰ αὐτὰ μέρη τὰ αὐτὰ πέρατα ἔχουσαι ταῖς ἐξ ἀρχῆς εὐθείαις</span>).</p>",
+                "<p>The reason why Euclid allowed himself to use, in this enunciation, language apparently so obscure is no doubt that the phraseology was traditional and therefore, vague as it was, had a conventional meaning which the contemporary geometer well understood. This is proved, I think, by the occurrence in Aristotle (<cite>Meteorologica</cite> III. 5, 376 a 2 sqq.) of the very same, evidently technical, expressions. Aristotle is there alluding to the theorem given by Eutocius from Apollonius&#x27; <cite>Plane Loci</cite> to the effect that, if <em>H</em>, <em>K</em> be two fixed points and <em>M</em> such a variable point that the ratio of <span class=\"segment\" aria-label=\"line segment MH\">MH</span> to <span class=\"segment\" aria-label=\"line segment MK\">MK</span> is a given ratio (not one of equality), the locus of <em>M</em> is a circle. (For an account of this theorem see note on <a class=\"citation-link\" href=\"https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D3\" target=\"_blank\" rel=\"noreferrer\">VI. 3</a> below.) Now Aristotle says <q>The lines drawn up from <em>H</em>, <em>K</em> in this ratio cannot be constructed to two different points of the semicircle <em>A</em></q>\n (<span class=\"foreign\" lang=\"grc\">αἰ οὖν ἀπὸ τῶν ΗΚ ἀναγόμεναι γραμμαὶ ἐν τούτῳ τῷ λόγῳ οὐ συσταθήσουται τοῦ ἐφ̓ ᾦ Α ἡμικυκλίου πρὸς ἄλλο καὶ ἄλλο σημεῖον</span>).</p>",
                 "<p>If a paraphrase is allowed instead of a translation adhering as closely as possible to the original, Simson&#x27;s is the best that could be found, since the fact that the straight lines form <em>triangles</em> on the same base is really conveyed in the Greek. Simson&#x27;s enunciation is, <cite>Upon the same base</cite>, <em>and on the same side of it</em>, <em>there cannot be two triangles that have their sides which are terminated in one extremity of the base equal to one another</em>, <em>and likewise those which are terminated at the other extremity</em>. Th. Taylor (the translator of Proclus) attacks Simson&#x27;s alteration as <q>indiscreet</q>\n and as detracting from the beauty and accuracy of Euclid&#x27;s enunciation which are enlarged upon by Proclus in his commentary. Yet, when Taylor says <q>Whatever difficulty learners may find in conceiving this proposition abstractedly is easily removed by its exposition in the figure,</q>\n he really gives his case away. The fact is that Taylor, always enthusiastic over his author, was nettled by Simson&#x27;s slighting remarks on Proclus&#x27; comments on the proposition. Simson had said, with reference to Proclus&#x27; explanation of the bearing of the second part of <a class=\"citation-link\" href=\"#prop-5\">I. 5</a> on <a class=\"citation-link\" href=\"#prop-7\">I. 7</a>, that it was not <q>worth while  to relate his trifles at full length,</q>\n to which Taylor retorts <q>But Mr Simson was no philosopher; and therefore the greatest part of these Commentaries must be considered by him as trifles, from the want of a philosophic genius to comprehend their meaning, and a taste superior to that of a <em>mere mathematician</em>, to discover their beauty and elegance.</q></p>"
               ]
             },
@@ -1108,7 +1108,7 @@
               "id": "prop-7-note-3",
               "label": "21",
               "blocks": [
-                "<p>much greater, literally <q>greater by much</q>\n (<span class=\"foreign\" lang=\"greek\">πολλῷ μεἰζων</span>). Simson and those who follow him translate: <q><em>much more then</em> is the angle <em>BDC greater</em> than the angle <em>BCD</em>,</q>\n but the Greek for this would have to be <span class=\"foreign\" lang=\"greek\">πολλῷ</span> (or <span class=\"foreign\" lang=\"greek\">πολὺ[ρπαρ  ] μᾶλλόν ἐστι...μείζων. πολλῷ μᾶλλον</span>, however, though used by Apollonius, is not, apparently, found in Euclid or Archimedes.</p>"
+                "<p>much greater, literally <q>greater by much</q>\n (<span class=\"foreign\" lang=\"grc\">πολλῷ μεἰζων</span>). Simson and those who follow him translate: <q><em>much more then</em> is the angle <em>BDC greater</em> than the angle <em>BCD</em>,</q>\n but the Greek for this would have to be <span class=\"foreign\" lang=\"grc\">πολλῷ</span> (or <span class=\"foreign\" lang=\"grc\">πολὺ[ρπαρ  ] μᾶλλόν ἐστι...μείζων. πολλῷ μᾶλλον</span>, however, though used by Apollonius, is not, apparently, found in Euclid or Archimedes.</p>"
               ]
             }
           ],
@@ -1161,7 +1161,7 @@
               "id": "prop-8-note-2",
               "label": "21",
               "blocks": [
-                "<p>fall beside them. The Greek has the future, <span class=\"foreign\" lang=\"greek\">παραλλάξουσι. παραλλάττω</span> means <q>to pass by without touching,</q>\n <q>to miss</q>\n or <q>to deviate.</q></p>"
+                "<p>fall beside them. The Greek has the future, <span class=\"foreign\" lang=\"grc\">παραλλάξουσι. παραλλάττω</span> means <q>to pass by without touching,</q>\n <q>to miss</q>\n or <q>to deviate.</q></p>"
               ]
             }
           ],
@@ -1285,7 +1285,7 @@
               "id": "prop-11-note-1",
               "label": "10. let CE be made equal to CD.",
               "blocks": [
-                "<p>The verb is <span class=\"foreign\" lang=\"greek\">κείσθω</span> which, as well as the other parts of <span class=\"foreign\" lang=\"greek\">κεῖμαι</span>, is constantly used for the passive of <span class=\"foreign\" lang=\"greek\">τίθημι</span> <q>to <em>place</em></q>\n; and the latter word is constantly used in the sense of <em>making</em>, e.g., one straight line equal to another straight line.</p>"
+                "<p>The verb is <span class=\"foreign\" lang=\"grc\">κείσθω</span> which, as well as the other parts of <span class=\"foreign\" lang=\"grc\">κεῖμαι</span>, is constantly used for the passive of <span class=\"foreign\" lang=\"grc\">τίθημι</span> <q>to <em>place</em></q>\n; and the latter word is constantly used in the sense of <em>making</em>, e.g., one straight line equal to another straight line.</p>"
               ]
             }
           ],
@@ -1331,14 +1331,14 @@
               "id": "prop-12-note-1",
               "label": "2. a perpendicular straight line",
               "blocks": [
-                "<p>, <span class=\"foreign\" lang=\"greek\">κάθετον εὐθεῖαν γραμμἡν</span>. This is the full expression for a <em>perpendicular</em>, <span class=\"foreign\" lang=\"greek\">κάθετος</span> meaning <em>let fall</em> or <em>let down</em>, so that the expression corresponds to our <em>plumb-line</em>. <span class=\"foreign\" lang=\"greek\">ἡ κάθετος</span> is however constantly used alone for a perpendicular, <span class=\"foreign\" lang=\"greek\">γραμμἡ</span> being understood.</p>"
+                "<p>, <span class=\"foreign\" lang=\"grc\">κάθετον εὐθεῖαν γραμμἡν</span>. This is the full expression for a <em>perpendicular</em>, <span class=\"foreign\" lang=\"grc\">κάθετος</span> meaning <em>let fall</em> or <em>let down</em>, so that the expression corresponds to our <em>plumb-line</em>. <span class=\"foreign\" lang=\"grc\">ἡ κάθετος</span> is however constantly used alone for a perpendicular, <span class=\"foreign\" lang=\"grc\">γραμμἡ</span> being understood.</p>"
               ]
             },
             {
               "id": "prop-12-note-2",
               "label": "10. on the other side of the straight line AB",
               "blocks": [
-                "<p>, literally <q>towards the other parts of the straight line <span class=\"segment\" aria-label=\"line segment AB\">AB</span>,</q>\n <span class=\"foreign\" lang=\"greek\">ἐπὶ τὰ ἕτερα μέρη τῆς</span> AB. Cf. <q>on the same side</q>\n (<span class=\"foreign\" lang=\"greek\">ἐπὶ τὰ αὐτὰ μέρη</span>) in <a class=\"citation-link\" href=\"#post-5\">Post. 5</a> and <q>in both directions</q>\n (<span class=\"foreign\" lang=\"greek\">ἐφ̓ ἑκάτερα τὰ μἑρη</span>) in <a class=\"citation-link\" href=\"#def-23\">Def. 23</a>.</p>"
+                "<p>, literally <q>towards the other parts of the straight line <span class=\"segment\" aria-label=\"line segment AB\">AB</span>,</q>\n <span class=\"foreign\" lang=\"grc\">ἐπὶ τὰ ἕτερα μέρη τῆς</span> AB. Cf. <q>on the same side</q>\n (<span class=\"foreign\" lang=\"grc\">ἐπὶ τὰ αὐτὰ μέρη</span>) in <a class=\"citation-link\" href=\"#post-5\">Post. 5</a> and <q>in both directions</q>\n (<span class=\"foreign\" lang=\"grc\">ἐφ̓ ἑκάτερα τὰ μἑρη</span>) in <a class=\"citation-link\" href=\"#def-23\">Def. 23</a>.</p>"
               ]
             }
           ],
@@ -1386,7 +1386,7 @@
               "id": "prop-13-note-1",
               "label": "17. let the angle EBD be added to each,",
               "blocks": [
-                "<p>literally <q>let the angle <em>EBD</em> be added (so as to be) common,</q>\n <span class=\"foreign\" lang=\"greek\">κοινὴ προσκείσθω ἡ ὑπὸ ΕΒΔ</span>. Similarly <span class=\"foreign\" lang=\"greek\">κοινὴ ἀφηρήσθω</span> is used of subtracting a straight line or angle from each of two others. <q>Let the common angle <em>EBD</em> be added</q>\n is clearly an inaccurate translation, for the angle is not common before it is added, i.e. the <span class=\"foreign\" lang=\"greek\">κοινὴ</span> is proleptic. <q>Let the common angle be <em>subtracted</em></q>\n as a translation of <span class=\"foreign\" lang=\"greek\">κοινὴ ἀφηρήσθω</span> would be less unsatisfactory, it is true, but, as it is desirable to use corresponding words when translating the two expressions, it seems hopeless to attempt to keep the word <q>common,</q>\n and I have therefore said <q>to each</q>\n and <q>from each</q>\n simply.</p>"
+                "<p>literally <q>let the angle <em>EBD</em> be added (so as to be) common,</q>\n <span class=\"foreign\" lang=\"grc\">κοινὴ προσκείσθω ἡ ὑπὸ ΕΒΔ</span>. Similarly <span class=\"foreign\" lang=\"grc\">κοινὴ ἀφηρήσθω</span> is used of subtracting a straight line or angle from each of two others. <q>Let the common angle <em>EBD</em> be added</q>\n is clearly an inaccurate translation, for the angle is not common before it is added, i.e. the <span class=\"foreign\" lang=\"grc\">κοινὴ</span> is proleptic. <q>Let the common angle be <em>subtracted</em></q>\n as a translation of <span class=\"foreign\" lang=\"grc\">κοινὴ ἀφηρήσθω</span> would be less unsatisfactory, it is true, but, as it is desirable to use corresponding words when translating the two expressions, it seems hopeless to attempt to keep the word <q>common,</q>\n and I have therefore said <q>to each</q>\n and <q>from each</q>\n simply.</p>"
               ]
             }
           ],
@@ -1433,7 +1433,7 @@
               "id": "prop-14-note-1",
               "label": "1. If with any straight line....",
               "blocks": [
-                "<p>There is no greater difficulty in translating the works of the Greek geometers than that of accurately giving the force of prepositions. <span class=\"foreign\" lang=\"greek\">πρός</span>, for instance, is used in all sorts of expressions with various shades of meaning. The present enunciation begins <span class=\"foreign\" lang=\"greek\">ἐὰν πρός τινι εὐθείᾳ καὶ τῷ πρὸς αὐτῆ σημείῳ</span>, and it is really necessary in this one sentence to translate <span class=\"foreign\" lang=\"greek\">πρός</span> by three different words, <em>with</em>, <em>at</em>, and <em>on</em>. The first <span class=\"foreign\" lang=\"greek\">πρός</span> must be translated by <em>with</em> because two straight lines <q>make</q>\n an angle <em>with</em> one another. On the other hand, where the similar expression <span class=\"foreign\" lang=\"greek\">πρὸς τῇ δοθείση εὐθείᾳ</span> occurs in <a class=\"citation-link\" href=\"#prop-23\">I. 23</a>, but it is a question of <q>constructing</q>\n an angle (<span class=\"foreign\" lang=\"greek\">συστἡσασθαι</span>), we have to say <q>to construct <em>on</em> a given straight line.</q>\n <cite>Against</cite> would perhaps be the English word coming nearest to expressing all these meanings of <span class=\"foreign\" lang=\"greek\">πρός</span>, but it would be intolerable as a translation.</p>"
+                "<p>There is no greater difficulty in translating the works of the Greek geometers than that of accurately giving the force of prepositions. <span class=\"foreign\" lang=\"grc\">πρός</span>, for instance, is used in all sorts of expressions with various shades of meaning. The present enunciation begins <span class=\"foreign\" lang=\"grc\">ἐὰν πρός τινι εὐθείᾳ καὶ τῷ πρὸς αὐτῆ σημείῳ</span>, and it is really necessary in this one sentence to translate <span class=\"foreign\" lang=\"grc\">πρός</span> by three different words, <em>with</em>, <em>at</em>, and <em>on</em>. The first <span class=\"foreign\" lang=\"grc\">πρός</span> must be translated by <em>with</em> because two straight lines <q>make</q>\n an angle <em>with</em> one another. On the other hand, where the similar expression <span class=\"foreign\" lang=\"grc\">πρὸς τῇ δοθείση εὐθείᾳ</span> occurs in <a class=\"citation-link\" href=\"#prop-23\">I. 23</a>, but it is a question of <q>constructing</q>\n an angle (<span class=\"foreign\" lang=\"grc\">συστἡσασθαι</span>), we have to say <q>to construct <em>on</em> a given straight line.</q>\n <cite>Against</cite> would perhaps be the English word coming nearest to expressing all these meanings of <span class=\"foreign\" lang=\"grc\">πρός</span>, but it would be intolerable as a translation.</p>"
               ]
             },
             {
@@ -1447,7 +1447,7 @@
               "id": "prop-14-note-3",
               "label": "24. we can prove.",
               "blocks": [
-                "<p>The Greek expresses this by the future of the verb, <span class=\"foreign\" lang=\"greek\">δείξομεν</span>, <q>we shall prove,</q>\n which however would perhaps be misleading in English.</p>"
+                "<p>The Greek expresses this by the future of the verb, <span class=\"foreign\" lang=\"grc\">δείξομεν</span>, <q>we shall prove,</q>\n which however would perhaps be misleading in English.</p>"
               ]
             }
           ],
@@ -1494,14 +1494,14 @@
               "id": "prop-15-note-1",
               "label": "1. the vertical angles.",
               "blocks": [
-                "<p>The difference between <em>adjacent</em> angles (<span class=\"foreign\" lang=\"greek\">αἱ ἐφεξῆς γωνίαι</span>) and <em>vertical</em> angles (<span class=\"foreign\" lang=\"greek\">αἱ κατὰ κορυφὴν γωνίαι</span>) is thus explained by Proclus (p. 298, 14-24). The first term describes the angles made by two straight lines when one only is divided by the other, i.e. when one straight line meets another at a point which is not either of its extremities, but is not itself produced beyond the point of meeting. When the first straight line <em>is</em> produced, so that the lines cross at the point, they make two pairs of <em>vertical</em> angles (which are more clearly described as <em>vertically opposite</em> angles), and which are so called because their convergence is from opposite directions to one point (the intersection of the lines) as vertex (<span class=\"foreign\" lang=\"greek\">κορυφή</span>).</p>"
+                "<p>The difference between <em>adjacent</em> angles (<span class=\"foreign\" lang=\"grc\">αἱ ἐφεξῆς γωνίαι</span>) and <em>vertical</em> angles (<span class=\"foreign\" lang=\"grc\">αἱ κατὰ κορυφὴν γωνίαι</span>) is thus explained by Proclus (p. 298, 14-24). The first term describes the angles made by two straight lines when one only is divided by the other, i.e. when one straight line meets another at a point which is not either of its extremities, but is not itself produced beyond the point of meeting. When the first straight line <em>is</em> produced, so that the lines cross at the point, they make two pairs of <em>vertical</em> angles (which are more clearly described as <em>vertically opposite</em> angles), and which are so called because their convergence is from opposite directions to one point (the intersection of the lines) as vertex (<span class=\"foreign\" lang=\"grc\">κορυφή</span>).</p>"
               ]
             },
             {
               "id": "prop-15-note-2",
               "label": "26. at the point of section,",
               "blocks": [
-                "<p>literally <q>at the section,</q>\n <span class=\"foreign\" lang=\"greek\">πρὸς τῇ τομῆ</span>.</p>"
+                "<p>literally <q>at the section,</q>\n <span class=\"foreign\" lang=\"grc\">πρὸς τῇ τομῆ</span>.</p>"
               ]
             }
           ],
@@ -1549,21 +1549,21 @@
               "id": "prop-16-note-1",
               "label": "1. the exterior angle,",
               "blocks": [
-                "<p>literally <q>the outside angle,</q>\n <span class=\"foreign\" lang=\"greek\">ἡ ἐκτὸς γωνία</span>.</p>"
+                "<p>literally <q>the outside angle,</q>\n <span class=\"foreign\" lang=\"grc\">ἡ ἐκτὸς γωνία</span>.</p>"
               ]
             },
             {
               "id": "prop-16-note-2",
               "label": "2. the interior and opposite angles,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">τῶν ἐντὸς καὶ ἀπεναντίον γωνιῶν</span>.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">τῶν ἐντὸς καὶ ἀπεναντίον γωνιῶν</span>.</p>"
               ]
             },
             {
               "id": "prop-16-note-3",
               "label": "12. let AC be drawn through to G.",
               "blocks": [
-                "<p>The word is <span class=\"foreign\" lang=\"greek\">διήχθω</span>, a variation on the more usual <span class=\"foreign\" lang=\"greek\">ἐκβεβλήσθω</span>, <q>let it be <em>produced</em>.</q></p>"
+                "<p>The word is <span class=\"foreign\" lang=\"grc\">διήχθω</span>, a variation on the more usual <span class=\"foreign\" lang=\"grc\">ἐκβεβλήσθω</span>, <q>let it be <em>produced</em>.</q></p>"
               ]
             },
             {
@@ -1617,7 +1617,7 @@
               "id": "prop-17-note-1",
               "label": "1. taken together in any manner,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">πάντη μεταλαμβανόμεναι</span>, i.e. any pair added together.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">πάντη μεταλαμβανόμεναι</span>, i.e. any pair added together.</p>"
               ]
             }
           ],
@@ -1664,7 +1664,7 @@
               "id": "prop-18-note-1",
               "label": "Note 1",
               "blocks": [
-                "<p>In the enunciation of this number we have <span class=\"foreign\" lang=\"greek\">ὑποτείνειν</span> (<q>subtend</q>\n) used with the simple accusative instead of the more usual <span class=\"foreign\" lang=\"greek\">ὑπό</span> with accusative. The latter construction is used in the enunciation of <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>, which otherwise only differs from that of <a class=\"citation-link\" href=\"#prop-18\">I. 18</a> in the order of the words. The point to remember in order to distinguish the two is that the <span class=\"foreign\" lang=\"la\">datum</span> comes first and the <span class=\"foreign\" lang=\"la\">quaesitum</span> second, the <span class=\"foreign\" lang=\"la\">datum</span> being in this proposition the greater <em>side</em> and in the next the greater <em>angle</em>. Thus the enunciations are (<a class=\"citation-link\" href=\"#prop-18\">I. 18</a>) <span class=\"foreign\" lang=\"greek\">παντὸς τριγώνου ἡ μείζων πλευρὰ τὴν μείζονα γωνίαν ὑποτείνει</span> and (<a class=\"citation-link\" href=\"#prop-19\">I. 19</a>) <span class=\"foreign\" lang=\"greek\">παντὸς τριγώνου ὑπὸ τὴν μείζονα γωνίαν ἡ μείζων πλευρὰ ὑποτείνει</span>. In order to keep the proper order in English we must use the passive of the verb in <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>. Aristotle quotes the result of <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>, using the exact wording, <span class=\"foreign\" lang=\"greek\">ὑπὸ γὰρ τὴν μείζω γωνίαν ὑποτείνει</span> (<cite>Meteorologica</cite> III. 5, 376 a 12).</p>"
+                "<p>In the enunciation of this number we have <span class=\"foreign\" lang=\"grc\">ὑποτείνειν</span> (<q>subtend</q>\n) used with the simple accusative instead of the more usual <span class=\"foreign\" lang=\"grc\">ὑπό</span> with accusative. The latter construction is used in the enunciation of <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>, which otherwise only differs from that of <a class=\"citation-link\" href=\"#prop-18\">I. 18</a> in the order of the words. The point to remember in order to distinguish the two is that the <span class=\"foreign\" lang=\"la\">datum</span> comes first and the <span class=\"foreign\" lang=\"la\">quaesitum</span> second, the <span class=\"foreign\" lang=\"la\">datum</span> being in this proposition the greater <em>side</em> and in the next the greater <em>angle</em>. Thus the enunciations are (<a class=\"citation-link\" href=\"#prop-18\">I. 18</a>) <span class=\"foreign\" lang=\"grc\">παντὸς τριγώνου ἡ μείζων πλευρὰ τὴν μείζονα γωνίαν ὑποτείνει</span> and (<a class=\"citation-link\" href=\"#prop-19\">I. 19</a>) <span class=\"foreign\" lang=\"grc\">παντὸς τριγώνου ὑπὸ τὴν μείζονα γωνίαν ἡ μείζων πλευρὰ ὑποτείνει</span>. In order to keep the proper order in English we must use the passive of the verb in <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>. Aristotle quotes the result of <a class=\"citation-link\" href=\"#prop-19\">I. 19</a>, using the exact wording, <span class=\"foreign\" lang=\"grc\">ὑπὸ γὰρ τὴν μείζω γωνίαν ὑποτείνει</span> (<cite>Meteorologica</cite> III. 5, 376 a 12).</p>"
               ]
             }
           ],
@@ -1750,7 +1750,7 @@
               "id": "prop-20-note-1",
               "label": "Note 1",
               "blocks": [
-                "<p>It was the habit of the Epicureans, says Proclus (p. 322), to ridicule this theorem as being evident even to an ass and requiring no proof, and their allegation that the theorem was <q>known</q>\n (<span class=\"foreign\" lang=\"greek\">γνώριμον</span>) even to an ass was based on the fact that, if fodder is placed at one angular point and the ass at another, he does not, in order to get to his food, traverse the two sides of the triangle but only the one side separating them (an argument which makes Savile exclaim that its authors were <q><span class=\"foreign\" lang=\"la\">digni ipsi, qui cum Asino foenum essent</span>,</q>\n p. 78). Proclus replies truly that a mere perception of the truth of the theorem is a different thing from a scientific proof of it and a knowledge of the reason <em>why</em> it is true. Moreover, as Simson says, the number of axioms should not be increased without necessity.</p>"
+                "<p>It was the habit of the Epicureans, says Proclus (p. 322), to ridicule this theorem as being evident even to an ass and requiring no proof, and their allegation that the theorem was <q>known</q>\n (<span class=\"foreign\" lang=\"grc\">γνώριμον</span>) even to an ass was based on the fact that, if fodder is placed at one angular point and the ass at another, he does not, in order to get to his food, traverse the two sides of the triangle but only the one side separating them (an argument which makes Savile exclaim that its authors were <q><span class=\"foreign\" lang=\"la\">digni ipsi, qui cum Asino foenum essent</span>,</q>\n p. 78). Proclus replies truly that a mere perception of the truth of the theorem is a different thing from a scientific proof of it and a knowledge of the reason <em>why</em> it is true. Moreover, as Simson says, the number of axioms should not be increased without necessity.</p>"
               ]
             }
           ],
@@ -1800,14 +1800,14 @@
               "id": "prop-21-note-1",
               "label": "2. be constructed...meeting within the triangle.",
               "blocks": [
-                "<p>The word <q>meeting</q>\n is not in the Greek, where the words are <span class=\"foreign\" lang=\"greek\">ἐντὸς συσταθῶσιν. συνίστασθαι</span> is the word used of constructing two straight lines <em>to a point</em> (cf. <a class=\"citation-link\" href=\"#prop-7\">I. 7</a>) or so as to form a triangle; but it is necessary in English to indicate that they <em>meet</em>.</p>"
+                "<p>The word <q>meeting</q>\n is not in the Greek, where the words are <span class=\"foreign\" lang=\"grc\">ἐντὸς συσταθῶσιν. συνίστασθαι</span> is the word used of constructing two straight lines <em>to a point</em> (cf. <a class=\"citation-link\" href=\"#prop-7\">I. 7</a>) or so as to form a triangle; but it is necessary in English to indicate that they <em>meet</em>.</p>"
               ]
             },
             {
               "id": "prop-21-note-2",
               "label": "3. the straight lines so constructed.",
               "blocks": [
-                "<p>Observe the elegant brevity of the Greek <span class=\"foreign\" lang=\"greek\">αἱ συσταθεῖσαι</span>.</p>"
+                "<p>Observe the elegant brevity of the Greek <span class=\"foreign\" lang=\"grc\">αἱ συσταθεῖσαι</span>.</p>"
               ]
             }
           ],
@@ -1856,21 +1856,21 @@
               "id": "prop-22-note-1",
               "label": "2-4",
               "blocks": [
-                "<p>This is the first case in the <cite>Elements</cite> of a <span class=\"foreign\" lang=\"greek\">διορισμός</span> to a problem in the sense of a statement of the conditions or limits of the possibility of a solution. The criterion is of course supplied by the preceding proposition.</p>"
+                "<p>This is the first case in the <cite>Elements</cite> of a <span class=\"foreign\" lang=\"grc\">διορισμός</span> to a problem in the sense of a statement of the conditions or limits of the possibility of a solution. The criterion is of course supplied by the preceding proposition.</p>"
               ]
             },
             {
               "id": "prop-22-note-2",
               "label": "2. thus it is necessary.",
               "blocks": [
-                "<p>This is usually translated (e.g. by Williamson and Simson) <q><cite>But</cite> it is necessary,</q>\n which is however inaccurate, since the Greek is not <span class=\"foreign\" lang=\"greek\">δεῖ δέ</span> but <span class=\"foreign\" lang=\"greek\">δεῖ δή</span>. The words are the same as those used to introduce the <span class=\"foreign\" lang=\"greek\">διορισμός</span> in the other sense of the <q>definition</q>\n or <q>particular statement</q>\n of a construction to be effected. Hence, as in the latter case we say <q>thus it is required</q>\n (e.g. to bisect the finite straight line <span class=\"segment\" aria-label=\"line segment AB\">AB</span>, <a class=\"citation-link\" href=\"#prop-10\">I. 10</a>), we should here translate <q><em>thus</em> it is necessary.</q></p>"
+                "<p>This is usually translated (e.g. by Williamson and Simson) <q><cite>But</cite> it is necessary,</q>\n which is however inaccurate, since the Greek is not <span class=\"foreign\" lang=\"grc\">δεῖ δέ</span> but <span class=\"foreign\" lang=\"grc\">δεῖ δή</span>. The words are the same as those used to introduce the <span class=\"foreign\" lang=\"grc\">διορισμός</span> in the other sense of the <q>definition</q>\n or <q>particular statement</q>\n of a construction to be effected. Hence, as in the latter case we say <q>thus it is required</q>\n (e.g. to bisect the finite straight line <span class=\"segment\" aria-label=\"line segment AB\">AB</span>, <a class=\"citation-link\" href=\"#prop-10\">I. 10</a>), we should here translate <q><em>thus</em> it is necessary.</q></p>"
               ]
             },
             {
               "id": "prop-22-note-3",
               "label": "4",
               "blocks": [
-                "<p>To this enunciation all the MSS. and Boethius add, after the <span class=\"foreign\" lang=\"greek\">διορισμός</span>, the words <q>because in any triangle two sides taken together in any manner are greater than the remaining one.</q>\n But this explanation has the appearance of a gloss, and it is omitted by Proclus and Campanus. Moreover there is no corresponding addition to the <span class=\"foreign\" lang=\"greek\">διορισμός</span> of <a class=\"citation-link\" href=\"https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D28\" target=\"_blank\" rel=\"noreferrer\">VI. 28</a>.</p>"
+                "<p>To this enunciation all the MSS. and Boethius add, after the <span class=\"foreign\" lang=\"grc\">διορισμός</span>, the words <q>because in any triangle two sides taken together in any manner are greater than the remaining one.</q>\n But this explanation has the appearance of a gloss, and it is omitted by Proclus and Campanus. Moreover there is no corresponding addition to the <span class=\"foreign\" lang=\"grc\">διορισμός</span> of <a class=\"citation-link\" href=\"https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D28\" target=\"_blank\" rel=\"noreferrer\">VI. 28</a>.</p>"
               ]
             }
           ],
@@ -2050,14 +2050,14 @@
               "id": "prop-26-note-1",
               "label": "2-3. the side adjoining the equal angles,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">πλευρὰν τὴν πρὸς ταῖς ἴσαις γωνίαις</span>.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">πλευρὰν τὴν πρὸς ταῖς ἴσαις γωνίαις</span>.</p>"
               ]
             },
             {
               "id": "prop-26-note-2",
               "label": "29. is by hypothesis equal.",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">ὑπόκειται ἴση</span>, according to the elegant Greek idiom. <span class=\"foreign\" lang=\"greek\">ὑπόκειμαι</span> is used for the passive of <span class=\"foreign\" lang=\"greek\">ὑποτίθημι</span>, as <span class=\"foreign\" lang=\"greek\">κεῖμαι</span> is used for the passive of <span class=\"foreign\" lang=\"greek\">τίθημι,</span> and so with the other compounds. Cf. <span class=\"foreign\" lang=\"greek\">προσκεῖσθαι</span>, <q>to be added.</q></p>"
+                "<p><span class=\"foreign\" lang=\"grc\">ὑπόκειται ἴση</span>, according to the elegant Greek idiom. <span class=\"foreign\" lang=\"grc\">ὑπόκειμαι</span> is used for the passive of <span class=\"foreign\" lang=\"grc\">ὑποτίθημι</span>, as <span class=\"foreign\" lang=\"grc\">κεῖμαι</span> is used for the passive of <span class=\"foreign\" lang=\"grc\">τίθημι,</span> and so with the other compounds. Cf. <span class=\"foreign\" lang=\"grc\">προσκεῖσθαι</span>, <q>to be added.</q></p>"
               ]
             }
           ],
@@ -2106,21 +2106,21 @@
               "id": "prop-27-note-1",
               "label": "1. falling on two straight lines,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">εὶς δύο εὐθείας ἐμπίπτουσα</span>, the phrase being the same as that used in <a class=\"citation-link\" href=\"#post-5\">Post. 5</a>, meaning a <em>transversal</em>.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">εὶς δύο εὐθείας ἐμπίπτουσα</span>, the phrase being the same as that used in <a class=\"citation-link\" href=\"#post-5\">Post. 5</a>, meaning a <em>transversal</em>.</p>"
               ]
             },
             {
               "id": "prop-27-note-2",
               "label": "2. the alternate angles,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">αἱ ἐναλλὰξ γωνίαι</span>. Proclus (p. 357, 9) explains that Euclid uses the word <em>alternate</em> (or, more exactly, <em>alternately</em>, <span class=\"foreign\" lang=\"greek\">ἐναλλάξ</span>) in two connexions, (1) of a certain transformation of a proportion, as in Book V. and the arithmetical Books, (2) as here, of certain of the angles formed by parallels with a straight line crossing them. <cite>Alternate</cite> angles are, according to Euclid as interpreted by Proclus, those which are not on the same side of the transversal, and are not adjacent, but are separated by the transversal, both being within the parallels but one <q>above</q>\n and the other <q>below.</q>\n The meaning is natural enough if we imagine the four internal angles to be taken in cyclic order and <em>alternate</em> angles to be any two of them not successive but separated by one angle of the four.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">αἱ ἐναλλὰξ γωνίαι</span>. Proclus (p. 357, 9) explains that Euclid uses the word <em>alternate</em> (or, more exactly, <em>alternately</em>, <span class=\"foreign\" lang=\"grc\">ἐναλλάξ</span>) in two connexions, (1) of a certain transformation of a proportion, as in Book V. and the arithmetical Books, (2) as here, of certain of the angles formed by parallels with a straight line crossing them. <cite>Alternate</cite> angles are, according to Euclid as interpreted by Proclus, those which are not on the same side of the transversal, and are not adjacent, but are separated by the transversal, both being within the parallels but one <q>above</q>\n and the other <q>below.</q>\n The meaning is natural enough if we imagine the four internal angles to be taken in cyclic order and <em>alternate</em> angles to be any two of them not successive but separated by one angle of the four.</p>"
               ]
             },
             {
               "id": "prop-27-note-3",
               "label": "9. in the direction of B, D or towards A, C,",
               "blocks": [
-                "<p>literally <q>towards the <em>parts B</em>, <em>D</em> or towards <em>A</em>, <em>C</em>,</q>\n <span class=\"foreign\" lang=\"greek\">ἐπὶ τὰ Β, Δ μέρη ἢ ἐπὶ τὰ Α Γ</span>.</p>"
+                "<p>literally <q>towards the <em>parts B</em>, <em>D</em> or towards <em>A</em>, <em>C</em>,</q>\n <span class=\"foreign\" lang=\"grc\">ἐπὶ τὰ Β, Δ μέρη ἢ ἐπὶ τὰ Α Γ</span>.</p>"
               ]
             }
           ],
@@ -2210,14 +2210,14 @@
               "id": "prop-29-note-1",
               "label": "23. straight lines produced indefinitely from angles less than two right angles,",
               "blocks": [
-                "<p><span class=\"foreign\" lang=\"greek\">αἰ δὲ ἀπ: ὲλασσόνων ἢ δύο ὀρθῶν ἐκβαλλόμεναι εἰς ἄπειπον συμπίπτουσιν</span>, a variation from the more explicit language of <a class=\"citation-link\" href=\"#post-5\">Postulate 5</a>. A good deal is left to be understood, namely that the straight lines begin from points at which they meet a transversal, and make with it internal angles on the same side the sum of which is less than two right angles.</p>"
+                "<p><span class=\"foreign\" lang=\"grc\">αἰ δὲ ἀπ: ὲλασσόνων ἢ δύο ὀρθῶν ἐκβαλλόμεναι εἰς ἄπειπον συμπίπτουσιν</span>, a variation from the more explicit language of <a class=\"citation-link\" href=\"#post-5\">Postulate 5</a>. A good deal is left to be understood, namely that the straight lines begin from points at which they meet a transversal, and make with it internal angles on the same side the sum of which is less than two right angles.</p>"
               ]
             },
             {
               "id": "prop-29-note-2",
               "label": "26. because they are by hypothesis parallel,",
               "blocks": [
-                "<p>literally <q>because they are supposed parallel,</q>\n <span class=\"foreign\" lang=\"greek\">διὰ τὸ παραλλήλους αὐτὰς ὑποκεῖσθαι</span>.</p>"
+                "<p>literally <q>because they are supposed parallel,</q>\n <span class=\"foreign\" lang=\"grc\">διὰ τὸ παραλλήλους αὐτὰς ὑποκεῖσθαι</span>.</p>"
               ]
             }
           ],
@@ -2387,7 +2387,7 @@
               "id": "prop-33-note-1",
               "label": "1. joining...(at the extremities which are) in the same directions (respectively).",
               "blocks": [
-                "<p>I have for clearness&#x27; sake inserted the words in brackets though they are not in the original Greek, which has <q>joining...in the same directions</q>\n or <q>on the same sides,</q>\n <span class=\"foreign\" lang=\"greek\">ἐπὶ τὰ αυτὰ μέρη ἐπιζευγνύουσαι</span>. The expression <q>tiwards the same parts,</q>\n though usage has sanctioned it, is perhaps not quite satisfactory.</p>"
+                "<p>I have for clearness&#x27; sake inserted the words in brackets though they are not in the original Greek, which has <q>joining...in the same directions</q>\n or <q>on the same sides,</q>\n <span class=\"foreign\" lang=\"grc\">ἐπὶ τὰ αυτὰ μέρη ἐπιζευγνύουσαι</span>. The expression <q>tiwards the same parts,</q>\n though usage has sanctioned it, is perhaps not quite satisfactory.</p>"
               ]
             },
             {
@@ -2443,7 +2443,7 @@
               "id": "prop-34-note-1",
               "label": "1",
               "blocks": [
-                "<p>It is to be observed that, when parallelograms have to be mentioned for the first time, Euclid calls them <q>parallelogrammic areas</q>\n or, more exactly, <q>parallelogram</q>\n areas (<span class=\"foreign\" lang=\"greek\">παραλληλόγραμμα χωρία</span>). The meaning is simply areas bounded by parallel straight lines with the further limitation placed upon the term by Euclid that only <em>four-sided</em> figures are so called, although of course there are certain regular polygons which have opposite sides parallel, and which therefore might be said to be areas bounded by parallel straight lines. We gather from Proclus (p. 393) that the word <q>parallelogram</q>\n was first introduced by Euclid, that its use was suggested by <a class=\"citation-link\" href=\"#prop-33\">I. 33</a>, and that the formation of the word <span class=\"foreign\" lang=\"greek\">παραλληλόγραμμος</span> (parallel-lined) was analogous to that of <span class=\"foreign\" lang=\"greek\">εὐθύγραμμος</span> (straight-lined or rectilineal).</p>"
+                "<p>It is to be observed that, when parallelograms have to be mentioned for the first time, Euclid calls them <q>parallelogrammic areas</q>\n or, more exactly, <q>parallelogram</q>\n areas (<span class=\"foreign\" lang=\"grc\">παραλληλόγραμμα χωρία</span>). The meaning is simply areas bounded by parallel straight lines with the further limitation placed upon the term by Euclid that only <em>four-sided</em> figures are so called, although of course there are certain regular polygons which have opposite sides parallel, and which therefore might be said to be areas bounded by parallel straight lines. We gather from Proclus (p. 393) that the word <q>parallelogram</q>\n was first introduced by Euclid, that its use was suggested by <a class=\"citation-link\" href=\"#prop-33\">I. 33</a>, and that the formation of the word <span class=\"foreign\" lang=\"grc\">παραλληλόγραμμος</span> (parallel-lined) was analogous to that of <span class=\"foreign\" lang=\"grc\">εὐθύγραμμος</span> (straight-lined or rectilineal).</p>"
               ]
             },
             {
@@ -2676,7 +2676,7 @@
               "id": "prop-39-note-1",
               "label": "5",
               "blocks": [
-                "<p>[<span class=\"source-bold\">I say that they are also in the same parallels.</span>] Heiberg has proved (<cite>Hermes</cite>, XXXVIII., 1903, p. 50) from a recently discovered papyrus-fragment (<cite>Fayūm towns and their papyri</cite>, p. 96, No. IX.) that these words are an interpolation by some one who did not observe that the words <q>And let <span class=\"segment\" aria-label=\"line segment AD\">AD</span> be joined</q>\n are part of the <em>setting-out</em> (<span class=\"foreign\" lang=\"greek\">ἔκθεσις</span>), but took them as belonging to the <em>construction</em> (<span class=\"foreign\" lang=\"greek\">κατασκευή</span>) and consequently thought that a <span class=\"foreign\" lang=\"greek\">διορισμός</span> or <q>definition</q>\n (of the thing to be proved) should precede. The interpolator then altered <q>And</q>\n into <q>For</q>\n in the next sentence.</p>"
+                "<p>[<span class=\"source-bold\">I say that they are also in the same parallels.</span>] Heiberg has proved (<cite>Hermes</cite>, XXXVIII., 1903, p. 50) from a recently discovered papyrus-fragment (<cite>Fayūm towns and their papyri</cite>, p. 96, No. IX.) that these words are an interpolation by some one who did not observe that the words <q>And let <span class=\"segment\" aria-label=\"line segment AD\">AD</span> be joined</q>\n are part of the <em>setting-out</em> (<span class=\"foreign\" lang=\"grc\">ἔκθεσις</span>), but took them as belonging to the <em>construction</em> (<span class=\"foreign\" lang=\"grc\">κατασκευή</span>) and consequently thought that a <span class=\"foreign\" lang=\"grc\">διορισμός</span> or <q>definition</q>\n (of the thing to be proved) should precede. The interpolator then altered <q>And</q>\n into <q>For</q>\n in the next sentence.</p>"
               ]
             }
           ],
@@ -2832,14 +2832,14 @@
               "id": "prop-43-note-1",
               "label": "1",
               "blocks": [
-                "<p><span class=\"source-bold\">complements</span>, <span class=\"foreign\" lang=\"greek\">παραπληρώματα</span>, the figures put in to fill up (interstices).</p>"
+                "<p><span class=\"source-bold\">complements</span>, <span class=\"foreign\" lang=\"grc\">παραπληρώματα</span>, the figures put in to fill up (interstices).</p>"
               ]
             },
             {
               "id": "prop-43-note-2",
               "label": "4. and about AC....",
               "blocks": [
-                "<p>Euclid&#x27;s phraseology here and in the next proposition implies that the complements as well as the other parallelograms are <q>about</q>\n the diagonal. The words are here <span class=\"foreign\" lang=\"greek\">περὶ δὲ τὴν ΑΓ παραλληλόγραμμα μὲν ἔστω τὰ ΕΘ, ΖΗ, τὰ δὲ λεγόμενα παραπληρώματα τὰ ΒΚ, ΚΔ</span>. The expression <q>the so-called complements</q>\n indicates that this technical use of <span class=\"foreign\" lang=\"greek\">παραπληρώματα</span> was not new, though it might not be universally known.</p>"
+                "<p>Euclid&#x27;s phraseology here and in the next proposition implies that the complements as well as the other parallelograms are <q>about</q>\n the diagonal. The words are here <span class=\"foreign\" lang=\"grc\">περὶ δὲ τὴν ΑΓ παραλληλόγραμμα μὲν ἔστω τὰ ΕΘ, ΖΗ, τὰ δὲ λεγόμενα παραπληρώματα τὰ ΒΚ, ΚΔ</span>. The expression <q>the so-called complements</q>\n indicates that this technical use of <span class=\"foreign\" lang=\"grc\">παραπληρώματα</span> was not new, though it might not be universally known.</p>"
               ]
             }
           ],
@@ -2888,7 +2888,7 @@
               "id": "prop-44-note-1",
               "label": "14. since the straight line HF falls....",
               "blocks": [
-                "<p>The verb is in the aorist (<span class=\"foreign\" lang=\"greek\">ὲνέπεσεν</span>) here and in similar expressions in the following propositions.</p>"
+                "<p>The verb is in the aorist (<span class=\"foreign\" lang=\"grc\">ὲνέπεσεν</span>) here and in similar expressions in the following propositions.</p>"
               ]
             }
           ],
@@ -2940,7 +2940,7 @@
               "id": "prop-45-note-1",
               "label": "2, 3, 6, 45, 48. rectilineal figure, in the Greek",
               "blocks": [
-                "<p><q>rectilineal</q>\n simply, without <q>figure,</q>\n <span class=\"foreign\" lang=\"greek\">εὐθύγραμμον</span> being here used as a substantive, like the similarly formed <span class=\"foreign\" lang=\"greek\">παραλληλόγραμμον</span>.</p>"
+                "<p><q>rectilineal</q>\n simply, without <q>figure,</q>\n <span class=\"foreign\" lang=\"grc\">εὐθύγραμμον</span> being here used as a substantive, like the similarly formed <span class=\"foreign\" lang=\"grc\">παραλληλόγραμμον</span>.</p>"
               ]
             }
           ],
@@ -2990,7 +2990,7 @@
               "id": "prop-46-note-1",
               "label": "1, 3, 30",
               "blocks": [
-                "<p>Proclus (p. 423, 18 sqq.) notes the difference between the word <em>construct</em> (<span class=\"foreign\" lang=\"greek\">συστἡσασθαι</span>) applied by Euclid to the construction of a <em>triangle</em> (and, he might have added, of an <em>angle</em>) and the words <em>describe on</em> (<span class=\"foreign\" lang=\"greek\">ἀναγράφειν ἀπό</span>) used of drawing a square on a given straight line as one side. The <em>triangle</em> (or <em>angle</em>) is, so to say, pieced together, while the describing of a square on a given straight line is the making of a figure <q>from</q>\n <em>one</em> side, and corresponds to the multiplication of the number representing the side by itself.</p>"
+                "<p>Proclus (p. 423, 18 sqq.) notes the difference between the word <em>construct</em> (<span class=\"foreign\" lang=\"grc\">συστἡσασθαι</span>) applied by Euclid to the construction of a <em>triangle</em> (and, he might have added, of an <em>angle</em>) and the words <em>describe on</em> (<span class=\"foreign\" lang=\"grc\">ἀναγράφειν ἀπό</span>) used of drawing a square on a given straight line as one side. The <em>triangle</em> (or <em>angle</em>) is, so to say, pieced together, while the describing of a square on a given straight line is the making of a figure <q>from</q>\n <em>one</em> side, and corresponds to the multiplication of the number representing the side by itself.</p>"
               ]
             }
           ],
@@ -3044,21 +3044,21 @@
               "id": "prop-47-note-1",
               "label": "1. the square on",
               "blocks": [
-                "<p>, <span class=\"foreign\" lang=\"greek\">τὸ ἀπὸ...τετρἁγωνον</span>, the word <span class=\"foreign\" lang=\"greek\">ἀναγραφέν</span> or <span class=\"foreign\" lang=\"greek\">ἀναγεγραμμένον</span> being understood.</p>"
+                "<p>, <span class=\"foreign\" lang=\"grc\">τὸ ἀπὸ...τετρἁγωνον</span>, the word <span class=\"foreign\" lang=\"grc\">ἀναγραφέν</span> or <span class=\"foreign\" lang=\"grc\">ἀναγεγραμμένον</span> being understood.</p>"
               ]
             },
             {
               "id": "prop-47-note-2",
               "label": "Note 2",
               "blocks": [
-                "<p><span class=\"source-bold\">subtending the right angle.</span> Here <span class=\"foreign\" lang=\"greek\">ὑποτεινούσης</span>, <q>subtending,</q>\n is used with the simple accusative (<span class=\"foreign\" lang=\"greek\">τὴν ὀρθὴν γωνίαν</span>) instead of being followed by <span class=\"foreign\" lang=\"greek\">ὑπό</span> and the accusative, which seems to be the original and more orthodox construction. Cf. <a class=\"citation-link\" href=\"#prop-18\">I. 18</a>, note.</p>"
+                "<p><span class=\"source-bold\">subtending the right angle.</span> Here <span class=\"foreign\" lang=\"grc\">ὑποτεινούσης</span>, <q>subtending,</q>\n is used with the simple accusative (<span class=\"foreign\" lang=\"grc\">τὴν ὀρθὴν γωνίαν</span>) instead of being followed by <span class=\"foreign\" lang=\"grc\">ὑπό</span> and the accusative, which seems to be the original and more orthodox construction. Cf. <a class=\"citation-link\" href=\"#prop-18\">I. 18</a>, note.</p>"
               ]
             },
             {
               "id": "prop-47-note-3",
               "label": "33. the two sides AB, BD....",
               "blocks": [
-                "<p>Euclid actually writes <q><span class=\"segment\" aria-label=\"line segment DB\">DB</span>, <span class=\"segment\" aria-label=\"line segment BA\">BA</span>,</q>\n and therefore the equal sides in the two triangles are not mentioned in corresponding order, though he adheres to the words <span class=\"foreign\" lang=\"greek\">ἑκατέρα ἑκατέρα</span> <q>respectively.</q>\n Here <span class=\"segment\" aria-label=\"line segment DB\">DB</span> is equal to <span class=\"segment\" aria-label=\"line segment BC\">BC</span> and <span class=\"segment\" aria-label=\"line segment BA\">BA</span> to <span class=\"segment\" aria-label=\"line segment FB\">FB</span>.</p>"
+                "<p>Euclid actually writes <q><span class=\"segment\" aria-label=\"line segment DB\">DB</span>, <span class=\"segment\" aria-label=\"line segment BA\">BA</span>,</q>\n and therefore the equal sides in the two triangles are not mentioned in corresponding order, though he adheres to the words <span class=\"foreign\" lang=\"grc\">ἑκατέρα ἑκατέρα</span> <q>respectively.</q>\n Here <span class=\"segment\" aria-label=\"line segment DB\">DB</span> is equal to <span class=\"segment\" aria-label=\"line segment BC\">BC</span> and <span class=\"segment\" aria-label=\"line segment BA\">BA</span> to <span class=\"segment\" aria-label=\"line segment FB\">FB</span>.</p>"
               ]
             },
             {

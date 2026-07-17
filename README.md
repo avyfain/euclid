@@ -22,10 +22,15 @@ npm test
 The production site is a static export deployed as a Cloudflare Worker. The
 public GitHub repository runs lint and tests on every pull request and push.
 Cloudflare Workers Builds deploys successful pushes to `main` from the connected
-GitHub repository.
+GitHub repository. Non-production branch builds publish pull requests as Worker
+versions without promoting them to production. Cloudflare comments both a
+commit-specific URL and a stable branch preview URL on each pull request.
 
 The Worker is named `euclid`; `wrangler.jsonc` contains the public deployment
 configuration. Run `npm run deploy` for an authorized manual deployment.
+Preview URLs are explicitly enabled in that file; non-production branch builds
+and the `npx wrangler versions upload` preview command are configured in the
+Worker's Cloudflare dashboard under **Settings > Build**.
 
 The canonical production URL is <https://explore-euclid.online>. Cloudflare
 attaches that custom domain directly to the `euclid` Worker and manages its TLS

@@ -77,6 +77,7 @@ test("keeps Cloudflare Workers Builds as the sole deployment owner", async () =>
   ]);
 
   assert.equal(wrangler.name, "euclid");
+  assert.equal(wrangler.preview_urls, true);
   assert.doesNotMatch(workflow, /wrangler deploy|CLOUDFLARE_API_TOKEN/);
 });
 

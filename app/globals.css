@@ -487,32 +487,6 @@ kbd {
   -webkit-line-clamp: 2;
 }
 
-.line-number-option {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  margin: 20px 11px 0;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.line-number-option input {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 auto;
-  margin: 0;
-  accent-color: var(--accent);
-}
-
-.line-number-option small {
-  display: block;
-  margin-top: 2px;
-  font-weight: 400;
-}
-
 .reading-pane {
   background: var(--paper);
 }

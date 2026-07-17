@@ -17,10 +17,7 @@ const COLLAPSED_FOUNDATION_SECTION_IDS = new Set([
   "common-notions",
 ]);
 
-const LINE_NUMBER_PREFERENCE_KEY = "euclid-announce-source-line-numbers";
-
-function addAccessibleLineNumbers(html: string, enabled: boolean) {
-  if (!enabled) return html;
+function addAccessibleLineNumbers(html: string) {
   return html.replace(
     /<span class="source-line-number" aria-hidden="true" data-line="([^"]+)"><\/span>/g,
     '<span class="source-line-number" data-line="$1"><span class="sr-only">Source line $1.</span></span>',
@@ -168,7 +165,6 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
   const [query, setQuery] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [announceLineNumbers, setAnnounceLineNumbers] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const articleRef = useRef<HTMLElement>(null);
   const articleHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -182,15 +178,6 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
     allItems.findIndex(({ item }) => item.id === activeItemId),
   );
   const active = allItems[activeIndex] ?? allItems[0];
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      setAnnounceLineNumbers(
-        window.localStorage.getItem(LINE_NUMBER_PREFERENCE_KEY) === "true",
-      );
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
 
   useEffect(() => {
     const syncFromLocation = (focusArticle = false) => {
@@ -587,24 +574,6 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             </>
           )}
 
-          <label className="line-number-option">
-            <input
-              type="checkbox"
-              checked={announceLineNumbers}
-              onChange={(event) => {
-                setAnnounceLineNumbers(event.target.checked);
-                window.localStorage.setItem(
-                  LINE_NUMBER_PREFERENCE_KEY,
-                  String(event.target.checked),
-                );
-              }}
-            />
-            <span>
-              Announce source line numbers
-              <small>Read the numbered markers in propositions.</small>
-            </span>
-          </label>
-
           <details className="source-note">
             <summary>
               <span>About this text</span>
@@ -700,7 +669,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
             )}
             {activeSection.id === "propositions" ? (
               <>
-                {announceLineNumbers && <span className="sr-only">Source line 1.</span>}
+                <span className="sr-only">Source line 1.</span>
                 <h1
                   className="proposition-title"
                   data-line="1"
@@ -730,7 +699,7 @@ export function EuclidReader({ book }: { book: EuclidBook }) {
                       className="source-block"
                       // The extraction script emits only a small, explicit TEI tag allowlist.
                       dangerouslySetInnerHTML={{
-                        __html: addAccessibleLineNumbers(block, announceLineNumbers),
+                        __html: addAccessibleLineNumbers(block),
                       }}
                       key={blockIndex}
                     />

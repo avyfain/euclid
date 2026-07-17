@@ -229,10 +229,10 @@ test("ships complete Book I data and an extensible book catalog", async () => {
   assert.match(reader, /event\.key === "Escape" && navOpen && isCompact/);
   assert.match(reader, /role=\{isCompact \? "dialog" : undefined\}/);
   assert.match(reader, /aria-modal=\{isCompact && navOpen \? true : undefined\}/);
-  assert.match(reader, /euclid-announce-source-line-numbers/);
-  assert.match(reader, /Announce source line numbers/);
+  assert.doesNotMatch(reader, /euclid-announce-source-line-numbers/);
+  assert.doesNotMatch(reader, /Announce source line numbers/);
   assert.match(reader, /Source line \$1\./);
-  assert.match(reader, /addAccessibleLineNumbers\(block, announceLineNumbers\)/);
+  assert.match(reader, /addAccessibleLineNumbers\(block\)/);
   assert.match(reader, /className="contents-search" role="search"/);
   assert.match(reader, /id="search-results-status"[\s\S]*?role="status"/);
   assert.match(reader, /<ul className="search-result-list">/);

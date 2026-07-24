@@ -333,11 +333,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p>with the same construction, <span class=\"foreign\" lang=\"grc\">τῶν αὐτῶν κατασκευασθέντων</span>.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-3-note-1",
+              "label": "26",
+              "blocks": [
+                "<p>with the same construction, <span class=\"foreign\" lang=\"grc\">τῶν αὐτῶν κατασκευασθέντων</span>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 3. If in a circle a straight line through the centre bisect a straight line not through the centre, it also cuts it at right angles; and if it cut it at right angles, it also bisects it. Let ABC be a circle, and in it let a straight line CD through the centre bisect a straight line AB not through the centre at the point F; I say that it also cuts it at right angles. For let the centre of the circle ABC be taken, and let it be E; let EA, EB be joined. Then, since AF is equal to FB, and FE is common, two sides are equal to two sides; and the base EA is equal to the base EB; therefore the angle AFE is equal to the angle BFE. [I. 8] But, when a straight line set up on a straight line makes the adjacent angles equal to one another, each of the equal angles is right; [I. Def. 10] therefore each of the angles AFE, BFE is right. Therefore CD, which is through the centre, and bisects AB which is not through the centre, also cuts it at right angles. Again, let CD cut AB at right angles; I say that it also bisects it. that is, that AF is equal to FB. For, with the same construction, since EA is equal to EB, the angle EAF is also equal to the angle EBF. [I. 5] But the right angle AFE is equal to the right angle BFE, therefore EAF, EBF are two triangles having two angles equal to two angles and one side equal to one side, namely EF, which is common to them, and subtends one of the equal angles; therefore they will also have the remaining sides equal to the remaining sides; [I. 26] therefore AF is equal to FB. Therefore etc. Q. E. D. with the same construction, tw=n au)tw=n kataskeuasqe/ntwn.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D3"
         },
@@ -496,11 +504,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">of the same diameter</span>. I have inserted these words for clearness&#x27; sake. The text has simply <span class=\"foreign\" lang=\"grc\">ἐλαχίστη δὲ ἡ λοιπή</span>, <q>and the remaining (straight line) least.</q></p>\n       \n       \n        <p><span class=\"source-bold\">one on each side</span>. The word <q>one</q>\n is not in the Greek, but is necessary to give the force of <span class=\"foreign\" lang=\"grc\">ἐφ̓ ἑκάτερα τῆς ἐλαχίστης</span>, literally <q>on both sides,</q>\n or <q>on each of the two sides, of the least.</q></p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-7-note-1",
+              "label": "4",
+              "blocks": [
+                "<p><span class=\"source-bold\">of the same diameter</span>. I have inserted these words for clearness&#x27; sake. The text has simply <span class=\"foreign\" lang=\"grc\">ἐλαχίστη δὲ ἡ λοιπή</span>, <q>and the remaining (straight line) least.</q></p>"
+              ]
+            },
+            {
+              "id": "prop-7-note-2",
+              "label": "7, 39",
+              "blocks": [
+                "<p><span class=\"source-bold\">one on each side</span>. The word <q>one</q>\n is not in the Greek, but is necessary to give the force of <span class=\"foreign\" lang=\"grc\">ἐφ̓ ἑκάτερα τῆς ἐλαχίστης</span>, literally <q>on both sides,</q>\n or <q>on each of the two sides, of the least.</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 7. If on the diameter of a circle a point be taken which is not the centre of the circle, and from the point straight lines fall upon the circle, that will be greatest on which the centre is, the remainder of the same diameter will be least, and of the rest the nearer to the straight line through the centre is always greater than the more remote, and only two equal straight lines will fall from the point on the circle, one on each side of the least straight line. Let ABCD be a circle, and let AD be a diameter of it; on AD let a point F be taken which is not the centre of the circle, let E be the centre of the circle, and from F let straight lines FB, FC, FG fall upon the circle ABCD; I say that FA is greatest, FD is least, and of the rest FB is greater than FC, and FC than FG. For let BE, CE, GE be joined. Then, since in any triangle two sides are greater than the remaining one, [I. 20] EB, EF are greater than BF. But AE is equal to BE; therefore AF is greater than BF. Again, since BE is equal to CE, and FE is common, the two sides BE, EF are equal to the two sides CE, EF. But the angle BEF is also greater than the angle CEF; therefore the base BF is greater than the base CF. [I. 24] For the same reason CF is also greater than FG. Again, since GF, FE are greater than EG, and EG is equal to ED, GF, FE are greater than ED. Let EF be subtracted from each; therefore the remainder GF is greater than the remainder FD. Therefore FA is greatest, FD is least, and FB is greater than FC, and FC than FG. I say also that from the point F only two equal straight lines will fall on the circle ABCD, one on each side of the least FD. For on the straight line EF, and at the point E on it, let the angle FEH be constructed equal to the angle GEF [I. 23], and let FH be joined. Then, since GE is equal to EH, and EF is common, the two sides GE, EF are equal to the two sides HE, EF; and the angle GEF is equal to the angle HEF; therefore the base FG is equal to the base FH. [I. 4] I say again that another straight line equal to FG will not fall on the circle from the point F. For, if possible, let FK so fall. Then, since FK is equal to FG, and FH to FG, FK is also equal to FH, the nearer to the straight line through the centre being thus equal to the more remote: which is impossible. Therefore another straight line equal to GF will not fall from the point F upon the circle; therefore only one straight line will so fall. Therefore etc. Q. E. D. of the same diameter. I have inserted these words for clearness' sake. The text has simply e)laxi/sth de\\ h( loiph/, and the remaining (straight line) least. one on each side. The word one is not in the Greek, but is necessary to give the force of e)f) e(ka/tera th=s e)laxi/sths, literally on both sides, or on each of the two sides, of the least.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D7"
         },
@@ -615,11 +638,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p>The word circle (<span class=\"foreign\" lang=\"grc\">κύκλος</span>) is here employed in the unusual sense of the <em>circumference</em> (<span class=\"foreign\" lang=\"grc\">περιφέρεια</span>) of a circle. Cf. note on <a class=\"citation-link\" href=\"#book-1-def-15\" aria-label=\"Book 1, Definition 15\">I. Def. 15</a>.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-10-note-1",
+              "label": "1",
+              "blocks": [
+                "<p>The word circle (<span class=\"foreign\" lang=\"grc\">κύκλος</span>) is here employed in the unusual sense of the <em>circumference</em> (<span class=\"foreign\" lang=\"grc\">περιφέρεια</span>) of a circle. Cf. note on <a class=\"citation-link\" href=\"#book-1-def-15\" aria-label=\"Book 1, Definition 15\">I. Def. 15</a>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 10. A circle does not cut a circle at more points than two. For, if possible, let the circle ABC cut the circle DEF at more points than two, namely B, C, F, H; let BH, BG be joined and bisected at the points K, L, and from K, L let KC, LM be drawn at right angles to BH, BG and carried through to the points A, E. Then, since in the circle ABC a straight line AC cuts a straight line BH into two equal parts and at right angles, the centre of the circle ABC is on AC. [III. 1, Por.] Again, since in the same circle ABC a straight line NO cuts a straight line BG into two equal parts and at right angles, the centre of the circle ABC is on NO. But it was also proved to be on AC, and the straight lines AC, NO meet at no point except at P; therefore the point P is the centre of the circle ABC. Similarly we can prove that P is also the centre of the circle DEF; therefore the two circles ABC, DEF which cut one another have the same centre P: which is impossible. [III. 5] Therefore etc. Q. E. D. The word circle (ku/klos) is here employed in the unusual sense of the circumference (perife/reia) of a circle. Cf. note on I. Def. 15.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D10"
         },
@@ -653,11 +684,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">the straight line joining their centres</span>, literally <q>the straight line joined to their centres</q>\n (<span class=\"foreign\" lang=\"grc\">ἡ ἐπὶ τὰ κέντρα αὐτῶν ἐπιζευγνυμένη εὐθεῖα</span>).</p>\n       \n       \n        <p><span class=\"source-bold\">point of contact</span> is here <span class=\"foreign\" lang=\"grc\">συναφἡ</span>, and in the enunciation of the next proposition <span class=\"foreign\" lang=\"grc\">ἐπαφἡ</span>.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-11-note-1",
+              "label": "2",
+              "blocks": [
+                "<p><span class=\"source-bold\">the straight line joining their centres</span>, literally <q>the straight line joined to their centres</q>\n (<span class=\"foreign\" lang=\"grc\">ἡ ἐπὶ τὰ κέντρα αὐτῶν ἐπιζευγνυμένη εὐθεῖα</span>).</p>"
+              ]
+            },
+            {
+              "id": "prop-11-note-2",
+              "label": "3",
+              "blocks": [
+                "<p><span class=\"source-bold\">point of contact</span> is here <span class=\"foreign\" lang=\"grc\">συναφἡ</span>, and in the enunciation of the next proposition <span class=\"foreign\" lang=\"grc\">ἐπαφἡ</span>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 11. If two circles touch one another internally, and their centres be taken, the straight line joining their centres, if it be also produced, will fall on the point of contact of the circles. For let the two circles ABC, ADE touch one another internally at the point A, and let the centre F of the circle ABC, and the centre G of ADE, be taken; I say that the straight line joined from G to F and produced will fall on A. For suppose it does not, but, if possible, let it fall as FGH, and let AF, AG be joined. Then, since AG, GF are greater than FA, that is, than FH, let FG be subtracted from each; therefore the remainder AG is greater than the remainder GH. But AG is equal to GD; therefore GD is also greater than GH, the less than the greater: which is impossible. Therefore the straight line joined from F to G will not fall outside; therefore it will fall at A on the point of contact. Therefore etc. Q. E. D. the straight line joining their centres, literally the straight line joined to their centres (h( e)pi\\ ta\\ ke/ntra au)tw=n e)pizeugnume/nh eu)qei=a). point of contact is here sunafh(, and in the enunciation of the next proposition e)pafh(.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D11"
         },
@@ -691,11 +737,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.]\n\n        <p><span class=\"source-bold\">will not fail to pass</span>. The Greek has the double negative, <span class=\"foreign\" lang=\"grc\">οὐκ ἄρα ἡ...εὐθεῖα... οὐκ ἐλεύσεται</span>, literally <q>the straight line...will not <em>not</em>-pass....</q></p></p>"
+                "<p>Therefore etc. Q. E. D.]</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-12-note-1",
+              "label": "23",
+              "blocks": [
+                "<p><span class=\"source-bold\">will not fail to pass</span>. The Greek has the double negative, <span class=\"foreign\" lang=\"grc\">οὐκ ἄρα ἡ...εὐθεῖα... οὐκ ἐλεύσεται</span>, literally <q>the straight line...will not <em>not</em>-pass....</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 12. If two circles touch one another externally, the straight line joining their centres will pass through the point of contact. For let the two circles ABC, ADE touch one another externally at the point A, and let the centre F of ABC, and the centre G of ADE, be taken; I say that the straight line joined from F to G will pass through the point of contact at A. For suppose it does not, but, if possible, let it pass as FCDG, and let AF, AG be joined. Then, since the point F is the centre of the circle ABC, FA is equal to FC. Again, since the point G is the centre of the circle ADE, GA is equal to GD. But FA was also proved equal to FC; therefore FA, AG are equal to FC, GD, so that the whole FG is greater than FA, AG; but it is also less [I. 20]: which is impossible. Therefore the straight line joined from F to G will not fail to pass through the point of contact at A; therefore it will pass through it. Therefore etc. Q. E. D.] will not fail to pass. The Greek has the double negative, ou)k a)/ra h(...eu)qei=a... ou)k e)leu/setai, literally the straight line...will not not-pass....",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D12"
         },
@@ -735,11 +789,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">ABDC</span>. Euclid writes <em>ABCD</em> (here and in the next proposition), notwithstanding the order in which the points are placed in the figure.</p>\n       \n       \n        <p><span class=\"source-bold\">does it so touch it</span>. It is necessary to supply these words which the Greek (<span class=\"foreign\" lang=\"grc\">ὅτι οὐδὲ ἐκτός</span> and <span class=\"foreign\" lang=\"grc\">ὅτι οὐδὲ ἐντός</span>) leaves to be understood.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-13-note-1",
+              "label": "3, 7, 14, 27, 30, 33",
+              "blocks": [
+                "<p><span class=\"source-bold\">ABDC</span>. Euclid writes <em>ABCD</em> (here and in the next proposition), notwithstanding the order in which the points are placed in the figure.</p>"
+              ]
+            },
+            {
+              "id": "prop-13-note-2",
+              "label": "25, 37",
+              "blocks": [
+                "<p><span class=\"source-bold\">does it so touch it</span>. It is necessary to supply these words which the Greek (<span class=\"foreign\" lang=\"grc\">ὅτι οὐδὲ ἐκτός</span> and <span class=\"foreign\" lang=\"grc\">ὅτι οὐδὲ ἐντός</span>) leaves to be understood.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 13. A circle does not touch a circle at more points than one, whether it touch it internally or externally. For, if possible, let the circle ABDC touch the circle EBFD, first internally, at more points than one, namely D, B. Let the centre G of the circle ABDC, and the centre H of EBFD, be taken. Therefore the straight line joined from G to H will fall on B, D. [III. 11] Let it so fall, as BGHD. Then, since the point G is the centre of the circle ABCD, BG is equal to GD; therefore BG is greater than HD; therefore BH is much greater than HD. Again, since the point H is the centre of the circle EBFD, BH is equal to HD; but it was also proved much greater than it: which is impossible. Therefore a circle does not touch a circle internally at more points than one. I say further that neither does it so touch it externally. For, if possible, let the circle ACK touch the circle ABDC at more points than one, namely A, C, and let AC be joined. Then, since on the circumference of each of the circles ABDC, ACK two points A, C have been taken at random, the straight line joining the points will fall within each circle; [III. 2] but it fell within the circle ABCD and outside ACK [III. Def. 3]: which is absurd. Therefore a circle does not touch a circle externally at more points than one. And it was proved that neither does it so touch it internally. Therefore etc. Q. E. D. ABDC. Euclid writes ABCD (here and in the next proposition), notwithstanding the order in which the points are placed in the figure. does it so touch it. It is necessary to supply these words which the Greek (o(/ti ou)de\\ e)kto/s and o(/ti ou)de\\ e)nto/s) leaves to be understood.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D13"
         },
@@ -820,11 +889,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">Of straight lines</span>. The Greek leaves these words to be understood.</p>\n       \n       \n        <p><span class=\"source-bold\">Nearer to the diameter AD.</span> As <span class=\"segment\" aria-label=\"line segment B C\">BC</span>, <span class=\"segment\" aria-label=\"line segment F G\">FG</span> are not in general parallel to <span class=\"segment\" aria-label=\"line segment A D\">AD</span>, Euclid should have said <q>nearer to the centre.</q></p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-15-note-1",
+              "label": "1",
+              "blocks": [
+                "<p><span class=\"source-bold\">Of straight lines</span>. The Greek leaves these words to be understood.</p>"
+              ]
+            },
+            {
+              "id": "prop-15-note-2",
+              "label": "5",
+              "blocks": [
+                "<p><span class=\"source-bold\">Nearer to the diameter AD.</span> As <span class=\"segment\" aria-label=\"line segment B C\">BC</span>, <span class=\"segment\" aria-label=\"line segment F G\">FG</span> are not in general parallel to <span class=\"segment\" aria-label=\"line segment A D\">AD</span>, Euclid should have said <q>nearer to the centre.</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 15. Of straight lines in a circle the diameter is greatest, and of the rest the nearer to the centre is always greater than the more remote. Let ABCD be a circle, let AD be its diameter and E the centre; and let BC be nearer to the diameter AD, and FG more remote; I say that AD is greatest and BC greater than FG. For from the centre E let EH, EK be drawn perpendicular to BC, FG. Then, since BC is nearer to the centre and FG more remote, EK is greater than EH. [III. Def. 5] Let EL be made equal to EH, through L let LM be drawn at right angles to EK and carried through to N, and let ME, EN, FE, EG be joined. Then, since EH is equal to EL, BC is also equal to MN. [III. 14] Again, since AE is equal to EM, and ED to EN, AD is equal to ME, EN. But ME, EN are greater than MN, [I. 20] and MN is equal to BC; therefore AD is greater than BC. And, since the two sides ME, EN are equal to the two sides FE, EG, and the angle MEN greater than the angle FEG, therefore the base MN is greater than the base FG. [I. 24] But MN was proved equal to BC. Therefore the diameter AD is greatest and BC greater than FG. Therefore etc. Q. E. D. Of straight lines. The Greek leaves these words to be understood. Nearer to the diameter AD. As BC, FG are not in general parallel to AD, Euclid should have said nearer to the centre.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D15"
         },
@@ -916,11 +1000,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n         \n        \n         <p><span class=\"source-bold\">the tangent</span>, <span class=\"foreign\" lang=\"grc\">ἡ ἐφαπτομένη</span>.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-18-note-1",
+              "label": "3",
+              "blocks": [
+                "<p><span class=\"source-bold\">the tangent</span>, <span class=\"foreign\" lang=\"grc\">ἡ ἐφαπτομένη</span>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 18. If a straight line touch a circle, and a straight line be joined from the centre to the point of contact, the straight line so joined will be perpendicular to the tangent. For let a straight line DE touch the circle ABC at the point C, let the centre F of the circle ABC be taken, and let FC be joined from F to C; I say that FC is perpendicular to DE. For, if not, let FG be drawn from F perpendicular to DE. Then, since the angle FGC is right, the angle FCG is acute; [I. 17] and the greater angle is subtended by the greater side; [I. 19] therefore FC is greater than FG. But FC is equal to FB; therefore FB is also greater than FG, the less than the greater: which is impossible. Therefore FG is not perpendicular to DE. Similarly we can prove that neither is any other straight line except FC; therefore FC is perpendicular to DE. Therefore etc. Q. E. D. the tangent, h( e)faptome/nh.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D18"
         },
@@ -994,11 +1086,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">let another straight line be inflected</span>, <span class=\"foreign\" lang=\"grc\">κεκλάσθω δὴ πάλιν</span> (without <span class=\"foreign\" lang=\"grc\">εὐθεῖα</span>). The verb <span class=\"foreign\" lang=\"grc\">κλάω</span> (to <em>break off</em>) was the regular technical term for drawing from a point a (broken) straight line which first meets another straight line or curve and is then <em>bent back</em> from it to another point, or (in other words) for drawing straight lines from two points meeting at a point on a curve or another straight line. <span class=\"foreign\" lang=\"grc\">κεκλάσθαι</span> is one of the geometrical terms the definition of which must according to Aristotle be assumed (<cite>Anal. Post.</cite> I. 10, 76 b 9).</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-20-note-1",
+              "label": "25",
+              "blocks": [
+                "<p><span class=\"source-bold\">let another straight line be inflected</span>, <span class=\"foreign\" lang=\"grc\">κεκλάσθω δὴ πάλιν</span> (without <span class=\"foreign\" lang=\"grc\">εὐθεῖα</span>). The verb <span class=\"foreign\" lang=\"grc\">κλάω</span> (to <em>break off</em>) was the regular technical term for drawing from a point a (broken) straight line which first meets another straight line or curve and is then <em>bent back</em> from it to another point, or (in other words) for drawing straight lines from two points meeting at a point on a curve or another straight line. <span class=\"foreign\" lang=\"grc\">κεκλάσθαι</span> is one of the geometrical terms the definition of which must according to Aristotle be assumed (<cite>Anal. Post.</cite> I. 10, 76 b 9).</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 20. In a circle the angle at the centre is double of the angle at the circumference, when the angles have the same circumference as base. Let ABC be a circle, let the angle BEC be an angle at its centre, and the angle BAC an angle at the circumference, and let them have the same circumference BC as base; I say that the angle BEC is double of the angle BAC. For let AE be joined and drawn through to F. Then, since EA is equal to EB, the angle EAB is also equal to the angle EBA; [I. 5] therefore the angles EAB, EBA are double of the angle EAB. But the angle BEF is equal to the angles EAB, EBA; [I. 32] therefore the angle BEF is also double of the angle EAB. For the same reason the angle FEC is also double of the angle EAC. Therefore the whole angle BEC is double of the whole angle BAC. Again let another straight line be inflected, and let there be another angle BDC; let DE be joined and produced to G. Similarly then we can prove that the angle GEC is double of the angle EDC, of which the angle GEB is double of the angle EDB; therefore the angle BEC which remains is double of the angle BDC. Therefore etc. Q. E. D. let another straight line be inflected, kekla/sqw dh\\ pa/lin (without eu)qei=a). The verb kla/w (to break off) was the regular technical term for drawing from a point a (broken) straight line which first meets another straight line or curve and is then bent back from it to another point, or (in other words) for drawing straight lines from two points meeting at a point on a curve or another straight line. kekla/sqai is one of the geometrical terms the definition of which must according to Aristotle be assumed (Anal. Post. I. 10, 76 b 9).",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D20"
         },
@@ -1102,11 +1202,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">cannot be constructed</span>, <span class=\"foreign\" lang=\"grc\">οὐ συσταθήσεται</span>, the same phrase as in 1. 7.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-23-note-1",
+              "label": "1",
+              "blocks": [
+                "<p><span class=\"source-bold\">cannot be constructed</span>, <span class=\"foreign\" lang=\"grc\">οὐ συσταθήσεται</span>, the same phrase as in 1. 7.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 23. On the same straight line there cannot be constructed two similar and unequal segments of circles on the same side. For, if possible, on the same straight line AB let two similar and unequal segments of circles ACB, ADB be constructed on the same side; let ACD be drawn through, and let CB, DB be joined. Then, since the segment ACB is similar to the segment ADB, and similar segments of circles are those which admit equal angles, [III. Def. 11] the angle ACB is equal to the angle ADB, the exterior to the interior: which is impossible. [I. 16] Therefore etc. Q. E. D. cannot be constructed, ou) sustaqh/setai, the same phrase as in 1. 7.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D23"
         },
@@ -1138,11 +1246,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"20\"></span>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">fall awry</span>, <span class=\"foreign\" lang=\"grc\">παραλλάξει</span>, the same word as used in the like case in <a class=\"citation-link\" href=\"#book-1-prop-8\" aria-label=\"Book 1, Proposition 8\">I. 8</a>. The word implies that the applied figure will partly fall short of, and partly overlap, the figure to which it is applied.</p></p>"
+                "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"20\"></span>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-24-note-1",
+              "label": "15",
+              "blocks": [
+                "<p><span class=\"source-bold\">fall awry</span>, <span class=\"foreign\" lang=\"grc\">παραλλάξει</span>, the same word as used in the like case in <a class=\"citation-link\" href=\"#book-1-prop-8\" aria-label=\"Book 1, Proposition 8\">I. 8</a>. The word implies that the applied figure will partly fall short of, and partly overlap, the figure to which it is applied.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 24. Similar segments of circles on equal straight lines are equal to one another. For let AEB, CFD be similar segments of circles on equal straight lines AB, CD; I say that the segment AEB is equal to the segment CFD. For, if the segment AEB be applied to CFD, and if the point A be placed on C and the straight line AB on CD, the point B will also coincide with the point D, because AB is equal to CD; and, AB coinciding with CD, the segment AEB will also coincide with CFD. For, if the straight line AB coincide with CD but the segment AEB do not coincide with CFD, it will either fall with it, or outside it; or it will fall awry, as CGD, and a circle cuts a circle at more points than two : which is impossible. [III. 10] Therefore, if the straight line AB be applied to CD, the segment AEB will not fail to coincide with CFD also; therefore it will coincide with it and will be equal to it. Therefore etc. Q. E. D. fall awry, paralla/cei, the same word as used in the like case in I. 8. The word implies that the applied figure will partly fall short of, and partly overlap, the figure to which it is applied.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D24"
         },
@@ -1175,11 +1291,19 @@
                 "<p>And it is manifest that the segment <em>ABC</em> is less than a semicircle, because the centre <em>E</em> happens to be outside it.</p>",
                 "<p>Similarly, even if the angle <em>ABD</em> be equal to the angle <em>BAD</em>, <span class=\"segment\" aria-label=\"line segment A D\">AD</span> being equal to each of the two <span class=\"segment\" aria-label=\"line segment B D\">BD</span>, <span class=\"segment\" aria-label=\"line segment D C\">DC</span>, <span class=\"source-center\">the three straight lines <span class=\"segment\" aria-label=\"line segment D A\">DA</span>, <span class=\"segment\" aria-label=\"line segment D B\">DB</span>, <span class=\"segment\" aria-label=\"line segment D C\">DC</span> will be equal to one another, \n        <em>D</em> will be the centre of the completed circle, and <em>ABC</em> will clearly be a semicircle.</span></p>",
                 "<p>But, if the angle <em>ABD</em> be less than the angle <em>BAD</em>, and if we construct, on the straight line <span class=\"segment\" aria-label=\"line segment B A\">BA</span> and at the point <em>A</em> on it, an angle equal to the angle <em>ABD</em>, the centre will fall on <span class=\"segment\" aria-label=\"line segment D B\">DB</span> within the segment <em>ABC</em>, and the segment \n       <em>ABC</em> will clearly be greater than a semicircle.</p>",
-                "<p>Therefore, given a segment of a circle, the complete circle has been described. Q. E. F.\n\n        <p><span class=\"source-bold\">to describe the complete circle</span>, <span class=\"foreign\" lang=\"grc\">προσαναγράψαι τὸν κύκλον</span>, literally “to describe the circle <em>on to it</em>.’</p></p>"
+                "<p>Therefore, given a segment of a circle, the complete circle has been described. Q. E. F.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-25-note-1",
+              "label": "1",
+              "blocks": [
+                "<p><span class=\"source-bold\">to describe the complete circle</span>, <span class=\"foreign\" lang=\"grc\">προσαναγράψαι τὸν κύκλον</span>, literally “to describe the circle <em>on to it</em>.’</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 25. Given a segment of a circle, to describe the complete circle of which it is a segment. Let ABC be the given segment of a circle; thus it is required to describe the complete circle belonging to the segment ABC, that is, of which it is a segment. For let AC be bisected at D, let DB be drawn from the point D at right angles to AC, and let AB. be joined; the angle ABD is then greater than, equal to, or less than the angle BAD. First let it be greater; and on the straight line BA, and at the point A on it, let the angle BAE be constructed equal to the angle ABD; let DB be drawn through to E, and let EC be joined. Then, since the angle ABE is equal to the angle BAE, the straight line EB is also equal to EA. [I. 6] And, since AD is equal to DC, and DE is common, the two sides AD, DE are equal to the two sides CD, DE respectively; and the angle ADE is equal to the angle CDE, for each is right; therefore the base AE is equal to the base CE. But AE was proved equal to BE; therefore BE is also equal to CE; therefore the three straight lines AE, EB, EC are equal to one another. Therefore the circle drawn with centre E and distance one of the straight lines AE, EB, EC will also pass through the remaining points and will have been completed. [III. 9] Therefore, given a segment of a circle, the complete circle has been described. And it is manifest that the segment ABC is less than a semicircle, because the centre E happens to be outside it. Similarly, even if the angle ABD be equal to the angle BAD, AD being equal to each of the two BD, DC, the three straight lines DA, DB, DC will be equal to one another, D will be the centre of the completed circle, and ABC will clearly be a semicircle. But, if the angle ABD be less than the angle BAD, and if we construct, on the straight line BA and at the point A on it, an angle equal to the angle ABD, the centre will fall on DB within the segment ABC, and the segment ABC will clearly be greater than a semicircle. Therefore, given a segment of a circle, the complete circle has been described. Q. E. F. to describe the complete circle, prosanagra/yai to\\n ku/klon, literally “to describe the circle on to it.’",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D3%3Atype%3DProp%3Anumber%3D25"
         },

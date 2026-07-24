@@ -976,11 +976,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore <span class=\"segment\" aria-label=\"line segment A D\">AD</span> is odd. [<a class=\"citation-link\" href=\"#book-7-def-7\" aria-label=\"Book 7, Definition 7\">VII. Def. 7</a>] Q. E. D.\n3. Literally <q>let there be as many numbers as we please, of which <span class=\"source-italic\">let</span> the multitude <span class=\"source-italic\">be</span> odd.</q>\n This form, natural in Greek, is awkward in English.</p>"
+                "<p>Therefore <span class=\"segment\" aria-label=\"line segment A D\">AD</span> is odd. [<a class=\"citation-link\" href=\"#book-7-def-7\" aria-label=\"Book 7, Definition 7\">VII. Def. 7</a>] Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-23-note-1",
+              "label": "3",
+              "blocks": [
+                "<p>3. Literally <q>let there be as many numbers as we please, of which <span class=\"source-italic\">let</span> the multitude <span class=\"source-italic\">be</span> odd.</q>\n This form, natural in Greek, is awkward in English.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 23. If as many odd numbers as we please be added together, and their multitude be odd, the whole will also be odd. For let as many odd numbers as we please, AB, BC, CD, the multitude of which is odd, be added together; I say that the whole AD is also odd. Let the unit DE be subtracted from CD; therefore the remainder CE is even. [VII. Def. 7] But CA is also even; [IX. 22] therefore the whole AE is also even. [IX. 21] And DE is an unit. Therefore AD is odd. [VII. Def. 7] Q. E. D. 3. Literally let there be as many numbers as we please, of which let the multitude be odd. This form, natural in Greek, is awkward in English.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D9%3Atype%3DProp%3Anumber%3D23"
         },

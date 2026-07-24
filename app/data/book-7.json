@@ -1024,11 +1024,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore <span class=\"source-italic\">C</span> is equal to <span class=\"source-italic\">D</span>. Q. E. D.\nThe Greek has <span class=\"foreign\" lang=\"grc\">οἰ γενόμενοι ἐξ αὐτῶν</span>, <q>the (numbers) produced <span class=\"source-italic\">from them</span>.</q>\n By <q>from them</q>\n Euclid means <q>from the original numbers,</q>\n though this is not very clear even in the Greek. I think ambiguity is best avoided by leaving out the words.</p>"
+                "<p>Therefore <span class=\"source-italic\">C</span> is equal to <span class=\"source-italic\">D</span>. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-16-note-1",
+              "label": "2. The numbers so produced.",
+              "blocks": [
+                "<p>The Greek has <span class=\"foreign\" lang=\"grc\">οἰ γενόμενοι ἐξ αὐτῶν</span>, <q>the (numbers) produced <span class=\"source-italic\">from them</span>.</q>\n By <q>from them</q>\n Euclid means <q>from the original numbers,</q>\n though this is not very clear even in the Greek. I think ambiguity is best avoided by leaving out the words.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 16. If two numbers by multiplying one another make certain numbers, the numbers so produced will be equal to one another. Let A, B be two numbers, and let A by multiplying B make C, and B by multiplying A make D; I say that C is equal to D. For, since A by multiplying B has made C, therefore B measures C according to the units in A. But the unit E also measures the number A according to the units in it; therefore the unit E measures A the same number of times that B measures C. Therefore, alternately, the unit E measures the number B the same number of times that A measures C. [VII. 15] Again, since B by multiplying A has made D, therefore A measures D according to the units in B. But the unit E also measures B according to the units in it; therefore the unit E measures the number B the same number of times that A measures D. But the unit E measured the number B the same number of times that A measures C; therefore A measures each of the numbers C, D the same number of times. Therefore C is equal to D. Q. E. D. The Greek has oi) geno/menoi e)c au)tw=n, the (numbers) produced from them. By from them Euclid means from the original numbers, though this is not very clear even in the Greek. I think ambiguity is best avoided by leaving out the words.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D7%3Atype%3DProp%3Anumber%3D16"
         },
@@ -1339,11 +1347,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore <span class=\"source-italic\">C</span>, <span class=\"source-italic\">D</span> are prime to one another. Q. E. D.\n<span class=\"foreign\" lang=\"grc\">ὁ ἐξ αὐτῶν γενόμενος</span>, literally <q>the (number) produced from them,</q>\n will henceforth be translated as <q>their product.</q></p>"
+                "<p>Therefore <span class=\"source-italic\">C</span>, <span class=\"source-italic\">D</span> are prime to one another. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-24-note-1",
+              "label": "1. their product.",
+              "blocks": [
+                "<p><span class=\"foreign\" lang=\"grc\">ὁ ἐξ αὐτῶν γενόμενος</span>, literally <q>the (number) produced from them,</q>\n will henceforth be translated as <q>their product.</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 24. If two numbers be prime to any number, their product also will be prime to the same. For let the two numbers A, B be prime to any number C, and let A by multiplying B make D; I say that C, D are prime to one another. For, if C, D are not prime to one another, some number will measure C, D. Let a number measure them, and let it be E. Now, since C, A are prime to one another, and a certain number E measures C, therefore A, E are prime to one another. [VII. 23] As many times, then, as E measures D, so many units let there be in F; therefore F also measures D according to the units in E. [VII. 16] Therefore E by multiplying F has made D. [VII. Def. 15] But, further, A by multiplying B has also made D; therefore the product of E, F is equal to the product of A, B. But, if the product of the extremes be equal to that of the means, the four numbers are proportional; [VII. 19] therefore, as E is to A, so is B to F. But A, E are prime to one another, numbers which are prime to one another are also the least of those which have the same ratio, [VII. 21] and the least numbers of those which have the same ratio with them measure those which have the same ratio the same number of times, the greater the greater and the less the less, that is, the antecedent the antecedent and the consequent the consequent; [VII. 20] therefore E measures B. But it also measures C; therefore E measures B, C which are prime to one another: which is impossible. [VII. Def. 12] Therefore no number will measure the numbers C, D. Therefore C, D are prime to one another. Q. E. D. o( e)c au)tw=n geno/menos, literally the (number) produced from them, will henceforth be translated as their product.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D7%3Atype%3DProp%3Anumber%3D24"
         },
@@ -1376,11 +1392,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore <span class=\"source-italic\">C</span>, <span class=\"source-italic\">B</span> are prime to one another. Q. E. D.\nThe Greek, <span class=\"foreign\" lang=\"grc\">ὁ ἐκ τοῦ ἑνὸς αὐτῶν γενόμενος</span>, literally <q>the number produced from the one of them,</q>\n leaves <q>multiplied into itself</q>\n to be understood.</p>"
+                "<p>Therefore <span class=\"source-italic\">C</span>, <span class=\"source-italic\">B</span> are prime to one another. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-25-note-1",
+              "label": "1. the product of one of them into itself.",
+              "blocks": [
+                "<p>The Greek, <span class=\"foreign\" lang=\"grc\">ὁ ἐκ τοῦ ἑνὸς αὐτῶν γενόμενος</span>, literally <q>the number produced from the one of them,</q>\n leaves <q>multiplied into itself</q>\n to be understood.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 25. If two numbers be prime to one another, the product of one of them into itself will be prime to the remaining one. Let A, B be two numbers prime to one another, and let A by multiplying itself make C: I say that B, C are prime to one another. For let D be made equal to A. Since A, B are prime to one another, and A is equal to D, therefore D, B are also prime to one another. Therefore each of the two numbers D, A is prime to B; therefore the product of D, A will also be prime to B. [VII. 24] But the number which is the product of D, A is C. Therefore C, B are prime to one another. Q. E. D. The Greek, o( e)k tou= e(no\\s au)tw=n geno/menos, literally the number produced from the one of them, leaves multiplied into itself to be understood.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D7%3Atype%3DProp%3Anumber%3D25"
         },
@@ -1616,11 +1640,26 @@
                 "<p>Thus, if the investigation be continued in this way, some prime number will be found which will measure the number <span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"20\"></span>before it, which will also measure <span class=\"source-italic\">A</span>.</p>",
                 "<p>For, if it is not found, an infinite series of numbers will measure the number <span class=\"source-italic\">A</span>, each of which is less than the other: which is impossible in numbers.</p>",
                 "<p>Therefore some prime number will be found which will <span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"25\"></span>measure the one before it, which will also measure <span class=\"source-italic\">A</span>.</p>",
-                "<p>Therefore any composite number is measured by some prime number. \n       i.e. the implied <span class=\"source-italic\">problem</span> of finding a prime number which measures <span class=\"source-italic\">A</span>.\n       In the Greek the sentence stops here, but it is necessary to add the words <q>the number before it, which will also measure <span class=\"source-italic\">A</span>,</q>\n which are found a few lines further down. It is possible that the words may have fallen out of P here by a simple mistake due to <span class=\"foreign\" lang=\"grc\">ὁμοιοτέλευτον</span> (Heiberg).</p>"
+                "<p>Therefore any composite number is measured by some prime number.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-31-note-1",
+              "label": "8. if B is prime, what was enjoined will have been done,",
+              "blocks": [
+                "<p>i.e. the implied <span class=\"source-italic\">problem</span> of finding a prime number which measures <span class=\"source-italic\">A</span>.</p>"
+              ]
+            },
+            {
+              "id": "prop-31-note-2",
+              "label": "18. some prime number will be found which will measure.",
+              "blocks": [
+                "<p>In the Greek the sentence stops here, but it is necessary to add the words <q>the number before it, which will also measure <span class=\"source-italic\">A</span>,</q>\n which are found a few lines further down. It is possible that the words may have fallen out of P here by a simple mistake due to <span class=\"foreign\" lang=\"grc\">ὁμοιοτέλευτον</span> (Heiberg).</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 31. Any composite number is measured by some prime number. Let A be a composite number; I say that A is measured by some prime number. For, since A is composite, some number will measure it. Let a number measure it, and let it be B. Now, if B is prime, what was enjoined will have been done. But if it is composite, some number will measure it. Let a number measure it, and let it be C. Then, since C measures B, and B measures A, therefore C also measures A. And, if C is prime, what was enjoined will have been done. But if it is composite, some number will measure it. Thus, if the investigation be continued in this way, some prime number will be found which will measure the number before it, which will also measure A. For, if it is not found, an infinite series of numbers will measure the number A, each of which is less than the other: which is impossible in numbers. Therefore some prime number will be found which will measure the one before it, which will also measure A. Therefore any composite number is measured by some prime number. i.e. the implied problem of finding a prime number which measures A. In the Greek the sentence stops here, but it is necessary to add the words the number before it, which will also measure A, which are found a few lines further down. It is possible that the words may have fallen out of P here by a simple mistake due to o(moiote/leuton (Heiberg).",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D7%3Atype%3DProp%3Anumber%3D31"
         },
@@ -1703,11 +1742,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore <span class=\"source-italic\">E</span>, <span class=\"source-italic\">F</span>, <span class=\"source-italic\">G</span> are the least of those which have the <span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"55\"></span>same ratio with <span class=\"source-italic\">A</span>, <span class=\"source-italic\">B</span>, <span class=\"source-italic\">C</span>. Q. E. D.\nliterally (as usual) <q>each of the numbers <span class=\"source-italic\">E</span>, <span class=\"source-italic\">F</span>, <span class=\"source-italic\">G</span> measures each of the numbers <span class=\"source-italic\">A</span>, <span class=\"source-italic\">B</span>, <span class=\"source-italic\">C</span>.</q></p>"
+                "<p>Therefore <span class=\"source-italic\">E</span>, <span class=\"source-italic\">F</span>, <span class=\"source-italic\">G</span> are the least of those which have the <span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"55\"></span>same ratio with <span class=\"source-italic\">A</span>, <span class=\"source-italic\">B</span>, <span class=\"source-italic\">C</span>. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-33-note-1",
+              "label": "17. the numbers E, F, G measure the numbers A, B, C respectively,",
+              "blocks": [
+                "<p>literally (as usual) <q>each of the numbers <span class=\"source-italic\">E</span>, <span class=\"source-italic\">F</span>, <span class=\"source-italic\">G</span> measures each of the numbers <span class=\"source-italic\">A</span>, <span class=\"source-italic\">B</span>, <span class=\"source-italic\">C</span>.</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 33. Given as many numbers as we please, to find the least of those which have the same ratio with them. Let A, B, C be the given numbers, as many as we please; thus it is required to find the least of those which have the same ratio with A, B, C. A, B, C are either prime to one another or not. Now, if A, B, C are prime to one another, they are the least of those which have the same ratio with them. [VII. 21] But, if not, let D the greatest common measure of A, B, C be taken, [VII. 3] and, as many times as D measures the numbers A, B, C respectively, so many units let there be in the numbers E, F, G respectively. Therefore the numbers E, F, G measure the numbers A, B, C respectively according to the units in D. [VII. 16] Therefore E, F, G measure A, B, C the same number of times; therefore E, F, G are in the same ratio with A, B, C. [VII. Def. 20] I say next that they are the least that are in that ratio. For, if E, F, G are not the least of those which have the same ratio with A, B, C, there will be numbers less than E, F, G which are in the same ratio with A, B, C. Let them be H, K, L; therefore H measures A the same number of times that the numbers K, L measure the numbers B, C respectively. Now, as many times as H measures A, so many units let there be in M; therefore the numbers K, L also measure the numbers B, C respectively according to the units in M. And, since H measures A according to the units in M, therefore M also measures A according to the units in H. [VII. 16] For the same reason M also measures the numbers B, C according to the units in the numbers K, L respectively; Therefore M measures A, B, C. Now, since H measures A according to the units in M, therefore H by multiplying M has made A. [VII. Def. 15] For the same reason also E by multiplying D has made A. Therefore the product of E, D is equal to the product of H, M. Therefore, as E is to H, so is M to D. [VII. 19] But E is greater than H; therefore M is also greater than D. And it measures A, B, C: which is impossible, for by hypothesis D is the greatest common measure of A, B, C. Therefore there cannot be any numbers less than E, F, G which are in the same ratio with A, B, C. Therefore E, F, G are the least of those which have the same ratio with A, B, C. Q. E. D. literally (as usual) each of the numbers E, F, G measures each of the numbers A, B, C.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D7%3Atype%3DProp%3Anumber%3D33"
         },

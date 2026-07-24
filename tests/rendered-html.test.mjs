@@ -164,7 +164,43 @@ test("ships all thirteen books and their visualization contracts", async () => {
       new Set(candidate.sections.map((section) => section.id)).size,
       candidate.sections.length,
     );
+    for (const item of candidateItems) {
+      for (const part of item.parts) {
+        assert.ok(part.blocks.length > 0, `${candidate.id}:${item.id}:${part.kind}`);
+        for (const block of part.blocks) {
+          assert.doesNotMatch(block, /<p>\s*<\/p>/, `${candidate.id}:${item.id}`);
+          assert.equal((block.match(/<p>/g) ?? []).length, 1, `${candidate.id}:${item.id}`);
+        }
+      }
+      for (const note of item.notes) {
+        assert.ok(note.blocks.length > 0, `${candidate.id}:${item.id}:${note.id}`);
+        for (const block of note.blocks) {
+          assert.doesNotMatch(block, /<p>\s*<\/p>/, `${candidate.id}:${item.id}:${note.id}`);
+        }
+      }
+    }
   }
+  assert.equal(
+    books.flatMap((candidate) =>
+      candidate.sections.flatMap((section) =>
+        section.items.flatMap((item) => item.notes),
+      ),
+    ).length,
+    136,
+  );
+  const bookSixDefinitions = books[5].sections.find(({ id }) => id === "definitions").items;
+  const definitionTwo = bookSixDefinitions.find(({ id }) => id === "def-2");
+  const definitionFive = bookSixDefinitions.find(({ id }) => id === "def-5");
+  assert.match(definitionTwo.notes[0].blocks.join(" "), /definition of reciprocally related figures/);
+  assert.match(definitionFive.headline, /ratio is said to be compounded of ratios/);
+  assert.doesNotMatch(definitionFive.parts[0].blocks[0], /<p>\s*<\/p>/);
+  assert.match(definitionFive.notes[0].blocks.join(" "), /definition is ungeometrical and useless/);
+  const findItem = (bookIndex, id) =>
+    books[bookIndex].sections.flatMap((section) => section.items).find((item) => item.id === id);
+  assert.equal(findItem(1, "prop-4").notes.length, 3);
+  assert.equal(findItem(5, "prop-1").notes.length, 3);
+  assert.equal(findItem(6, "prop-31").notes.length, 2);
+  assert.match(findItem(9, "prop-6").notes[0].blocks[0], /These words are redundant/);
   const sourceHtmlByBook = books.map((candidate) =>
     candidate.sections
       .flatMap((section) => section.items)

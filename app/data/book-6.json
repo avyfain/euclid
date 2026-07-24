@@ -46,7 +46,17 @@
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "def-2-note-1",
+              "label": "Definition 2",
+              "blocks": [
+                "<p>The Greek text gives here a definition of reciprocally related figures. <q>[Two] figures are reciprocally related when there are in each of the two figures antecedent and consequent ratios.</q> No intelligible meaning can be attached to <q>antecedent and consequent ratios</q> here; the sense would require rather <q>an antecedent and a consequent of (two equal) ratios in each figure.</q> Hence Candalla and Peyrard read <q>terms of ratios</q> instead of <q>ratios.</q> Camerer reads <q>of ratios</q> without <q>terms.</q></p>",
+                "<p>But the objection to the definition lies deeper. It is never used; when we come, in VI. 14, 15, XI. 34 etc. to parallelograms, triangles etc. having the property indicated, they are not called <q>reciprocal</q> parallelograms etc., but parallelograms etc. <q>the sides of which are reciprocally proportional.</q> Hence Simson appears to be right in condemning the definition; it may have been interpolated from Heron, who has it.</p>",
+                "<p>Simson proposes in his note to substitute the following definition. <q>Two magnitudes are said to be reciprocally proportional to two others when one of the first is to one of the other magnitudes as the remaining one of the last two is to the remaining one of the first.</q> This definition requires that the magnitudes shall be all of the same kind.</p>"
+              ]
+            }
+          ],
           "searchText": "2 [Reciprocally related figures. See note.]",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DDef%3Anumber%3D2"
         },
@@ -93,18 +103,28 @@
           "number": 5,
           "sourceHeading": "5",
           "label": "Definition 5",
-          "headline": "",
+          "headline": "[A ratio is said to be compounded of ratios when the sizes of the ratios multiplied together make some ratio, or size.]",
           "parts": [
             {
               "kind": "text",
               "label": "",
               "blocks": [
-                "<p></p>"
+                "<p>[A ratio is said to be <span class=\"source-bold\">compounded of ratios</span> when the sizes of the ratios multiplied together make some ratio, or size.]</p>"
               ]
             }
           ],
-          "notes": [],
-          "searchText": "5",
+          "notes": [
+            {
+              "id": "def-5-note-1",
+              "label": "Definition 5",
+              "blocks": [
+                "<p>As already remarked, it is beyond doubt that this definition of ratio is interpolated. It has little manuscript authority. The best manuscript has it in the margin only; it is omitted altogether in Campanus' translation from the Arabic; and the other manuscripts which contain it do not agree in the position which they give to it. There is no reference to the definition in the place where compound ratio is mentioned for the first time (VI. 23), nor anywhere else in Euclid; neither is it ever referred to by the other great geometers, Archimedes, Apollonius and the rest.</p>",
+                "<p>Moreover the content of the definition is in itself suspicious. It speaks of the <q>sizes of ratios being multiplied together (literally, into themselves),</q> an operation unknown to geometry. The fact is that the definition is ungeometrical and useless, as was already seen by Savile, in whose view it was one of the two blemishes in the body of geometry (the other being of course Postulate 5).</p>",
+                "<p>It is right to add that Hultsch thought the definition genuine. His grounds are that it stood in the old edition represented by the best manuscript (though that manuscript has it in the margin only) and that some explanation on the subject must have been given by way of preparation for VI. 23. If the definition is after all genuine, I should be inclined to regard it as a mere survival from earlier textbooks; for its form seems to suit the old theory of proportion, applicable to commensurable magnitudes only, better than the generalised theory of Eudoxus.</p>"
+              ]
+            }
+          ],
+          "searchText": "5 A ratio is said to be compounded of ratios when the sizes of the ratios multiplied together make some ratio, or size.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DDef%3Anumber%3D5"
         }
       ]
@@ -148,11 +168,33 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">Under the same height</span>. The Greek text has <q>under the same height <span class=\"segment\" aria-label=\"line segment A C\">AC</span>,</q>\n with a figure in which the side <span class=\"segment\" aria-label=\"line segment A C\">AC</span> common to the two triangles is perpendicular to the base and is therefore itself the <q>height.</q>\n But, even if the two triangles are placed contiguously so as to have a common side <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, it is quite gratuitous to require it to be perpendicular to the base. Theon, on this occasion making an improvement, altered to <q>which are (<span class=\"foreign\" lang=\"grc\">ὅντα</span>) under the same height, (namely) the perpendicular drawn from <em>A</em> to <span class=\"segment\" aria-label=\"line segment B D\">BD</span>.</q>\n I have ventured to alter so far as to omit <q><span class=\"segment\" aria-label=\"line segment A C\">AC</span></q>\n and to draw the figure in the usual way.</p>\n       \n       \n        <p><span class=\"source-bold\">ABC, AGB, AHG</span>. Euclid, indifferent to exact order, writes <q><em>AHG</em>, <em>AGB</em>, <em>ABC</em>.</q></p>\n       \n       \n        <p><span class=\"source-bold\">Since then it was proved that, as the base BC is to CD, so is the triangle ABC to the triangle ACD</span>. Here again words have to be supplied in translating the extremely terse Greek <span class=\"foreign\" lang=\"grc\">ἐπεὶ οὐν ὲδείχθη, ὡς μὲν ἡ βάσις ΒΓ πρὸς τὴν ΓΔ, οὔτως τὸ ΑΒΓ τρίγωνον πρὸς τὸ ΑΓΔ τρίγωνον</span>, literally <q>since was proved, as the base <span class=\"segment\" aria-label=\"line segment B C\">BC</span> to <span class=\"segment\" aria-label=\"line segment C D\">CD</span>, so the triangle <em>ABC</em> to the triangle <em>ACD</em>.</q>\n Cf. note on <a class=\"citation-link\" href=\"#book-5-prop-16\" aria-label=\"Book 5, Proposition 16\">V. 16</a>, p. 165.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-1-note-1",
+              "label": "4",
+              "blocks": [
+                "<p><span class=\"source-bold\">Under the same height</span>. The Greek text has <q>under the same height <span class=\"segment\" aria-label=\"line segment A C\">AC</span>,</q>\n with a figure in which the side <span class=\"segment\" aria-label=\"line segment A C\">AC</span> common to the two triangles is perpendicular to the base and is therefore itself the <q>height.</q>\n But, even if the two triangles are placed contiguously so as to have a common side <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, it is quite gratuitous to require it to be perpendicular to the base. Theon, on this occasion making an improvement, altered to <q>which are (<span class=\"foreign\" lang=\"grc\">ὅντα</span>) under the same height, (namely) the perpendicular drawn from <em>A</em> to <span class=\"segment\" aria-label=\"line segment B D\">BD</span>.</q>\n I have ventured to alter so far as to omit <q><span class=\"segment\" aria-label=\"line segment A C\">AC</span></q>\n and to draw the figure in the usual way.</p>"
+              ]
+            },
+            {
+              "id": "prop-1-note-2",
+              "label": "14",
+              "blocks": [
+                "<p><span class=\"source-bold\">ABC, AGB, AHG</span>. Euclid, indifferent to exact order, writes <q><em>AHG</em>, <em>AGB</em>, <em>ABC</em>.</q></p>"
+              ]
+            },
+            {
+              "id": "prop-1-note-3",
+              "label": "46",
+              "blocks": [
+                "<p><span class=\"source-bold\">Since then it was proved that, as the base BC is to CD, so is the triangle ABC to the triangle ACD</span>. Here again words have to be supplied in translating the extremely terse Greek <span class=\"foreign\" lang=\"grc\">ἐπεὶ οὐν ὲδείχθη, ὡς μὲν ἡ βάσις ΒΓ πρὸς τὴν ΓΔ, οὔτως τὸ ΑΒΓ τρίγωνον πρὸς τὸ ΑΓΔ τρίγωνον</span>, literally <q>since was proved, as the base <span class=\"segment\" aria-label=\"line segment B C\">BC</span> to <span class=\"segment\" aria-label=\"line segment C D\">CD</span>, so the triangle <em>ABC</em> to the triangle <em>ACD</em>.</q>\n Cf. note on <a class=\"citation-link\" href=\"#book-5-prop-16\" aria-label=\"Book 5, Proposition 16\">V. 16</a>, p. 165.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 1. Triangles and parallelograms which are under the same height are to one another as their bases. Let ABC, ACD be triangles and EC, CF parallelograms under the same height; I say that, as the base BC is to the base CD, so is the triangle ABC to the triangle ACD, and the parallelogram EC to the parallelogram CF. For let BD be produced in both directions to the points H, L and let [any number of straight lines] BG, GH be made equal to the base BC, and any number of straight lines DK, KL equal to the base CD; let AG, AH, AK, AL be joined. Then, since CB, BG, GH are equal to one another, the triangles ABC, AGB, AHG are also equal to one another. [I. 38] Therefore, whatever multiple the base HC is of the base BC, that multiple also is the triangle AHC of the triangle ABC. For the same reason, whatever multiple the base LC is of the base CD, that multiple also is the triangle ALC of the triangle ACD; and, if the base HC is equal to the base CL, the triangle AHC is also equal to the triangle ACL, [I. 38] if the base HC is in excess of the base CL, the triangle AHC is also in excess of the triangle ACL, and, if less, less. Thus, there being four magnitudes, two bases BC, CD and two triangles ABC, ACD, equimultiples have been taken of the base BC and the triangle ABC, namely the base HC and the triangle AHC, and of the base CD and the triangle ADC other, chance, equimultiples, namely the base LC and the triangle ALC; and it has been proved that, if the base HC is in excess of the base CL, the triangle AHC is also in excess of the triangle ALC; if equal, equal; and, if less, less. Therefore, as the base BC is to the base CD, so is the triangle ABC to the triangle ACD. [V. Def. 5] Next, since the parallelogram EC is double of the triangle ABC, [I. 41] and the parallelogram FC is double of the triangle ACD, while parts have the same ratio as the same multiples of them, [V. 15] therefore, as the triangle ABC is to the triangle ACD, so is the parallelogram EC to the parallelogram FC. Since, then, it was proved that, as the base BC is to CD, so is the triangle ABC to the triangle ACD, and, as the triangle ABC is to the triangle ACD, so is the parallelogram EC to the parallelogram CF, therefore also, as the base BC is to the base CD, so is the parallelogram EC to the parallelogram FC. [V. 11] Therefore etc. Q. E. D. Under the same height. The Greek text has under the same height AC, with a figure in which the side AC common to the two triangles is perpendicular to the base and is therefore itself the height. But, even if the two triangles are placed contiguously so as to have a common side AC, it is quite gratuitous to require it to be perpendicular to the base. Theon, on this occasion making an improvement, altered to which are (o(/nta) under the same height, (namely) the perpendicular drawn from A to BD. I have ventured to alter so far as to omit AC and to draw the figure in the usual way. ABC, AGB, AHG. Euclid, indifferent to exact order, writes AHG, AGB, ABC. Since then it was proved that, as the base BC is to CD, so is the triangle ABC to the triangle ACD. Here again words have to be supplied in translating the extremely terse Greek e)pei\\ ou)n e\\dei/xqh, w(s me\\n h( ba/sis *b*g pro\\s th\\n *g*d, ou)/tws to\\ *a*b*g tri/gwnon pro\\s to\\ *a*g*d tri/gwnon, literally since was proved, as the base BC to CD, so the triangle ABC to the triangle ACD. Cf. note on V. 16, p. 165.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D1"
         },
@@ -471,11 +513,19 @@
                 "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"10\"></span>Let <span class=\"segment\" aria-label=\"line segment B C\">BC</span> be joined, and through <em>D</em> let <span class=\"segment\" aria-label=\"line segment D F\">DF</span> be drawn parallel to it. [<a class=\"citation-link\" href=\"#book-1-prop-31\" aria-label=\"Book 1, Proposition 31\">I. 31</a>]</p>",
                 "<p>Then, since <span class=\"segment\" aria-label=\"line segment F D\">FD</span> has been drawn parallel to <span class=\"segment\" aria-label=\"line segment B C\">BC</span>, one of the sides of the triangle <em>ABC</em>, therefore, proportionally, as <span class=\"segment\" aria-label=\"line segment C D\">CD</span> is to <span class=\"segment\" aria-label=\"line segment D A\">DA</span>, so is <span class=\"segment\" aria-label=\"line segment B F\">BF</span> to <span class=\"segment\" aria-label=\"line segment F A\">FA</span>. [<a class=\"citation-link\" href=\"#prop-2\" aria-label=\"Book 6, Proposition 2\">VI. 2</a>]</p>",
                 "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"15\"></span>But <span class=\"segment\" aria-label=\"line segment C D\">CD</span> is double of <span class=\"segment\" aria-label=\"line segment D A\">DA</span>; <span class=\"source-center\">therefore <span class=\"segment\" aria-label=\"line segment B F\">BF</span> is also double of <span class=\"segment\" aria-label=\"line segment F A\">FA</span>; therefore <span class=\"segment\" aria-label=\"line segment B A\">BA</span> is triple of <span class=\"segment\" aria-label=\"line segment A F\">AF</span>.</span></p>",
-                "<p>Therefore from the given straight line <span class=\"segment\" aria-label=\"line segment A B\">AB</span> the prescribed third part <span class=\"segment\" aria-label=\"line segment A F\">AF</span> has been cut off. Q. E. F.\n\n        <p><span class=\"source-bold\">any angle</span>. The expression here and in the two following propositions is <span class=\"foreign\" lang=\"grc\">τυχοῦσα γωνία</span>, corresponding exactly to <span class=\"foreign\" lang=\"grc\">τυχὸν σημεῖον</span> which I have translated as <q>a point (taken) <em>at random</em></q>\n; but <q>an angle (taken) at random</q>\n would not be so appropriate where it is a question, not of <em>taking</em> any angle at all, but of drawing a straight line casually so as to make any angle with another straight line.</p></p>"
+                "<p>Therefore from the given straight line <span class=\"segment\" aria-label=\"line segment A B\">AB</span> the prescribed third part <span class=\"segment\" aria-label=\"line segment A F\">AF</span> has been cut off. Q. E. F.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-9-note-1",
+              "label": "6",
+              "blocks": [
+                "<p><span class=\"source-bold\">any angle</span>. The expression here and in the two following propositions is <span class=\"foreign\" lang=\"grc\">τυχοῦσα γωνία</span>, corresponding exactly to <span class=\"foreign\" lang=\"grc\">τυχὸν σημεῖον</span> which I have translated as <q>a point (taken) <em>at random</em></q>\n; but <q>an angle (taken) at random</q>\n would not be so appropriate where it is a question, not of <em>taking</em> any angle at all, but of drawing a straight line casually so as to make any angle with another straight line.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 9. From a given straight line to cut off a prescribed part. Let AB be the given straight line; thus it is required to cut off from AB a prescribed part. Let the third part be that prescribed. Let a straight line AC be drawn through from A containing with AB any angle; let a point D be taken at random on AC, and let DE, EC be made equal to AD. [I. 3] Let BC be joined, and through D let DF be drawn parallel to it. [I. 31] Then, since FD has been drawn parallel to BC, one of the sides of the triangle ABC, therefore, proportionally, as CD is to DA, so is BF to FA. [VI. 2] But CD is double of DA; therefore BF is also double of FA; therefore BA is triple of AF. Therefore from the given straight line AB the prescribed third part AF has been cut off. Q. E. F. any angle. The expression here and in the two following propositions is tuxou=sa gwni/a, corresponding exactly to tuxo\\n shmei=on which I have translated as a point (taken) at random ; but an angle (taken) at random would not be so appropriate where it is a question, not of taking any angle at all, but of drawing a straight line casually so as to make any angle with another straight line.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D9"
         },
@@ -533,11 +583,19 @@
                 "<p>For let them be produced to the points <em>D</em>, <em>E</em>, and let <span class=\"segment\" aria-label=\"line segment B D\">BD</span> be made equal to <span class=\"segment\" aria-label=\"line segment A C\">AC</span>; [<a class=\"citation-link\" href=\"#book-1-prop-3\" aria-label=\"Book 1, Proposition 3\">I. 3</a>] let <span class=\"segment\" aria-label=\"line segment B C\">BC</span> be joined, and through <em>D</em> let <span class=\"segment\" aria-label=\"line segment D E\">DE</span> be drawn parallel to it. [<a class=\"citation-link\" href=\"#book-1-prop-31\" aria-label=\"Book 1, Proposition 31\">I. 31</a>]</p>",
                 "<p>Since, then, <span class=\"segment\" aria-label=\"line segment B C\">BC</span> has been drawn parallel to <span class=\"segment\" aria-label=\"line segment D E\">DE</span>, one of the sides of the triangle <em>ADE</em>, proportionally, as <span class=\"segment\" aria-label=\"line segment A B\">AB</span> is to <span class=\"segment\" aria-label=\"line segment B D\">BD</span>, so is <span class=\"segment\" aria-label=\"line segment A C\">AC</span> to <span class=\"segment\" aria-label=\"line segment C E\">CE</span>. [<a class=\"citation-link\" href=\"#prop-2\" aria-label=\"Book 6, Proposition 2\">VI. 2</a>]</p>",
                 "<p>But <span class=\"segment\" aria-label=\"line segment B D\">BD</span> is equal to <span class=\"segment\" aria-label=\"line segment A C\">AC</span>; therefore, as <span class=\"segment\" aria-label=\"line segment A B\">AB</span> is to <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, so is <span class=\"segment\" aria-label=\"line segment A C\">AC</span> to <span class=\"segment\" aria-label=\"line segment C E\">CE</span>.</p>",
-                "<p>Therefore to two given straight lines <span class=\"segment\" aria-label=\"line segment A B\">AB</span>, <span class=\"segment\" aria-label=\"line segment A C\">AC</span> a third proportional to them, <span class=\"segment\" aria-label=\"line segment C E\">CE</span>, has been found. Q. E. F.\n\n        <p><span class=\"source-bold\">to find</span>. The Greek word, here and in the next two propositions, is <span class=\"foreign\" lang=\"grc\">προσευρεῖν</span>, literally <q>to find <em>in addition</em>.</q></p></p>"
+                "<p>Therefore to two given straight lines <span class=\"segment\" aria-label=\"line segment A B\">AB</span>, <span class=\"segment\" aria-label=\"line segment A C\">AC</span> a third proportional to them, <span class=\"segment\" aria-label=\"line segment C E\">CE</span>, has been found. Q. E. F.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-11-note-1",
+              "label": "1",
+              "blocks": [
+                "<p><span class=\"source-bold\">to find</span>. The Greek word, here and in the next two propositions, is <span class=\"foreign\" lang=\"grc\">προσευρεῖν</span>, literally <q>to find <em>in addition</em>.</q></p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 11. To two given straight lines to find a third proportional. Let BA, AC be the two given straight lines, and let them be placed so as to contain any angle; thus it is required to find a third proportional to BA, AC. For let them be produced to the points D, E, and let BD be made equal to AC; [I. 3] let BC be joined, and through D let DE be drawn parallel to it. [I. 31] Since, then, BC has been drawn parallel to DE, one of the sides of the triangle ADE, proportionally, as AB is to BD, so is AC to CE. [VI. 2] But BD is equal to AC; therefore, as AB is to AC, so is AC to CE. Therefore to two given straight lines AB, AC a third proportional to them, CE, has been found. Q. E. F. to find. The Greek word, here and in the next two propositions, is proseurei=n, literally to find in addition.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D11"
         },
@@ -981,11 +1039,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"40\"></span>Therefore etc. Q. E. D.\n\n        <p>the ratio compounded of the ratios of the sides, <span class=\"foreign\" lang=\"grc\">λόγον τὸν συγκείμενον ἐκ τῶν πλευρῶν</span> which, meaning literally <q>the ratio compounded <em>of the sides</em>,</q>\n is negligently written here and commonly for <span class=\"foreign\" lang=\"grc\">λόγον τὸν συγκείμενον ἐκ τῶν τῶν πλευρῶν</span> (sc. <span class=\"foreign\" lang=\"grc\">λόγων</span>).</p>\n       \n       \n        <p>let it be contrived that, as BC is to CG, so is K to L. The Greek phrase is of the usual terse kind, untranslatable literally : <span class=\"foreign\" lang=\"grc\">καὶ γεγονέτω ὡς μὲν ἡ ΒΓ πρὸς τὴν ΓΗ, οὕτως ἡ Κ πρὸς τὸ Λ</span>, the words meaning <q>and let (there) be made, as <span class=\"segment\" aria-label=\"line segment B C\">BC</span> to <span class=\"segment\" aria-label=\"line segment C G\">CG</span>, so <em>K</em> to <em>L</em>,</q>\n where <em>L</em> is the straight line which has to be constructed.</p></p>"
+                "<p><span class=\"source-line-number\" aria-hidden=\"true\" data-line=\"40\"></span>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-23-note-1",
+              "label": "1, 6, 19, 36",
+              "blocks": [
+                "<p>the ratio compounded of the ratios of the sides, <span class=\"foreign\" lang=\"grc\">λόγον τὸν συγκείμενον ἐκ τῶν πλευρῶν</span> which, meaning literally <q>the ratio compounded <em>of the sides</em>,</q>\n is negligently written here and commonly for <span class=\"foreign\" lang=\"grc\">λόγον τὸν συγκείμενον ἐκ τῶν τῶν πλευρῶν</span> (sc. <span class=\"foreign\" lang=\"grc\">λόγων</span>).</p>"
+              ]
+            },
+            {
+              "id": "prop-23-note-2",
+              "label": "11",
+              "blocks": [
+                "<p>let it be contrived that, as BC is to CG, so is K to L. The Greek phrase is of the usual terse kind, untranslatable literally : <span class=\"foreign\" lang=\"grc\">καὶ γεγονέτω ὡς μὲν ἡ ΒΓ πρὸς τὴν ΓΗ, οὕτως ἡ Κ πρὸς τὸ Λ</span>, the words meaning <q>and let (there) be made, as <span class=\"segment\" aria-label=\"line segment B C\">BC</span> to <span class=\"segment\" aria-label=\"line segment C G\">CG</span>, so <em>K</em> to <em>L</em>,</q>\n where <em>L</em> is the straight line which has to be constructed.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 23. Equiangular parallelograms have to one another the ratio compounded of the ratios of their sides. Let AC, CF be equiangular parallelograms having the angle BCD equal to the angle ECG; I say that the parallelogram AC has to the parallelogram CF the ratio compounded of the ratios of the sides. For let them be placed so that BC is in a straight line with CG; therefore DC is also in a straight line with CE. Let the parallelogram DG be completed; let a straight line K be set out, and let it be contrived that, as BC is to CG, so is K to L, and, as DC is to CE, so is L to M. [VI. 12] Then the ratios of K to L and of L to M are the same as the ratios of the sides, namely of BC to CG and of DC to CE. But the ratio of K to M is compounded of the ratio of K to L and of that of L to M; so that K has also to M the ratio compounded of the ratios of the sides. Now since, as BC is to CG, so is the parallelogram AC to the parallelogram CH, [VI. 1] while, as BC is to CG, so is K to L, therefore also, as K is to L, so is AC to CH. [V. 11] Again, since, as DC is to CE, so is the parallelogram CH to CF, [VI. 1] while, as DC is to CE, so is L to M, therefore also, as L is to M, so is the parallelogram CH to the parallelogram CF. [V. 11] Since then it was proved that, as K is to L, so is the parallelogram AC to the parallelogram CH, and, as L is to M, so is the parallelogram CH to the parallelogram CF, therefore, ex aequali, as K is to M, so is AC to the parallelogram CF. But K has to M the ratio compounded of the ratios of the sides; therefore AC also has to CF the ratio compounded of the ratios of the sides. Therefore etc. Q. E. D. the ratio compounded of the ratios of the sides, lo/gon to\\n sugkei/menon e)k tw=n pleurw=n which, meaning literally the ratio compounded of the sides, is negligently written here and commonly for lo/gon to\\n sugkei/menon e)k tw=n tw=n pleurw=n (sc. lo/gwn). let it be contrived that, as BC is to CG, so is K to L. The Greek phrase is of the usual terse kind, untranslatable literally : kai\\ gegone/tw w(s me\\n h( *b*g pro\\s th\\n *g*h, ou(/tws h( *k pro\\s to\\ *l, the words meaning and let (there) be made, as BC to CG, so K to L, where L is the straight line which has to be constructed.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D23"
         },
@@ -1067,11 +1140,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore one and the same figure <em>KGH</em> has been constructed similar to the given rectilineal figure <em>ABC</em> and equal to the other given figure <em>D</em>. Q. E. D.\n\n        <p>to which the figure to be constructed must be similar, literally <q>to which it is required to construct (one) similar,</q>\n <span class=\"foreign\" lang=\"grc\">ᾧ δεῖ ὅμοιον συστήσασθαι</span>.</p></p>"
+                "<p>Therefore one and the same figure <em>KGH</em> has been constructed similar to the given rectilineal figure <em>ABC</em> and equal to the other given figure <em>D</em>. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-25-note-1",
+              "label": "3",
+              "blocks": [
+                "<p>to which the figure to be constructed must be similar, literally <q>to which it is required to construct (one) similar,</q>\n <span class=\"foreign\" lang=\"grc\">ᾧ δεῖ ὅμοιον συστήσασθαι</span>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 25. To construct one and the same figure similar to a given rectilineal figure and equal to another given rectilineal figure. Let ABC be the given rectilineal figure to which the figure to be constructed must be similar, and D that to which it must be equal; thus it is required to construct one and the same figure similar to ABC and equal to D. Let there be applied to BC the parallelogram BE equal to the triangle ABC [I. 44], and to CE the parallelogram CM equal to D in the angle FCE which is equal to the angle CBL. [I. 45] Therefore BC is in a straight line with CF, and LE with EM. Now let GH be taken a mean proportional to BC, CF [VI. 13], and on GH let KGH be described similar and similarly situated to ABC. [VI. 18] Then, since, as BC is to GH, so is GH to CF, and, if three straight lines be proportional, as the first is to the third, so is the figure on the first to the similar and similarly situated figure described on the second, [VI. 19, Por.] therefore, as BC is to CF, so is the triangle ABC to the triangle KGH. But, as BC is to CF, so also is the parallelogram BE to the parallelogram EF. [VI. 1] Therefore also, as the triangle ABC is to the triangle KGH, so is the parallelogram BE to the parallelogram EF; therefore, alternately, as the triangle ABC is to the parallelogram BE, so is the triangle KGH to the parallelogram EF. [V. 16] But the triangle ABC is equal to the parallelogram BE; therefore the triangle KGH is also equal to the parallelogram EF. But the parallelogram EF is equal to D; therefore KGH is also equal to D. And KGH is also similar to ABC. Therefore one and the same figure KGH has been constructed similar to the given rectilineal figure ABC and equal to the other given figure D. Q. E. D. to which the figure to be constructed must be similar, literally to which it is required to construct (one) similar, w(=| dei= o(/moion susth/sasqai.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D6%3Atype%3DProp%3Anumber%3D25"
         },

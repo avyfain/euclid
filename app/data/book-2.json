@@ -89,11 +89,19 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n         \n        <p><span class=\"source-bold\">the rectangle A, BC.</span> From this point onward I shall translate thus in cases where Euclid leaves out the word <em>contained</em> (<span class=\"foreign\" lang=\"grc\">περιεχόμενον</span>). Though the word <q>rectangle</q>\n is also omitted in the Greek (the neuter article being sufficient to show that the rectangle is meant), it cannot be dispensed with in English. De Morgan advises the use of the expression <q>the rectangle <em>under</em> two lines.</q>\n This does not seem to me a very good expression, and, if used in a translation from the Greek, it might suggest that <span class=\"foreign\" lang=\"grc\">ὑπό</span> in <span class=\"foreign\" lang=\"grc\">τὸ ὑπό</span> meant <em>under</em>, which it does not.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-1-note-1",
+              "label": "20",
+              "blocks": [
+                "<p><span class=\"source-bold\">the rectangle A, BC.</span> From this point onward I shall translate thus in cases where Euclid leaves out the word <em>contained</em> (<span class=\"foreign\" lang=\"grc\">περιεχόμενον</span>). Though the word <q>rectangle</q>\n is also omitted in the Greek (the neuter article being sufficient to show that the rectangle is meant), it cannot be dispensed with in English. De Morgan advises the use of the expression <q>the rectangle <em>under</em> two lines.</q>\n This does not seem to me a very good expression, and, if used in a translation from the Greek, it might suggest that <span class=\"foreign\" lang=\"grc\">ὑπό</span> in <span class=\"foreign\" lang=\"grc\">τὸ ὑπό</span> meant <em>under</em>, which it does not.</p>"
+              ]
+            }
+          ],
           "searchText": "Proposition 1. If there be two straight lines, and one of them be cut into any number of segments whatever, the rectangle contained by the two straight lines is equal to the rectangles contained by the uncut straight line and each of the segments. Let A, BC be two straight lines, and let BC be cut at random at the points D, E; I say that the rectangle contained by A, BC is equal to the rectangle contained by A, BD, that contained by A, DE and that contained by A, EC. For let BF be drawn from B at right angles to BC; [I. 11] let BG be made equal to A, [I. 3] through G let GH be drawn parallel to BC, [I. 31] and through D, E, C let DK, EL, CH be drawn parallel to BG. Then BH is equal to BK, DL, EH. Now BH is the rectangle A, BC, for it is contained by GB, BC, and BG is equal to A; BK is the rectangle A, BD, for it is contained by GB, BD, and BG is equal to A; and DL is the rectangle A, DE, for DK, that is BG [I. 34], is equal to A. Similarly also EH is the rectangle A, EC. Therefore the rectangle A, BC is equal to the rectangle A, BD, the rectangle A, DE and the rectangle A, EC. Therefore etc. Q. E. D. the rectangle A, BC. From this point onward I shall translate thus in cases where Euclid leaves out the word contained (periexo/menon). Though the word rectangle is also omitted in the Greek (the neuter article being sufficient to show that the rectangle is meant), it cannot be dispensed with in English. De Morgan advises the use of the expression the rectangle under two lines. This does not seem to me a very good expression, and, if used in a translation from the Greek, it might suggest that u(po/ in to\\ u(po/ meant under, which it does not.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D2%3Atype%3DProp%3Anumber%3D1"
         },
@@ -212,11 +220,33 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">twice the rectangle contained by the segments.</span> By a curious idiom this is in Greek <q>the rectangle <em>twice contained</em> by the segments.</q>\n Similarly <q>twice the rectangle contained by <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, <span class=\"segment\" aria-label=\"line segment C B\">CB</span></q>\n is expressed as <q>the rectangle <em>twice contained</em> by <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, <span class=\"segment\" aria-label=\"line segment C B\">CB</span></q>\n (<span class=\"foreign\" lang=\"grc\">τὸ δὶς ὑπὸ τῶν ΑΓ, ΓΒ περιεχόμενον ὀρθογ&lt;*&gt;ώνιον</span>).</p>\n       \n       \n        <p><span class=\"source-bold\">described.</span> 39, 45. <span class=\"source-bold\">the squares</span> (before <q>on</q>\n). These words are not in the Greek, which simply says that the squares <q>are on</q>\n (<span class=\"foreign\" lang=\"grc\">εἰσἱν ἀπό</span>) their respective sides.</p>\n       \n       \n        <p><span class=\"source-bold\">areas.</span> It is necessary to supply some substantive (the Greek leaves it to be understood); and I prefer <q>areas</q>\n to <q>figures.</q></p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-4-note-1",
+              "label": "2",
+              "blocks": [
+                "<p><span class=\"source-bold\">twice the rectangle contained by the segments.</span> By a curious idiom this is in Greek <q>the rectangle <em>twice contained</em> by the segments.</q>\n Similarly <q>twice the rectangle contained by <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, <span class=\"segment\" aria-label=\"line segment C B\">CB</span></q>\n is expressed as <q>the rectangle <em>twice contained</em> by <span class=\"segment\" aria-label=\"line segment A C\">AC</span>, <span class=\"segment\" aria-label=\"line segment C B\">CB</span></q>\n (<span class=\"foreign\" lang=\"grc\">τὸ δὶς ὑπὸ τῶν ΑΓ, ΓΒ περιεχόμενον ὀρθογ&lt;*&gt;ώνιον</span>).</p>"
+              ]
+            },
+            {
+              "id": "prop-4-note-2",
+              "label": "35, 38",
+              "blocks": [
+                "<p><span class=\"source-bold\">described.</span> 39, 45. <span class=\"source-bold\">the squares</span> (before <q>on</q>\n). These words are not in the Greek, which simply says that the squares <q>are on</q>\n (<span class=\"foreign\" lang=\"grc\">εἰσἱν ἀπό</span>) their respective sides.</p>"
+              ]
+            },
+            {
+              "id": "prop-4-note-3",
+              "label": "46",
+              "blocks": [
+                "<p><span class=\"source-bold\">areas.</span> It is necessary to supply some substantive (the Greek leaves it to be understood); and I prefer <q>areas</q>\n to <q>figures.</q></p>"
+              ]
+            }
+          ],
           "searchText": "Proposition 4. If a straight line be cut at random, the square on the whole is equal to the squares on the segments and twice the rectangle contained by the segments. For let the straight line AB be cut at random at C; I say that the square on AB is equal to the squares on AC, CB and twice the rectangle contained by AC, CB. For let the square ADEB be described on AB, [I. 46] let BD be joined; through C let CF be drawn parallel to either AD or EB, and through G let HK be drawn parallel to either AB or DE. [I. 31] Then, since CF is parallel to AD, and BD has fallen on them, the exterior angle CGB is equal to the interior and opposite angle ADB. [I. 29] But the angle ADB is equal to the angle ABD, since the side BA is also equal to AD; [I. 5] therefore the angle CGB is also equal to the angle GBC, so that the side BC is also equal to the side CG. [I. 6] But CB is equal to GK, and CG to KB; [I. 34] therefore GK is also equal to KB; therefore CGKB is equilateral. I say next that it is also right-angled. For, since CG is parallel to BK, the angles KBC, GCB are equal to two right angles. [I. 29] But the angle KBC is right; therefore the angle BCG is also right, so that the opposite angles CGK, GKB are also right. [I. 34] Therefore CGKB is right-angled; and it was also proved equilateral; therefore it is a square; and it is described on CB. For the same reason HF is also a square; and it is described on HG, that is AC. [I. 34] Therefore the squares HF, KC are the squares on AC, CB. Now, since AG is equal to GE, and AG is the rectangle AC, CB, for GC is equal to CB, therefore GE is also equal to the rectangle AC, CB. Therefore AG, GE are equal to twice the rectangle AC, CB. But the squares HF, CK are also the squares on AC, CB; therefore the four areas HF, CK, AG, GE are equal to the squares on AC, CB and twice the rectangle contained by AC, CB. But HF, CK, AG, GE are the whole ADEB, which is the square on AB. Therefore the square on AB is equal to the squares on AC, CB and twice the rectangle contained by AC, CB. Therefore etc. Q. E. D. twice the rectangle contained by the segments. By a curious idiom this is in Greek the rectangle twice contained by the segments. Similarly twice the rectangle contained by AC, CB is expressed as the rectangle twice contained by AC, CB (to\\ di\\s u(po\\ tw=n *a*g, *g*b periexo/menon o)rqog<*>w/nion). described. 39, 45. the squares (before on ). These words are not in the Greek, which simply says that the squares are on (ei)si(n a)po/) their respective sides. areas. It is necessary to supply some substantive (the Greek leaves it to be understood); and I prefer areas to figures.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D2%3Atype%3DProp%3Anumber%3D4"
         },
@@ -251,11 +281,20 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore etc. Q. E. D.\n\n        <p><span class=\"source-bold\">between the points of section</span>, literally <q>between the <em>sections</em>,</q>\n the word being the same (<span class=\"foreign\" lang=\"grc\">τομή</span>) as that used of a conic <em>section</em>.</p>\n        <p>It will be observed that the gnomon is indicated in the figure by three separate letters and a dotted curve. This is no doubt a clearer way of showing what exactly the gnomon is than the method usual in our text-books. In this particular case the figure of the MSS. has <em>two</em> M&#x27;s in it, the gnomon being MN<span class=\"foreign\" lang=\"grc\">Ξ</span>. I have corrected the lettering to avoid confusion.</p></p>"
+                "<p>Therefore etc. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-5-note-1",
+              "label": "3",
+              "blocks": [
+                "<p><span class=\"source-bold\">between the points of section</span>, literally <q>between the <em>sections</em>,</q>\n the word being the same (<span class=\"foreign\" lang=\"grc\">τομή</span>) as that used of a conic <em>section</em>.</p>",
+                "<p>It will be observed that the gnomon is indicated in the figure by three separate letters and a dotted curve. This is no doubt a clearer way of showing what exactly the gnomon is than the method usual in our text-books. In this particular case the figure of the MSS. has <em>two</em> M&#x27;s in it, the gnomon being MN<span class=\"foreign\" lang=\"grc\">Ξ</span>. I have corrected the lettering to avoid confusion.</p>"
+              ]
+            }
+          ],
           "searchText": "Proposition 5. If a straight line be cut into equal and unequal segments, the rectangle contained by the unequal segments of the whole together with the square on the straight line between the points of section is equal to the square on the half. For let a straight line AB be cut into equal segments at C and into unequal segments at D; I say that the rectangle contained by AD, DB together with the square on CD is equal to the square on CB. For let the square CEFB be described on CB, [I. 46] and let BE be joined; through D let DG be drawn parallel to either CE or BF, through H again let KM be drawn parallel to either AB or EF, and again through A let AK be drawn parallel to either CL or BM. [I. 31] Then, since the complement CH is equal to the complement HF, [I. 43] let DM be added to each; therefore the whole CM is equal to the whole DF. But CM is equal to AL, since AC is also equal to CB; [I. 36] therefore AL is also equal to DF. Let CH be added to each; therefore the whole AH is equal to the gnomon NOP. But AH is the rectangle AD, DB, for DH is equal to DB, therefore the gnomon NOP is also equal to the rectangle AD, DB. Let LG, which is equal to the square on CD, be added to each; therefore the gnomon NOP and LG are equal to the rectangle contained by AD, DB and the square on CD. But the gnomon NOP and LG are the whole square CEFB, which is described on CB; therefore the rectangle contained by AD, DB together with the square on CD is equal to the square on CB. Therefore etc. Q. E. D. between the points of section, literally between the sections, the word being the same (tomh/) as that used of a conic section. It will be observed that the gnomon is indicated in the figure by three separate letters and a dotted curve. This is no doubt a clearer way of showing what exactly the gnomon is than the method usual in our text-books. In this particular case the figure of the MSS. has two M's in it, the gnomon being MN*c. I have corrected the lettering to avoid confusion.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D2%3Atype%3DProp%3Anumber%3D5"
         },

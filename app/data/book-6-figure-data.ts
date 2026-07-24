@@ -108,14 +108,29 @@ const scene7: EuclidSceneSpec = {
 const scene8: EuclidSceneSpec = {
   id: "book-6-prop-8", family: true,
   title: "The altitude in a right triangle creates three similar triangles.",
-  description: "Dropping CD from the right angle to hypotenuse AB creates two smaller right triangles. Each shares one acute angle with the whole, so the whole and both pieces carry the same angle pattern at different scales.",
-  steps: ["Draw right triangle ABC", "Drop altitude CD to the hypotenuse", "Compare the three resulting angle patterns"],
+  description: "Dropping AD from the right angle at A to hypotenuse BC creates two smaller right triangles. Each shares one acute angle with the whole, so the whole and both pieces carry the same angle pattern at different scales.",
+  steps: ["Draw right triangle ABC", "Drop altitude AD to the hypotenuse", "Compare the three resulting angle patterns"],
   control: { kind: "steps" },
   build: () => {
-    const c = { x: 280, y: 240 }, a = { x: 150, y: 110 }, b = { x: 410, y: 110 }, d = { x: 280, y: 110 };
-    return [polygon([a, b, c], "area", 0), line(c.x, c.y, d.x, d.y, "result", 1), ...[a, b, c, d].map((candidate, index) => point(candidate.x, candidate.y, "ABCD"[index], index === 0 ? -12 : 10, index < 3 ? (index === 2 ? -10 : 18) : 18, index === 3 ? 1 : 0)), right(c.x, c.y, true, false, 0), right(d.x, d.y, true, true, 1), label(320, 350, "△ABC ∼ △ACD ∼ △CBD", "result", 2)];
+    const a = { x: 279, y: 297 }, b = { x: 135, y: 105 }, c = { x: 535, y: 105 }, d = { x: 279, y: 105 };
+    const angleSize = 16;
+    const alongAB = { x: a.x - angleSize * .6, y: a.y - angleSize * .8 };
+    const angleCorner = { x: a.x + angleSize * .2, y: a.y - angleSize * 1.4 };
+    const alongAC = { x: a.x + angleSize * .8, y: a.y - angleSize * .6 };
+    return [
+      polygon([a, b, c], "area", 0),
+      line(alongAB.x, alongAB.y, angleCorner.x, angleCorner.y, "result", 0),
+      line(angleCorner.x, angleCorner.y, alongAC.x, alongAC.y, "result", 0),
+      point(a.x, a.y, "A", 0, 24, 0),
+      point(b.x, b.y, "B", -15, -10, 0),
+      point(c.x, c.y, "C", 15, -10, 0),
+      line(a.x, a.y, d.x, d.y, "result", 1),
+      point(d.x, d.y, "D", 0, -10, 1),
+      right(d.x, d.y, false, false, 1),
+      label(320, 350, "△ABC ∼ △ABD ∼ △ACD", "result", 2),
+    ];
   },
-  status: (_value, stage) => ["The whole right triangle", "Altitude CD creates two smaller right triangles", "All three triangles are similar"][stage],
+  status: (_value, stage) => ["The whole right triangle", "Altitude AD creates two smaller right triangles", "All three triangles are similar"][stage],
   invariant: () => true,
 };
 
@@ -314,9 +329,12 @@ const scene30: EuclidSceneSpec = {
 const scene31: EuclidSceneSpec = {
   id: "book-6-prop-31", family: true, title: "Similar figures on the hypotenuse equal the sum of those on the legs.",
   description: "Squares make the theorem familiar, but the labels deliberately say similar figures: any similarly described figures scale by the squared side ratio. The hypotenuse figure therefore equals the two leg figures together.",
-  steps: ["Draw a right triangle", "Describe similar figures on all three sides", "Add the two leg figures"], control: { kind: "steps" },
+  steps: ["Draw right triangle ABC", "Drop AD and describe similar figures on the legs", "Add the two leg figures"], control: { kind: "steps" },
   build: () => {
     const a = { x: 270, y: 222 }, b = { x: 270, y: 132 }, c = { x: 390, y: 222 };
+    const bc = { x: c.x - b.x, y: c.y - b.y };
+    const projection = ((a.x - b.x) * bc.x + (a.y - b.y) * bc.y) / (bc.x ** 2 + bc.y ** 2);
+    const d = { x: b.x + projection * bc.x, y: b.y + projection * bc.y };
     const legOneSquare = [b, a, { x: 180, y: 222 }, { x: 180, y: 132 }];
     const legTwoSquare = [a, c, { x: 390, y: 342 }, { x: 270, y: 342 }];
     const hypotenuseSquare = [b, c, { x: 480, y: 102 }, { x: 360, y: 12 }];
@@ -325,7 +343,12 @@ const scene31: EuclidSceneSpec = {
       right(a.x, a.y, false, true, 0),
       polygon(legOneSquare, "area", 1),
       polygon(legTwoSquare, "area-secondary", 1),
+      line(a.x, a.y, d.x, d.y, "result", 1),
       polygon(hypotenuseSquare, "area", 2),
+      point(a.x, a.y, "A", -16, 22, 0),
+      point(b.x, b.y, "B", -16, -9, 0),
+      point(c.x, c.y, "C", 15, 6, 0),
+      point(d.x, d.y, "D", 12, -8, 1),
       label(375, 110, "hypotenuse figure", "result", 2),
       label(320, 370, "figure(hypotenuse) = figure(leg 1) + figure(leg 2)", "result", 2),
     ];

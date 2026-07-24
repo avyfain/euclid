@@ -24,6 +24,107 @@ SOURCE_URL = (
 TEXT_URL = "https://www.perseus.tufts.edu/hopper/text?doc=Euc.+{book}"
 ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII"]
 
+# The Perseus TEI preserves Heath's placeholders for VI.Def.2 and VI.Def.5,
+# but omits the printed commentary to which those placeholders refer.
+HEATH_SOURCE_CORRECTIONS = {
+    (6, "def-2"): {
+        "notes": [
+            {
+                "id": "def-2-note-1",
+                "label": "Definition 2",
+                "blocks": [
+                    (
+                        "<p>The Greek text gives here a definition of reciprocally related "
+                        "figures. <q>[Two] figures are reciprocally related when there are in "
+                        "each of the two figures antecedent and consequent ratios.</q> No "
+                        "intelligible meaning can be attached to <q>antecedent and consequent "
+                        "ratios</q> here; the sense would require rather <q>an antecedent and "
+                        "a consequent of (two equal) ratios in each figure.</q> Hence Candalla "
+                        "and Peyrard read <q>terms of ratios</q> instead of <q>ratios.</q> "
+                        "Camerer reads <q>of ratios</q> without <q>terms.</q></p>"
+                    ),
+                    (
+                        "<p>But the objection to the definition lies deeper. It is never used; "
+                        "when we come, in VI. 14, 15, XI. 34 etc. to parallelograms, triangles "
+                        "etc. having the property indicated, they are not called "
+                        "<q>reciprocal</q> parallelograms etc., but parallelograms etc. "
+                        "<q>the sides of which are reciprocally proportional.</q> Hence Simson "
+                        "appears to be right in condemning the definition; it may have been "
+                        "interpolated from Heron, who has it.</p>"
+                    ),
+                    (
+                        "<p>Simson proposes in his note to substitute the following definition. "
+                        "<q>Two magnitudes are said to be reciprocally proportional to two others "
+                        "when one of the first is to one of the other magnitudes as the remaining "
+                        "one of the last two is to the remaining one of the first.</q> This "
+                        "definition requires that the magnitudes shall be all of the same kind.</p>"
+                    ),
+                ],
+            }
+        ],
+    },
+    (6, "def-5"): {
+        "headline": (
+            "[A ratio is said to be compounded of ratios when the sizes of the ratios "
+            "multiplied together make some ratio, or size.]"
+        ),
+        "parts": [
+            {
+                "kind": "text",
+                "label": "",
+                "blocks": [
+                    (
+                        "<p>[A ratio is said to be <span class=\"source-bold\">compounded of "
+                        "ratios</span> when the sizes of the ratios multiplied together make "
+                        "some ratio, or size.]</p>"
+                    )
+                ],
+            }
+        ],
+        "notes": [
+            {
+                "id": "def-5-note-1",
+                "label": "Definition 5",
+                "blocks": [
+                    (
+                        "<p>As already remarked, it is beyond doubt that this definition of ratio "
+                        "is interpolated. It has little manuscript authority. The best manuscript "
+                        "has it in the margin only; it is omitted altogether in Campanus' "
+                        "translation from the Arabic; and the other manuscripts which contain it "
+                        "do not agree in the position which they give to it. There is no reference "
+                        "to the definition in the place where compound ratio is mentioned for the "
+                        "first time (VI. 23), nor anywhere else in Euclid; neither is it ever "
+                        "referred to by the other great geometers, Archimedes, Apollonius and the "
+                        "rest.</p>"
+                    ),
+                    (
+                        "<p>Moreover the content of the definition is in itself suspicious. It "
+                        "speaks of the <q>sizes of ratios being multiplied together (literally, "
+                        "into themselves),</q> an operation unknown to geometry. The fact is that "
+                        "the definition is ungeometrical and useless, as was already seen by "
+                        "Savile, in whose view it was one of the two blemishes in the body of "
+                        "geometry (the other being of course Postulate 5).</p>"
+                    ),
+                    (
+                        "<p>It is right to add that Hultsch thought the definition genuine. His "
+                        "grounds are that it stood in the old edition represented by the best "
+                        "manuscript (though that manuscript has it in the margin only) and that "
+                        "some explanation on the subject must have been given by way of preparation "
+                        "for VI. 23. If the definition is after all genuine, I should be inclined "
+                        "to regard it as a mere survival from earlier textbooks; for its form seems "
+                        "to suit the old theory of proportion, applicable to commensurable "
+                        "magnitudes only, better than the generalised theory of Eudoxus.</p>"
+                    ),
+                ],
+            }
+        ],
+        "searchText": (
+            "5 A ratio is said to be compounded of ratios when the sizes of the ratios "
+            "multiplied together make some ratio, or size."
+        ),
+    },
+}
+
 BETA_CODE_LETTERS = {
     "a": "α",
     "b": "β",
@@ -170,6 +271,11 @@ def render_node(
     line_numbers: bool = False,
 ) -> str:
     tag = element.tag
+    if tag == "note":
+        # Notes are extracted into the commentary panel separately. In the
+        # Perseus TEI many later-book notes are nested inside the final proof
+        # paragraph instead of being siblings of it.
+        return ""
     if tag == "foreign" and element.get("lang", "").lower() == "greek":
         text_transform = beta_code_to_unicode
     content = render_children(element, book_number, text_transform, line_numbers)
@@ -315,6 +421,7 @@ def extract_item(
                 )
                 for p in part.findall("p")
             ]
+            blocks = [block for block in blocks if block != "<p></p>"]
             if blocks:
                 parts.append(
                     {
@@ -333,6 +440,7 @@ def extract_item(
             )
             for p in paragraph_nodes
         ]
+        blocks = [block for block in blocks if block != "<p></p>"]
         if section_id.startswith("propositions") and blocks:
             parts.append({"kind": "enunc", "label": "Statement", "blocks": blocks[:1]})
             proof_blocks = blocks[1:]
@@ -382,9 +490,14 @@ def extract_item(
             ].replace("<p>", f"<p>{marker}", 1)
 
     notes = []
-    for index, note in enumerate(item.findall("note"), start=1):
-        blocks = [render_node(p, book) for p in note.findall("p")]
+    for note in item.findall(".//note"):
+        paragraphs = note.findall("p")
+        blocks = [render_node(p, book) for p in paragraphs]
+        if not paragraphs:
+            inline_content = render_children(note, book).strip()
+            blocks = [f"<p>{inline_content}</p>"] if inline_content else []
         if blocks:
+            index = len(notes) + 1
             notes.append(
                 {
                     "id": f"{item_id(section_id, number)}-note-{index}",
@@ -403,7 +516,7 @@ def extract_item(
 
     headline = plain_text(statement_node) if statement_node is not None else source_heading
     search_text = plain_text(item)
-    return {
+    result = {
         "id": item_id(section_id, number),
         "number": int(number) if number.isdigit() else number,
         "sourceHeading": source_heading,
@@ -418,6 +531,8 @@ def extract_item(
             f"type%3D{section_code.replace(' ', '+')}%3Anumber%3D{number}"
         ),
     }
+    result.update(HEATH_SOURCE_CORRECTIONS.get((book, result["id"]), {}))
+    return result
 
 
 def extract_book(root: ET.Element, book_number: int) -> dict:

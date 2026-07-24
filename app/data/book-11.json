@@ -581,11 +581,26 @@
               "kind": "qed",
               "label": "Conclusion",
               "blocks": [
-                "<p>Therefore a part of a straight line cannot be in the plane of reference, and a part in a plane more elevated. Q. E. D.\n1. the plane of reference,\n        <span class=\"foreign\" lang=\"grc\">τὸ ὑποκείμενον ἐπίπεδον</span>, the plane laid down or assumed.\n       2. more elevated,\n        <span class=\"foreign\" lang=\"grc\">μετεωροτέρῳ</span>.</p>"
+                "<p>Therefore a part of a straight line cannot be in the plane of reference, and a part in a plane more elevated. Q. E. D.</p>"
               ]
             }
           ],
-          "notes": [],
+          "notes": [
+            {
+              "id": "prop-1-note-1",
+              "label": "1",
+              "blocks": [
+                "<p>1. the plane of reference,\n        <span class=\"foreign\" lang=\"grc\">τὸ ὑποκείμενον ἐπίπεδον</span>, the plane laid down or assumed.</p>"
+              ]
+            },
+            {
+              "id": "prop-1-note-2",
+              "label": "2",
+              "blocks": [
+                "<p>2. more elevated,\n        <span class=\"foreign\" lang=\"grc\">μετεωροτέρῳ</span>.</p>"
+              ]
+            }
+          ],
           "searchText": "PROPOSITION 1. A part of a straight line cannot be in the plane of reference and a part in a plane more elevated. For, if possible, let a part AB of the straight line ABC be in the plane of reference, and a part BC in a plane more elevated. There will then be in the plane of reference some straight line continuous with AB in a straight line. Let it be BD; therefore AB is a common segment of the two straight lines ABC, ABD: which is impossible, inasmuch as, if we describe a circle with centre B and distance AB, the diameters will cut off unequal circumferences of the circle. Therefore a part of a straight line cannot be in the plane of reference, and a part in a plane more elevated. Q. E. D. 1. the plane of reference, to\\ u(pokei/menon e)pi/pedon, the plane laid down or assumed. 2. more elevated, metewrote/rw|.",
           "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0086%3Abook%3D11%3Atype%3DProp%3Anumber%3D1"
         },

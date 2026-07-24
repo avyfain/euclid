@@ -315,7 +315,21 @@ const scene31: EuclidSceneSpec = {
   id: "book-6-prop-31", family: true, title: "Similar figures on the hypotenuse equal the sum of those on the legs.",
   description: "Squares make the theorem familiar, but the labels deliberately say similar figures: any similarly described figures scale by the squared side ratio. The hypotenuse figure therefore equals the two leg figures together.",
   steps: ["Draw a right triangle", "Describe similar figures on all three sides", "Add the two leg figures"], control: { kind: "steps" },
-  build: () => { const hypotenuseFigure = 120 * Math.sqrt(2); return [polygon([{ x: 285, y: 270 }, { x: 285, y: 110 }, { x: 445, y: 270 }], "construction", 0), rect(100, 150, 120, 120, "area", 1), rect(285, 290, 120, 120, "area-secondary", 1), rect(450, 88, hypotenuseFigure, hypotenuseFigure, "area", 2), label(535, 180, "hypotenuse figure", "result", 2), label(320, 355, "figure(hypotenuse) = figure(leg 1) + figure(leg 2)", "result", 2)]; },
+  build: () => {
+    const a = { x: 270, y: 222 }, b = { x: 270, y: 132 }, c = { x: 390, y: 222 };
+    const legOneSquare = [b, a, { x: 180, y: 222 }, { x: 180, y: 132 }];
+    const legTwoSquare = [a, c, { x: 390, y: 342 }, { x: 270, y: 342 }];
+    const hypotenuseSquare = [b, c, { x: 480, y: 102 }, { x: 360, y: 12 }];
+    return [
+      polygon([a, b, c], "construction", 0),
+      right(a.x, a.y, false, true, 0),
+      polygon(legOneSquare, "area", 1),
+      polygon(legTwoSquare, "area-secondary", 1),
+      polygon(hypotenuseSquare, "area", 2),
+      label(375, 110, "hypotenuse figure", "result", 2),
+      label(320, 370, "figure(hypotenuse) = figure(leg 1) + figure(leg 2)", "result", 2),
+    ];
+  },
   status: (_value, stage) => ["Right triangle", "Similar figures on its legs", "The hypotenuse figure equals their sum"][stage], invariant: () => true,
 };
 

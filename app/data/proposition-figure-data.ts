@@ -139,6 +139,9 @@ const right = (
   size,
 });
 
+const bearing = (from: FigurePoint, to: FigurePoint) =>
+  (Math.atan2(to.y - from.y, to.x - from.x) * 180) / Math.PI;
+
 const steps = (
   given: string,
   construction: string,
@@ -150,6 +153,14 @@ const steps = (
   { status: construction, action: resultAction },
   { status: result },
 ];
+
+const prop32Points = {
+  a: p(235, 75, "A", -20, -8),
+  b: p(85, 290, "B", -22, 10),
+  c: p(390, 290, "C", -5, 24),
+  d: p(575, 290, "D", 12, 10),
+  e: p(540, 75, "E", 10, -8, 1),
+};
 
 export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
   "prop-5": {
@@ -517,13 +528,14 @@ export const PROPOSITION_FIGURES: Record<string, PropositionFigureConfig> = {
   },
   "prop-32": {
     description: "A parallel through C splits the exterior angle into copies of the two remote interior angles.",
-    points: {
-      a: p(235, 75, "A", -20, -8), b: p(85, 290, "B", -22, 10), c: p(390, 290, "C", -5, 24), d: p(575, 290, "D", 12, 10), e: p(540, 75, "E", 10, -8, 1),
-    },
+    points: prop32Points,
     elements: [
       s("a", "b", "given"), s("b", "c", "given"), s("c", "a", "given"), s("c", "d", "construction"), s("c", "e", "result", 1),
-      parallel("a", "b", 1, 1), parallel("c", "e", 1, 1), angle("c", 34, 270, 315), angle("c", 47, 315, 360),
-      angle("a", 30, 55, 90, 2, "muted"), angle("b", 30, -55, 0, 2, "muted"),
+      parallel("a", "b", 1, 1), parallel("c", "e", 1, 1),
+      angle("c", 34, bearing(prop32Points.c, prop32Points.a), bearing(prop32Points.c, prop32Points.e)),
+      angle("c", 47, bearing(prop32Points.c, prop32Points.e), bearing(prop32Points.c, prop32Points.d)),
+      angle("a", 30, bearing(prop32Points.a, prop32Points.c), bearing(prop32Points.a, prop32Points.b), 2, "muted"),
+      angle("b", 30, bearing(prop32Points.b, prop32Points.a), bearing(prop32Points.b, prop32Points.c), 2, "muted"),
     ],
     steps: steps("Extend BC to D", "Draw CE through C parallel to AB", "The exterior angle equals the two remote interior angles"),
   },

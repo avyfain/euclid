@@ -27,7 +27,9 @@ versions without promoting them to production. Cloudflare comments both a
 commit-specific URL and a stable branch preview URL on each pull request.
 
 The Worker is named `euclid`; `wrangler.jsonc` contains the public deployment
-configuration. Run `npm run deploy` for an authorized manual deployment.
+configuration. Run `npm run types:worker` after changing it; CI rejects stale
+generated Worker declarations. Run `npm run deploy` for an authorized manual
+deployment.
 Preview URLs are explicitly enabled in that file; non-production branch builds
 and the `npx wrangler versions upload` preview command are configured in the
 Worker's Cloudflare dashboard under **Settings > Build**.

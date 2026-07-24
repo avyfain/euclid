@@ -26,3 +26,26 @@ test("Book VI's key proportional constructions satisfy their claimed equalities"
   assert.equal(BOOK_SIX_SCENES["prop-30"].invariant(0), true);
   assert.equal(BOOK_SIX_SCENES["prop-33"].invariant(0), true);
 });
+
+test("Book VI.31 keeps its three attached squares inside the scene", () => {
+  const figures = BOOK_SIX_SCENES["prop-31"].build(0).filter(({ kind }) => kind === "polygon");
+  assert.equal(figures.length, 4);
+
+  for (const figure of figures) {
+    for (const [x, y] of figure.points) {
+      assert.ok(x >= 0 && x <= 640);
+      assert.ok(y >= 0 && y <= 380);
+    }
+  }
+
+  const [triangle, legOne, legTwo, hypotenuse] = figures;
+  assert.deepEqual(legOne.points.slice(0, 2), [triangle.points[1], triangle.points[0]]);
+  assert.deepEqual(legTwo.points.slice(0, 2), [triangle.points[0], triangle.points[2]]);
+  assert.deepEqual(hypotenuse.points.slice(0, 2), [triangle.points[1], triangle.points[2]]);
+
+  const squaredLength = ([x1, y1], [x2, y2]) => (x2 - x1) ** 2 + (y2 - y1) ** 2;
+  assert.equal(
+    squaredLength(...hypotenuse.points),
+    squaredLength(...legOne.points) + squaredLength(...legTwo.points),
+  );
+});
